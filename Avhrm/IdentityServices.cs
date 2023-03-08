@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Avhrm.Identity.Services;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace Avhrm.Identity
+namespace Avhrm.Identity;
+
+public static class IdentityServices
 {
-    internal class IdentityServices
+    public static void AddIdentityServices(this IServiceCollection services)
     {
+        services.AddDbContext<AvhrmIdentityContext>(options =>
+        {
+            options.UseSqlServer();
+        });
     }
 }

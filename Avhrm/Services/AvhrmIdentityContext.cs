@@ -1,5 +1,18 @@
-﻿namespace Avhrm.Identity.Services;
+﻿using Avhrm.Identity.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
-public class AvhrmIdentityContext
+namespace Avhrm.Identity.Services;
+
+public class AvhrmIdentityContext : IdentityDbContext<ApplicationUser>
 {
+    public AvhrmIdentityContext(DbContextOptions<AvhrmIdentityContext> options) : base(options)
+    {
+        Database.Migrate();
+    }
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+    }
 }
