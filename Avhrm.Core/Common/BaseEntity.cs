@@ -12,4 +12,8 @@ public class BaseEntity
 
     [Required]
     public Guid CreatorUser { get; set; }
+
+    public DateTime? LastUpdateDateTime { get; set; }
+
+    public Guid? LastUpdateUser { get; set; }
 }

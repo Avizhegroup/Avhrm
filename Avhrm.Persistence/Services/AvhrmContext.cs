@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Avhrm.Core.Entities;
+using Microsoft.EntityFrameworkCore;
 
-namespace Avhrm.Persistence.Services
+namespace Avhrm.Persistence.Services;
+
+public class AvhrmDbContext : DbContext
 {
-    internal class AvhrmContext
+    public AvhrmDbContext(DbContextOptions<AvhrmDbContext> options) : base(options)
     {
+        Database.Migrate();
     }
+
+    public DbSet<VacationRequest> VacationRequest { get; set; }
 }
