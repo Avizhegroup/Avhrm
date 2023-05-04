@@ -12,6 +12,8 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
             });
 
+        builder.Services.ConfigureServices();
+
         return builder.Build();
     }
 }

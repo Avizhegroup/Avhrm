@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Avhrm.Core.Contracts;
+using Avhrm.Mobile.Extensions;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace Avhrm.Mobile;
@@ -17,10 +19,7 @@ public static class Startup
             options.AddDebug();
 #endif
         });
+
+        services.AddGrpcService<IVacationRequest>();
     }
-
-    //public static void Configure(this WebApplication app)
-    //{
-
-    //}
 }
