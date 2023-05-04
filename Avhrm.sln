@@ -23,7 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{FC4B57
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avhrm.Server", "Avhrm.Server\Avhrm.Server.csproj", "{7976AA05-1F4C-4E2B-A7FB-87DEBD63EF99}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avhrm.Mobile", "Avhrm.Mobile\Avhrm.Mobile.csproj", "{CF8C0CE1-05CE-4609-BA50-788F068B6DA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avhrm.UI.Mobile", "Avhrm.UI.Mobile\Avhrm.UI.Mobile.csproj", "{CF8C0CE1-05CE-4609-BA50-788F068B6DA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
