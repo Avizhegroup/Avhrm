@@ -3,7 +3,6 @@ using Avhrm.Core.Common;
 using Avhrm.Persistence.Services;
 using Microsoft.EntityFrameworkCore;
 using ProtoBuf.Grpc;
-using Avhrm.Core.Extensions;
 
 namespace Avhrm.Persistence.Repositories;
 

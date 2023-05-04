@@ -12,6 +12,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.entityframeworkcore.sqlserver" Version="7.0.5" />
+		<PackageReference Include="protobuf-net.Grpc.AspNetCore" Version="1.1.1" />
 	</ItemGroup>
 
 </Project>

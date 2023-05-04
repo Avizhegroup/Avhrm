@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ProtoBuf.Grpc.Server;
 
 namespace Avhrm.Persistence;
 
@@ -16,6 +17,8 @@ public static class PersistenceServices
         {
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnectionString"));
         });
+
+        services.AddCodeFirstGrpc();
     }
 
     public static void UsePersistenceMiddlewares(this WebApplication app)
