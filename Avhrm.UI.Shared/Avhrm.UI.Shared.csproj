@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<UseMauiEssentials Condition=" '$(BlazorMode)' == 'BlazorHybrid' ">true</UseMauiEssentials>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<SupportedPlatform Include="browser" />
+
+		<EmbeddedResource Include="appsettings.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="7.0.5" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.5" />
+		<PackageReference Condition=" '$(BlazorMode)' == 'BlazorWebAssembly' " Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.5" />
+		<PackageReference Include="Grpc.Net.Client" Version="2.52.0" />
+		<PackageReference Include="Grpc.Net.Client.Web" Version="2.52.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(BlazorMode)' == 'BlazorHybrid' ">
+		<Using Include="Microsoft.Maui" />
+		<Using Include="Microsoft.Maui.Graphics" />
+		<Using Include="Microsoft.Maui.Accessibility" />
+		<Using Include="Microsoft.Maui.ApplicationModel" />
+		<Using Include="Microsoft.Maui.ApplicationModel.Communication" />
+		<Using Include="Microsoft.Maui.ApplicationModel.DataTransfer" />
+		<Using Include="Microsoft.Maui.Authentication" />
+		<Using Include="Microsoft.Maui.Devices" />
+		<Using Include="Microsoft.Maui.Devices.Sensors" />
+		<Using Include="Microsoft.Maui.Media" />
+		<Using Include="Microsoft.Maui.Networking" />
+		<Using Include="Microsoft.Maui.Storage" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="wwwroot\fonts\" />
+		<Folder Include="wwwroot\scripts\" />
+		<Folder Include="wwwroot\styles\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Avhrm.UI.Source\Avhrm.UI.Source.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" SetTargetFramework="TargetFramework=netstandard2.0" />
+		<ProjectReference Include="..\Avhrm.Core\Avhrm.Core.csproj" />
+	</ItemGroup>
+
+</Project>

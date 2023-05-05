@@ -1,14 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Avhrm.UI.Mobile"
-             x:Class="Avhrm.UI.Mobile.MainPage"
-             BackgroundColor="{DynamicResource PageBackgroundColor}">
+<ContentPage
+    x:Class="Avhrm.UI.Mobile.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:b="clr-namespace:Microsoft.AspNetCore.Components.WebView.Maui;assembly=Microsoft.AspNetCore.Components.WebView.Maui"
+    xmlns:client="clr-namespace:Avhrm.UI.Shared;assembly=Avhrm.UI.Shared"
+    BackgroundColor="{DynamicResource PageBackgroundColor}"
+    Loaded="ContentPage_Loaded"
+    NavigationPage.HasNavigationBar="False">
 
-    <BlazorWebView x:Name="blazorWebView" HostPage="wwwroot/index.html">
-        <BlazorWebView.RootComponents>
-            <RootComponent Selector="#app" ComponentType="{x:Type local:Main}" />
-        </BlazorWebView.RootComponents>
-    </BlazorWebView>
+    <b:BlazorWebView
+        x:Name="blazorWebView"
+        BackgroundColor="#0D2960"
+        HostPage="wwwroot/index.html">
+        <b:BlazorWebView.RootComponents>
+            <b:RootComponent ComponentType="{x:Type client:App}" Selector="app" />
+        </b:BlazorWebView.RootComponents>
+    </b:BlazorWebView>
 
 </ContentPage>
