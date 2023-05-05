@@ -1,7 +1,5 @@
-﻿using Avhrm.Core.Contracts;
-using Avhrm.UI.Mobile.Extensions;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
+using Avhrm.UI.Shared;
 
 namespace Avhrm.UI.Mobile;
 
@@ -20,6 +18,6 @@ public static class Startup
 #endif
         });
 
-        services.AddGrpcService<IVacationRequest>();
+        services.AddSharedServices();
     }
 }

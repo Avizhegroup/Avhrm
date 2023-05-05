@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Components;
 using ProtoBuf.Grpc.Client;
 
-namespace Avhrm.UI.Mobile.Extensions;
+namespace Avhrm.UI.Shared.Extensions;
 
 public static class ServicesExtensions
 {
