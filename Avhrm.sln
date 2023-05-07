@@ -30,11 +30,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		Directory.build.props = Directory.build.props
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avhrm.UI.Shared", "Avhrm.UI.Shared\Avhrm.UI.Shared.csproj", "{591156C4-358D-499F-9CE1-2400700A364D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avhrm.UI.Shared", "Avhrm.UI.Shared\Avhrm.UI.Shared.csproj", "{591156C4-358D-499F-9CE1-2400700A364D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avhrm.UI.Source", "Avhrm.UI.Source\Avhrm.UI.Source.csproj", "{0655AF85-9D05-4008-8B71-D5A6F5AF1C7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avhrm.UI.Source", "Avhrm.UI.Source\Avhrm.UI.Source.csproj", "{0655AF85-9D05-4008-8B71-D5A6F5AF1C7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avhrm.UI.Web", "Avhrm.UI.Web\Avhrm.UI.Web.csproj", "{6FA787B2-7D93-4C2C-80E8-DF4D2A205CC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avhrm.UI.Web", "Avhrm.UI.Web\Avhrm.UI.Web.csproj", "{6FA787B2-7D93-4C2C-80E8-DF4D2A205CC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avhrm.Tools", "Avhrm.Tools\Avhrm.Tools.csproj", "{DFD9C6D3-A112-4BB9-9349-F8EA3F40A058}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -80,6 +82,10 @@ Global
 		{6FA787B2-7D93-4C2C-80E8-DF4D2A205CC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FA787B2-7D93-4C2C-80E8-DF4D2A205CC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FA787B2-7D93-4C2C-80E8-DF4D2A205CC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFD9C6D3-A112-4BB9-9349-F8EA3F40A058}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFD9C6D3-A112-4BB9-9349-F8EA3F40A058}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFD9C6D3-A112-4BB9-9349-F8EA3F40A058}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFD9C6D3-A112-4BB9-9349-F8EA3F40A058}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -98,6 +104,7 @@ Global
 		{591156C4-358D-499F-9CE1-2400700A364D} = {FFF5DE75-402B-4245-B562-0C4D173498AE}
 		{0655AF85-9D05-4008-8B71-D5A6F5AF1C7B} = {FFF5DE75-402B-4245-B562-0C4D173498AE}
 		{6FA787B2-7D93-4C2C-80E8-DF4D2A205CC7} = {FFF5DE75-402B-4245-B562-0C4D173498AE}
+		{DFD9C6D3-A112-4BB9-9349-F8EA3F40A058} = {2257A416-27ED-4E90-8FFE-182B6BF17223}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BFAC11BB-ECB6-4E53-B974-1F2417D73229}

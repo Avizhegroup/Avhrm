@@ -38,7 +38,7 @@ namespace {classNamespace}
     private static string GenerateConstructor(INamedTypeSymbol classSymbol, IReadOnlyCollection<ISymbol> eligibleMembers, IReadOnlyCollection<ISymbol> baseEligibleMembers)
     {
         string generateConstructor = $@"
-        [global::System.CodeDom.Compiler.GeneratedCode(""Avhrm.UI.Source"",""{BitSourceGeneratorUtil.GetPackageVersion()}"")]
+        [global::System.CodeDom.Compiler.GeneratedCode(""Avhrm.UI.Source"",""{Utilities.GetPackageVersion()}"")]
         [global::System.Diagnostics.DebuggerNonUserCode]
         [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 {"\t\t"}public {classSymbol.Name}({GenerateConstructorParameters(eligibleMembers, baseEligibleMembers)}){PassParametersToBaseClass(baseEligibleMembers)}

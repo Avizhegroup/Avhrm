@@ -57,7 +57,7 @@ namespace {classNamespace}
     private static string GenerateProperty(ITypeSymbol @type, string name)
     {
         return $@"
-        [global::System.CodeDom.Compiler.GeneratedCode(""Avhrm.UI.Source"",""{GetPackageVersion()}"")]
+        [global::System.CodeDom.Compiler.GeneratedCode(""Avhrm.UI.Source"",""{Utilities.GetPackageVersion()}"")]
         [global::System.Diagnostics.DebuggerNonUserCode]
         [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 {"\t\t"}[Inject]
@@ -65,9 +65,5 @@ namespace {classNamespace}
 {"\t\t"}private {@type} ____{AutoInjectHelper.FormatMemberName(name)} {{ get => {name}; set => {name} = value; }}";
     }
 
-    public static string GetPackageVersion()
-    {
-        Version version = Assembly.GetExecutingAssembly().GetName().Version;
-        return version.ToString();
-    }
+    
 }

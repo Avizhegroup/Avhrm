@@ -2,7 +2,7 @@
     x:Class="Avhrm.UI.Mobile.App"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:app="clr-namespace:Avhrm.UI.Mobile.App">
+    xmlns:app="clr-namespace:Avhrm.UI.Mobile">
     <Application.MainPage>
         <NavigationPage>
             <x:Arguments>

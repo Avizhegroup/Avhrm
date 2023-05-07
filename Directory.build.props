@@ -9,10 +9,10 @@
 	</ItemGroup>
 	
 	<PropertyGroup>
-		<BlazorMode>BlazorWebAssembly</BlazorMode>
-		<!-- You can use either BlazorWebAssembly, BlazorHybrid -->
-		
-		<DefineConstants Condition=" '$(BlazorMode)' == 'BlazorWebAssembly' ">$(DefineConstants);BlazorWebAssembly</DefineConstants>
+		<BlazorMode>BlazorServer</BlazorMode>
+		<!-- You can use either BlazorServer, BlazorHybrid -->
+
+		<DefineConstants Condition=" '$(BlazorMode)' == 'BlazorServer' ">$(DefineConstants);BlazorServer</DefineConstants>
 		<DefineConstants Condition=" '$(BlazorMode)' == 'BlazorHybrid' ">$(DefineConstants);BlazorHybrid</DefineConstants>
 		<DefineConstants Condition="  $(TargetFramework.Contains('-android')) ">$(DefineConstants);Android</DefineConstants>
 		<DefineConstants Condition="  $(TargetFramework.Contains('-ios')) ">$(DefineConstants);iOS</DefineConstants>

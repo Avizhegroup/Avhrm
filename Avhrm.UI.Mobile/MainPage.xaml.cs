@@ -36,4 +36,9 @@ public partial class MainPage : ContentPage
 #endif
         });
     }
+
+    private async void ContentPage_Loaded(object sender, EventArgs e)
+    {
+       
+    }
 }

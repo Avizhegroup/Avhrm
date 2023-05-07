@@ -10,4 +10,8 @@
 		<ProjectReference Include="..\Avhrm.UI.Shared\Avhrm.UI.Shared.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+		<Using Include="Avhrm.UI.Shared"/>
+	</ItemGroup>
+
 </Project>
