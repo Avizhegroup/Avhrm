@@ -1,5 +1,4 @@
-﻿
-namespace Avhrm.Tools;
+﻿namespace Avhrm.Tools;
 
 public class BlazorModeDetector
 {

@@ -19,5 +19,11 @@ public static class Startup
         });
 
         services.AddSharedServices();
+
+#if ANDROID
+        services.AddAndroidServices();
+#elif iOS
+        services.AddiOSServices();
+#endif
     }
 }
