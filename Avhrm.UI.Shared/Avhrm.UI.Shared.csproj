@@ -22,6 +22,7 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
 	</ItemGroup>
 
 	<ItemGroup Condition=" '$(BlazorMode)' == 'BlazorHybrid' ">
@@ -47,6 +48,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\Avhrm.UI.Source\Avhrm.UI.Source.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" SetTargetFramework="TargetFramework=netstandard2.0" />
 		<ProjectReference Include="..\Avhrm.Core\Avhrm.Core.csproj" />
+		<ProjectReference Include="..\Avhrm\Avhrm.Identity.UI.csproj" />
 	</ItemGroup>
 
 </Project>

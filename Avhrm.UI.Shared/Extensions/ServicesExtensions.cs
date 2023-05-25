@@ -1,5 +1,5 @@
 ﻿using Grpc.Net.Client;
-using Microsoft.AspNetCore.Components;
+using Microsoft.Extensions.Configuration;
 using ProtoBuf.Grpc.Client;
 
 namespace Avhrm.UI.Shared.Extensions;
@@ -12,7 +12,7 @@ public static class ServicesExtensions
         {
             var httpClient = GetHttpClient(services);
             
-            var backendUrl = services.GetRequiredService<NavigationManager>().BaseUri;
+            var backendUrl = services.GetRequiredService<IConfiguration>().GetSection("RfidConnectApi")["Ip"];
             
             var channel = GrpcChannel.ForAddress(backendUrl, new GrpcChannelOptions
             {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace Avhrm.Identity.Models;
+namespace Avhrm.Identity.Server.Models;
 
 public class ApplicationUser : IdentityUser
 {

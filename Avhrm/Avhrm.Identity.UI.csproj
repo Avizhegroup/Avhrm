@@ -8,15 +8,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Folder Include="Models\" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.5" />
 		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.5" />
-		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.5" />
+		
 		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.5" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
+		
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Identity.Core" Version="7.0.5" />
 		<PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="7.0.5" />
@@ -25,7 +21,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Avhrm.Core\Avhrm.Core.csproj" />
 	  <ProjectReference Include="..\Avhrm.Tools\Avhrm.Tools.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Contracts\" />
 	</ItemGroup>
 
 </Project>

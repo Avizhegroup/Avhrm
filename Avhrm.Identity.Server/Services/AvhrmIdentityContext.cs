@@ -1,8 +1,8 @@
-﻿using Avhrm.Identity.Models;
+﻿using Avhrm.Identity.Server.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Avhrm.Identity.Services;
+namespace Avhrm.Identity.Server.Services;
 
 public class AvhrmIdentityContext : IdentityDbContext<ApplicationUser>
 {

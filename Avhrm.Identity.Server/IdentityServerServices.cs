@@ -1,12 +1,12 @@
-﻿using Avhrm.Identity.Services;
+﻿using Avhrm.Identity.Server.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Avhrm.Identity;
+namespace Avhrm.Identity.Server;
 
-public static class IdentityServices
+public static class IdentityServerServices
 {
-    public static void AddIdentityServices(this IServiceCollection services)
+    public static void AddIdentityServerServices(this IServiceCollection services)
     {
         services.AddDbContext<AvhrmIdentityContext>(options =>
         {

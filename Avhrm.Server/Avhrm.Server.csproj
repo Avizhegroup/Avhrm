@@ -15,8 +15,8 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\Avhrm.Application\Avhrm.Application.csproj" />
 	  <ProjectReference Include="..\Avhrm.Core\Avhrm.Core.csproj" />
+	  <ProjectReference Include="..\Avhrm.Identity.Server\Avhrm.Identity.Server.csproj" />
 	  <ProjectReference Include="..\Avhrm.Persistence\Avhrm.Persistence.csproj" />
-	  <ProjectReference Include="..\Avhrm\Avhrm.Identity.csproj" />
 	</ItemGroup>
 
 </Project>
