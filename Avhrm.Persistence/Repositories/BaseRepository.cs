@@ -6,7 +6,7 @@ using ProtoBuf.Grpc;
 
 namespace Avhrm.Persistence.Repositories;
 
-public class BaseRepository<T> : IBaseContract<T> where T : BaseEntity
+public class BaseRepository<T> : IBaseContract<T> where T : IBaseEntity
 {
     internal readonly AvhrmDbContext dbContext;
     internal readonly DbSet<T> dbSet;

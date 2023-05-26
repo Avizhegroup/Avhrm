@@ -4,7 +4,7 @@ using System.ServiceModel;
 namespace Avhrm.Core.Common;
 
 [ServiceContract]
-public interface IBaseContract<T> where T : BaseEntity
+public interface IBaseContract<T> where T : IBaseEntity
 {
     [OperationContract]
     Task<List<T>> GetAllForCurrentUser(CallContext context = default, CancellationToken cancellationToken = new());
