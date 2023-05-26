@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using Microsoft.IdentityModel.Tokens;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Avhrm.Identity.Server.Extensions;
@@ -42,5 +43,19 @@ public static class CryptographyTools
         }
 
         return false;
+    }
+
+    public static SigningCredentials GetJwtCredential(string key)
+    {
+        SymmetricSecurityKey symmetricKey = GetSymmetricKey(key);
+
+        return new(symmetricKey, SecurityAlgorithms.HmacSha256Signature);
+    }
+
+    public static SymmetricSecurityKey GetSymmetricKey(string passKey)
+    {
+        var key = Encoding.UTF8.GetBytes(passKey);
+
+        return new(key);
     }
 }
