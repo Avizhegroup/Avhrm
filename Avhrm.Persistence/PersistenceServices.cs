@@ -16,7 +16,7 @@ public static class PersistenceServices
     {
         services.AddDbContext<AvhrmDbContext>(options =>
         {
-            options.UseSqlServer(configuration.GetConnectionString("DefaultConnectionString"));
+            options.UseSqlServer(configuration.GetConnectionString("Server"));
         });
 
         services.AddCodeFirstGrpc();

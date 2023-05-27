@@ -6,5 +6,5 @@ namespace Avhrm.Identity.Contracts;
 public interface IAuthenticationService
 {
     [OperationContract]
-    Task<bool> Authenticate(string username, string password);
+    Task<string> Authenticate(string username, string password);
 }

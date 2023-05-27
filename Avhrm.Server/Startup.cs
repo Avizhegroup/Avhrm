@@ -19,7 +19,7 @@ public static class Startup
 
         services.AddPersistenceServices(configuration);
 
-        services.AddIdentityServerServices();
+        services.AddIdentityServerServices(configuration);
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
