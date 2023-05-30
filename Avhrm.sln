@@ -38,7 +38,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avhrm.UI.Web", "Avhrm.UI.We
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avhrm.Tools", "Avhrm.Tools\Avhrm.Tools.csproj", "{DFD9C6D3-A112-4BB9-9349-F8EA3F40A058}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avhrm.Identity.Server", "Avhrm.Identity.Server\Avhrm.Identity.Server.csproj", "{A31BE17D-4E5E-4D5A-90D6-8AB5C03F358A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avhrm.Identity.Server", "Avhrm.Identity.Server\Avhrm.Identity.Server.csproj", "{A31BE17D-4E5E-4D5A-90D6-8AB5C03F358A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

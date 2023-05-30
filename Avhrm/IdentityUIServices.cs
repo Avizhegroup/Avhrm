@@ -12,7 +12,5 @@ public static class IdentityUIServices
         services.AddScoped<AuthenticationStateProvider, AvhrmAuthenticationStateProvider>();
 
         services.AddScoped(sp => (AvhrmAuthenticationStateProvider)sp.GetRequiredService<AuthenticationStateProvider>());
-
-        services.AddScoped<IAuthenticationService, AuthenticationService>();
     }
 }

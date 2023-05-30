@@ -24,6 +24,10 @@
 		</PackageReference>
 		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
 	</ItemGroup>
+	
+	<ItemGroup>
+		<Using Include="System.ComponentModel.DataAnnotations"/>
+	</ItemGroup>
 
 	<ItemGroup Condition=" '$(BlazorMode)' == 'BlazorHybrid' ">
 		<Using Include="Microsoft.Maui" />
