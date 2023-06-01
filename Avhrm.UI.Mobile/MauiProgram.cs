@@ -1,4 +1,4 @@
-﻿using Avhrm.UI.Mobile.Shared;
+﻿using Avhrm.UI.Shared;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.FileProviders;
 using System.Reflection;

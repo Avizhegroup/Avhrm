@@ -7,7 +7,7 @@ namespace Avhrm.UI.Web;
 public static class Startup
 {
     public static void ConfigureService(this IServiceCollection services
-        , IConfiguration configuration)
+        , ConfigurationManager configuration)
     {
         services.AddRazorPages();
 
