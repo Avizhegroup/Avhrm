@@ -12,6 +12,10 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.entityframeworkcore.sqlserver" Version="7.0.5" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+		</PackageReference>
 		<PackageReference Include="protobuf-net.Grpc.AspNetCore" Version="1.1.1" />
 	</ItemGroup>
 

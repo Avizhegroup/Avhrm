@@ -1,4 +1,5 @@
-﻿using Avhrm.Identity.Server.Services;
+﻿using Avhrm.Identity.Server.Extensions;
+using Avhrm.Identity.Server.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,5 +15,7 @@ public static class IdentityServerServices
         {
             options.UseSqlServer(configuration.GetConnectionString("Identity"));
         });
+
+        services.AddAvhrmAuthorize(configuration);
     }
 }

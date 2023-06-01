@@ -6,7 +6,8 @@ namespace Avhrm.UI.Web;
 
 public static class Startup
 {
-    public static void ConfigureService(this IServiceCollection services)
+    public static void ConfigureService(this IServiceCollection services
+        , IConfiguration configuration)
     {
         services.AddRazorPages();
 
@@ -23,7 +24,7 @@ public static class Startup
             .Configure<BrotliCompressionProviderOptions>(opt => opt.Level = CompressionLevel.Fastest)
             .Configure<GzipCompressionProviderOptions>(opt => opt.Level = CompressionLevel.Fastest);
 
-        services.AddSharedServices();
+        services.AddSharedServices(configuration);
     }
 
     public static void Configure(this WebApplication app)

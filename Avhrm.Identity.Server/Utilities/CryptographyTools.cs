@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Avhrm.Identity.Server.Extensions;
+namespace Avhrm.Identity.Server.Utilities;
 
 public static class CryptographyTools
 {
@@ -25,16 +25,16 @@ public static class CryptographyTools
     public static bool ValidatePasswordInSHA256(string passHash, string password)
     {
         var passArray = Encoding.UTF8.GetBytes(password);
-      
+
         var hash256Array = SHA256.HashData(passArray);
-        
+
         StringBuilder sb = new();
-        
+
         for (int i = 0; i < hash256Array.Length; i++)
         {
             sb.Append(hash256Array[i].ToString("x2"));
         }
-        
+
         var hash256 = sb.ToString();
 
         if (hash256.Equals(passHash))

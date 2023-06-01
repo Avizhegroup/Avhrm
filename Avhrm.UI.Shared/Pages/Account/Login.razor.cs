@@ -1,5 +1,4 @@
 ﻿using Avhrm.Identity.Contracts;
-using Avhrm.Identity.Implementation;
 using Avhrm.UI.Shared.ViewModels;
 
 namespace Avhrm.UI.Shared.Pages.Account;
@@ -9,7 +8,6 @@ public partial class Login
     public LoginVm Request { get; set; } = new();
 
     [Inject] public IAuthenticationService AuthenticationService { get; set; }
-    [Inject] public AvhrmAuthenticationStateProvider AuthState { get; set; }
     [Inject] public NavigationManager NavigationManager { get; set; }
 
     public async Task OnValidSubmit(EditContext context)
@@ -20,8 +18,6 @@ public partial class Login
         {
             return;
         }
-
-        await AuthState.SetUserAuthenticated(token);
 
         NavigationManager.NavigateTo("/", true);
     }

@@ -1,5 +1,4 @@
 ﻿using Avhrm.Identity.Contracts;
-using Avhrm.Identity.Server.Extensions;
 using Avhrm.Identity.Server.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using Avhrm.Identity.Server.Models;
 using Microsoft.Extensions.Configuration;
+using Avhrm.Identity.Server.Utilities;
 
 namespace Avhrm.Identity.Server.Implementation;
 
