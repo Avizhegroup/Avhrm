@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Avhrm.Identity.Server.Migrations
 {
     [DbContext(typeof(AvhrmIdentityContext))]
-    [Migration("20230601064216_Init")]
+    [Migration("20230601142635_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -58,11 +58,7 @@ namespace Avhrm.Identity.Server.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<Guid?>("ParentUserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ParentUserId1")
-                        .IsRequired()
+                    b.Property<string>("ParentId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("PasswordHash")
@@ -99,7 +95,7 @@ namespace Avhrm.Identity.Server.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.HasIndex("ParentUserId1");
+                    b.HasIndex("ParentId");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -239,13 +235,11 @@ namespace Avhrm.Identity.Server.Migrations
 
             modelBuilder.Entity("Avhrm.Identity.Server.Models.ApplicationUser", b =>
                 {
-                    b.HasOne("Avhrm.Identity.Server.Models.ApplicationUser", "ParentUser")
-                        .WithMany("ChildUsers")
-                        .HasForeignKey("ParentUserId1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("Avhrm.Identity.Server.Models.ApplicationUser", "Parent")
+                        .WithMany("Children")
+                        .HasForeignKey("ParentId");
 
-                    b.Navigation("ParentUser");
+                    b.Navigation("Parent");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -301,7 +295,7 @@ namespace Avhrm.Identity.Server.Migrations
 
             modelBuilder.Entity("Avhrm.Identity.Server.Models.ApplicationUser", b =>
                 {
-                    b.Navigation("ChildUsers");
+                    b.Navigation("Children");
                 });
 #pragma warning restore 612, 618
         }

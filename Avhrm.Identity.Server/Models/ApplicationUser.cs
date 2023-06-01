@@ -9,8 +9,6 @@ public class ApplicationUser : IdentityUser
     [StringLength(128)]
     public string PersianName { get; set; }
 
-    public Guid? ParentUserId { get; set; }
-	public ApplicationUser ParentUser { get; set; }
-
-	public ICollection<ApplicationUser> ChildUsers { get; set; }
+    public ApplicationUser? Parent { get; set; }
+	public ICollection<ApplicationUser> Children { get; set; }
 }

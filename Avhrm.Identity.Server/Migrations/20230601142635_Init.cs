@@ -31,8 +31,7 @@ namespace Avhrm.Identity.Server.Migrations
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     PersianName = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
-                    ParentUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    ParentUserId1 = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ParentId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -52,11 +51,10 @@ namespace Avhrm.Identity.Server.Migrations
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AspNetUsers_AspNetUsers_ParentUserId1",
-                        column: x => x.ParentUserId1,
+                        name: "FK_AspNetUsers_AspNetUsers_ParentId",
+                        column: x => x.ParentId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -198,9 +196,9 @@ namespace Avhrm.Identity.Server.Migrations
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetUsers_ParentUserId1",
+                name: "IX_AspNetUsers_ParentId",
                 table: "AspNetUsers",
-                column: "ParentUserId1");
+                column: "ParentId");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
