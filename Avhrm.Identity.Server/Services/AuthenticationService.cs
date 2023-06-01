@@ -8,6 +8,8 @@ using System.Security.Claims;
 using Avhrm.Identity.Server.Models;
 using Microsoft.Extensions.Configuration;
 using Avhrm.Identity.Server.Utilities;
+using CallContext = ProtoBuf.Grpc.CallContext;
+using Avhrm.Core.Features.Account.Query.GerUserLogin;
 
 namespace Avhrm.Identity.Server.Implementation;
 
@@ -25,12 +27,12 @@ public class AuthenticationService : IAuthenticationService
     }
 
     [AllowAnonymous]
-    public async Task<string> Authenticate(string username, string password)
+    public async Task<string> Authenticate(GetUserLoginQuery request, CallContext callContext = default)
     {
-        string hashedPassword = CryptographyTools.GetHashedStringSha256StringBuilder(password);
+        string hashedPassword = CryptographyTools.GetHashedStringSha256StringBuilder(request.Password);
 
         var user = await context.Users
-            .FirstOrDefaultAsync(p => p.UserName == username 
+            .FirstOrDefaultAsync(p => p.UserName == request.Username
                                 && p.PasswordHash == hashedPassword);
 
         if (user is null)

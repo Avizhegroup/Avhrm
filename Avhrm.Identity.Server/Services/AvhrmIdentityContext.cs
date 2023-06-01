@@ -1,6 +1,7 @@
 ﻿using Avhrm.Identity.Server.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Avhrm.Identity.Server.Seeds;
 
 namespace Avhrm.Identity.Server.Services;
 
@@ -17,6 +18,8 @@ public class AvhrmIdentityContext : IdentityDbContext<ApplicationUser>
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+        builder.SeedApplicationUserData();
+
         base.OnModelCreating(builder);
     }
 }

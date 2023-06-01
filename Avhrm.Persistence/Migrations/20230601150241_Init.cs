@@ -15,17 +15,18 @@ namespace Avhrm.Persistence.Migrations
                 name: "VacationRequest",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     FromDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ToDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     IsVerified = table.Column<bool>(type: "bit", nullable: false),
-                    Verifier = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    Verifier = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     VerifyDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreateDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatorUser = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CreatorUser = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastUpdateDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    LastUpdateUser = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    LastUpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

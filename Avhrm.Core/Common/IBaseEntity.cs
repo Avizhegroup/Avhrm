@@ -4,9 +4,9 @@ namespace Avhrm.Core;
 
 public interface IBaseEntity
 {
-    Guid Id { get; set; }
+    int Id { get; set; }
     DateTime CreateDateTime { get; set; }
-    Guid CreatorUser { get; set; }
+    string CreatorUser { get; set; }
     DateTime? LastUpdateDateTime { get; set; }
-    Guid? LastUpdateUser { get; set; }
+    string? LastUpdateUser { get; set; }
 }

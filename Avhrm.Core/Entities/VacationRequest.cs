@@ -1,5 +1,6 @@
 ﻿using ProtoBuf;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Avhrm.Core.Entities;
 
@@ -7,8 +8,9 @@ namespace Avhrm.Core.Entities;
 public class VacationRequest : IBaseEntity
 {
     [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     [ProtoMember(1)]
-    public Guid Id { get; set; }
+    public int Id { get; set; }
 
     [Required]
     [ProtoMember(2)]
@@ -27,7 +29,7 @@ public class VacationRequest : IBaseEntity
     public bool IsVerified { get; set; }
 
     [ProtoMember(6)]
-    public Guid? Verifier { get; set; }
+    public string? Verifier { get; set; }
 
     [ProtoMember(7)]
     public DateTime? VerifyDateTime { get; set; }
@@ -37,11 +39,11 @@ public class VacationRequest : IBaseEntity
 
     [Required]
     [ProtoMember(9)]
-    public Guid CreatorUser { get; set; }
+    public string CreatorUser { get; set; }
 
     [ProtoMember(10)]
     public DateTime? LastUpdateDateTime { get; set; }
 
     [ProtoMember(11)]
-    public Guid? LastUpdateUser { get; set; }
+    public string? LastUpdateUser { get; set; }
 }

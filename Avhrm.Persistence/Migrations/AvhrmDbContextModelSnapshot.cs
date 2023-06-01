@@ -24,15 +24,18 @@ namespace Avhrm.Persistence.Migrations
 
             modelBuilder.Entity("Avhrm.Core.Entities.VacationRequest", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("CreateDateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("CreatorUser")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("CreatorUser")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .HasMaxLength(256)
@@ -47,14 +50,14 @@ namespace Avhrm.Persistence.Migrations
                     b.Property<DateTime?>("LastUpdateDateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("LastUpdateUser")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("LastUpdateUser")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ToDateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("Verifier")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Verifier")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("VerifyDateTime")
                         .HasColumnType("datetime2");

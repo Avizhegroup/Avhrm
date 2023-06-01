@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Avhrm.Identity.Server.Migrations
 {
     [DbContext(typeof(AvhrmIdentityContext))]
-    [Migration("20230601142635_Init")]
+    [Migration("20230601150326_Init")]
     partial class Init
     {
         /// <inheritdoc />
