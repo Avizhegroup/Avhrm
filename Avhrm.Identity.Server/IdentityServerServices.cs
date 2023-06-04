@@ -13,8 +13,10 @@ public static class IdentityServerServices
     public static void AddIdentityServerServices(this IServiceCollection services
         , IConfiguration configuration)
     {
-        services.AddDbContext<AvhrmIdentityContext>(options => 
-         options.UseSqlServer(configuration.GetConnectionString("Identity")));
+        services.AddDbContext<AvhrmIdentityContext>(options =>
+         { 
+             options.UseSqlServer(configuration.GetConnectionString("Identity")); 
+         });
 
         services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<AvhrmIdentityContext>()

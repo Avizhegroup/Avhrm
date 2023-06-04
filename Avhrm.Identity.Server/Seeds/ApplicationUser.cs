@@ -16,13 +16,18 @@ public static class SeedApplicationUser
                     .HasData(new ApplicationUser()
                     {
                         Id = adminId,
-                        UserName = "Admin",
+                        UserName = "admin",
                         NormalizedUserName = "admin",
                         PersianName = "مدیر سیستم",
-                        SecurityStamp = Guid.NewGuid().ToString(),
                         PasswordHash = CryptographyTools.GetHashedStringSha256StringBuilder("hrmadmin"),
+                        AccessFailedCount = 0,
+                        LockoutEnabled = false,
+                        TwoFactorEnabled = false,
+                        EmailConfirmed = false,
+                        PhoneNumberConfirmed = false,
+                        SecurityStamp = Guid.NewGuid().ToString()
                     });
-
+        
         modelBuilder.Entity<IdentityRole>()
                     .HasData(new IdentityRole()
                     {
