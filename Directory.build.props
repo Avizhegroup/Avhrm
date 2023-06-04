@@ -6,6 +6,8 @@
 		<Using Include="System.Collections" />
 		<Using Include="System.Threading.Tasks" />
 		<Using Include="System.Collections.Generic" />
+		<Using Include="Avhrm.Tools" />
+		<Using Include="Avhrm.Tools.Resources" />
 	</ItemGroup>
 	
 	<PropertyGroup>
@@ -19,4 +21,8 @@
 		<DefineConstants Condition="  $(TargetFramework.Contains('-windows')) ">$(DefineConstants);Windows</DefineConstants>
 		<DefineConstants Condition="  $(TargetFramework.Contains('-mac')) ">$(DefineConstants);Mac</DefineConstants>
 	</PropertyGroup>
+
+	<ItemGroup Condition="!'$(MSBuildProjectName.Contains(`Avhrm.Tools`))'">
+		<ProjectReference Include="..\Avhrm.Tools\Avhrm.Tools.csproj" />
+	</ItemGroup>	
 </Project>

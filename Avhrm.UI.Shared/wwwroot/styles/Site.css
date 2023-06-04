@@ -27,6 +27,11 @@
   direction: ltr !important;
 }
 
+.message-top {
+  top: 0px;
+  height: 30px;
+}
+
 .pages-account-login {
   position: absolute;
   top: 50%;

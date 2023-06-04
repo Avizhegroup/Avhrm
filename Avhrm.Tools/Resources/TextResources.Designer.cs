@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Avhrm.UI.Shared.Resources {
+namespace Avhrm.Tools.Resources {
     using System;
     
     
@@ -22,7 +22,7 @@ namespace Avhrm.UI.Shared.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class TextResources {
+    public class TextResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,10 +36,10 @@ namespace Avhrm.UI.Shared.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Avhrm.UI.Shared.Resources.TextResources", typeof(TextResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Avhrm.Tools.Resources.TextResources", typeof(TextResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace Avhrm.UI.Shared.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Avhrm.UI.Shared.Resources {
         /// <summary>
         ///   Looks up a localized string similar to ورود.
         /// </summary>
-        internal static string APP_StringKeys_Account_Login {
+        public static string APP_StringKeys_Account_Login {
             get {
                 return ResourceManager.GetString("APP_StringKeys_Account_Login", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Avhrm.UI.Shared.Resources {
         /// <summary>
         ///   Looks up a localized string similar to رمز عبور.
         /// </summary>
-        internal static string APP_StringKeys_Account_Password {
+        public static string APP_StringKeys_Account_Password {
             get {
                 return ResourceManager.GetString("APP_StringKeys_Account_Password", resourceCulture);
             }
@@ -81,9 +81,27 @@ namespace Avhrm.UI.Shared.Resources {
         /// <summary>
         ///   Looks up a localized string similar to نام کاربری.
         /// </summary>
-        internal static string APP_StringKeys_Account_Username {
+        public static string APP_StringKeys_Account_Username {
             get {
                 return ResourceManager.GetString("APP_StringKeys_Account_Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to مشخصات کاربری یافت نشد.
+        /// </summary>
+        public static string APP_StringKeys_Error_Login {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Error_Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to پرکردن فیلد {0} الزامی است.
+        /// </summary>
+        public static string APP_StringKeys_Error_Required {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Error_Required", resourceCulture);
             }
         }
     }

@@ -8,12 +8,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Compile Remove="Contracts\**" />
-	  <EmbeddedResource Remove="Contracts\**" />
-	  <None Remove="Contracts\**" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="7.0.5" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
 		<PackageReference Include="Microsoft.JSInterop" Version="7.0.5" />
@@ -22,7 +16,6 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Avhrm.Core\Avhrm.Core.csproj" />
-	  <ProjectReference Include="..\Avhrm.Tools\Avhrm.Tools.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -6,6 +6,9 @@ namespace Avhrm.UI.Shared.Pages.Account;
 
 public partial class Login
 {
+    public bool IsMessageShown = false;
+    public string MessageText = string.Empty;
+
     public GetUserLoginQuery Request { get; set; } = new();
 
     [Inject] public IAuthenticationService AuthenticationService { get; set; } 
@@ -16,12 +19,16 @@ public partial class Login
     {
         string token = await AuthenticationService.Authenticate(Request);
 
-        await ClientAuthProvider.SetUserAuthenticated(token);
-
-        if (string.IsNullOrEmpty(token))
+        if (token.HasNoValue())
         {
+            IsMessageShown = true;
+
+            MessageText = TextResources.APP_StringKeys_Error_Login;
+
             return;
         }
+
+        await ClientAuthProvider.SetUserAuthenticated(token);
 
         NavigationManager.NavigateTo("/", true);
     }

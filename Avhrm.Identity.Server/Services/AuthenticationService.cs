@@ -1,5 +1,4 @@
-﻿using Avhrm.Identity.Contracts;
-using Avhrm.Identity.Server.Services;
+﻿using Avhrm.Identity.Server.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using System.IdentityModel.Tokens.Jwt;
@@ -9,6 +8,7 @@ using Avhrm.Identity.Server.Models;
 using Microsoft.Extensions.Configuration;
 using Avhrm.Identity.Server.Utilities;
 using CallContext = ProtoBuf.Grpc.CallContext;
+using Avhrm.Identity.Contracts;
 using Avhrm.Core.Features.Account.Query.GerUserLogin;
 
 namespace Avhrm.Identity.Server.Implementation;

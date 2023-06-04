@@ -126,4 +126,10 @@
   <data name="APP_StringKeys_Account_Username" xml:space="preserve">
     <value>نام کاربری</value>
   </data>
+  <data name="APP_StringKeys_Error_Login" xml:space="preserve">
+    <value>مشخصات کاربری یافت نشد</value>
+  </data>
+  <data name="APP_StringKeys_Error_Required" xml:space="preserve">
+    <value>پرکردن فیلد {0} الزامی است</value>
+  </data>
 </root>
