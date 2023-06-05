@@ -104,5 +104,14 @@ namespace Avhrm.Tools.Resources {
                 return ResourceManager.GetString("APP_StringKeys_Error_Required", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ثبت مرخصی.
+        /// </summary>
+        public static string APP_StringKeys_VacReq_Index {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_VacReq_Index", resourceCulture);
+            }
+        }
     }
 }
