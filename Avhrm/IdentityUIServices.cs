@@ -1,4 +1,4 @@
-﻿using Avhrm.Identity.Services;
+﻿using Avhrm.Identity.UI.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -8,8 +8,8 @@ public static class IdentityUIServices
 {
     public static void AddIdentityUIServices(this IServiceCollection services)
     {
-        services.AddScoped<AuthenticationStateProvider, AvhrmStateProvider>();
+        services.AddScoped<AuthenticationStateProvider, AvhrmClientAuthenticationStateProvider>();
 
-        services.AddScoped(sp => (AvhrmStateProvider)sp.GetRequiredService<AuthenticationStateProvider>());
+        services.AddScoped(sp => (AvhrmClientAuthenticationStateProvider)sp.GetRequiredService<AuthenticationStateProvider>());
     }
 }

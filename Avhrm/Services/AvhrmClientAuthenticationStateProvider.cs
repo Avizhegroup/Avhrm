@@ -3,13 +3,13 @@ using Microsoft.JSInterop;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
-namespace Avhrm.Identity.Services;
+namespace Avhrm.Identity.UI.Services;
 
-public class AvhrmStateProvider : AuthenticationStateProvider
+public class AvhrmClientAuthenticationStateProvider : AuthenticationStateProvider
 {
     private readonly IJSRuntime jsRuntime;
 
-    public AvhrmStateProvider(IJSRuntime jSRuntime)
+    public AvhrmClientAuthenticationStateProvider(IJSRuntime jSRuntime)
     {
         this.jsRuntime = jSRuntime;
     }

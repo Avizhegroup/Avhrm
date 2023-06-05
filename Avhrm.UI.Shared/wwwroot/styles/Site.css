@@ -26,3 +26,8 @@
 .text-dir-left {
   direction: ltr !important;
 }
+
+.pages-account-login {
+  position: absolute;
+  top: 50%;
+}
