@@ -1,8 +1,12 @@
-﻿using Avhrm.Core.Common;
-using Avhrm.Core.Entities;
+﻿using Avhrm.Core.Entities;
+using ProtoBuf.Grpc;
+using System.ServiceModel;
 
 namespace Avhrm.Core.Contracts;
 
-public interface IVacationRequest : IBaseContract<VacationRequest>
+[ServiceContract]
+public interface IVacationRequest
 {
+    [OperationContract]
+    Task<bool> InsertVacationRequest(VacationRequest request, CallContext context = default);
 }

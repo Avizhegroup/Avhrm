@@ -1,4 +1,5 @@
-﻿<Router AppAssembly="@typeof(Main).Assembly">
+﻿@using Avhrm.UI.Shared;
+<Router AppAssembly="@typeof(Main).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
         <FocusOnNavigate RouteData="@routeData" Selector="h1" />

@@ -10,13 +10,16 @@
 		<PackageReference Include="protobuf-net.Grpc.AspNetCore" Version="1.1.1" />
 		<PackageReference Include="Grpc.AspNetCore" Version="2.52.0" />
 		<PackageReference Include="Grpc.AspNetCore.Web" Version="2.52.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.5">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+		</PackageReference>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Avhrm.Application\Avhrm.Application.csproj" />
 	  <ProjectReference Include="..\Avhrm.Core\Avhrm.Core.csproj" />
+	  <ProjectReference Include="..\Avhrm.Identity.Server\Avhrm.Identity.Server.csproj" />
 	  <ProjectReference Include="..\Avhrm.Persistence\Avhrm.Persistence.csproj" />
-	  <ProjectReference Include="..\Avhrm\Avhrm.Identity.csproj" />
 	</ItemGroup>
 
 </Project>

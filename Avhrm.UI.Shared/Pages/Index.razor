@@ -1,5 +1,15 @@
-﻿<h3>Index</h3>
+﻿@page "/"
+@page "/home"
+@page "/home/index"
 
-@code {
-
-}
+<div class="page-home-index text-align-center">
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td @onclick="OnVaqReqIndexClick">
+                    @TextResources.APP_StringKeys_VacReq_Index
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

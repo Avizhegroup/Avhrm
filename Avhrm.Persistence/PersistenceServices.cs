@@ -1,4 +1,5 @@
 ﻿using Avhrm.Core.Entities;
+using Avhrm.Persistence.Repositories;
 using Avhrm.Persistence.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
@@ -15,17 +16,9 @@ public static class PersistenceServices
     {
         services.AddDbContext<AvhrmDbContext>(options =>
         {
-            options.UseSqlServer(configuration.GetConnectionString("DefaultConnectionString"));
+            options.UseSqlServer(configuration.GetConnectionString("Server"));
         });
 
         services.AddCodeFirstGrpc();
-    }
-
-    public static void UsePersistenceMiddlewares(this WebApplication app)
-    {
-        app.UseEndpoints(endpoints =>
-        {
-            endpoints.MapGrpcService<VacationRequest>();
-        });
     }
 }

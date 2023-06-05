@@ -1,0 +1,33 @@
+﻿@page "/account/login"
+
+<div class="pages-account-login text-align-center">
+    @if (IsMessageShown)
+    {
+        <div class="message-top bg-warning">
+            @MessageText
+        </div>
+    }
+    <EditForm Model="Request"
+              OnValidSubmit="OnValidSubmit">
+        <DataAnnotationsValidator />
+        <div class="text-danger">
+            <ValidationSummary />
+        </div>
+        <div class="form-group">
+            <label>@TextResources.APP_StringKeys_Account_Username:</label>
+            <InputText class="form-input"
+            @bind-Value="Request.Username"></InputText>
+        </div>
+        <div class="form-group">
+            <label>@TextResources.APP_StringKeys_Account_Password:</label>
+            <InputText class="form-input"
+                       type="password" @bind-Value="Request.Password"></InputText>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary"
+                    type="submit">
+                @TextResources.APP_StringKeys_Account_Login
+            </button>
+        </div>
+    </EditForm>
+</div>

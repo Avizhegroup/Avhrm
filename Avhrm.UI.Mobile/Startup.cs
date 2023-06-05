@@ -1,11 +1,13 @@
 ﻿using Microsoft.Extensions.Logging;
 using Avhrm.UI.Shared;
+using Microsoft.Extensions.Configuration;
 
 namespace Avhrm.UI.Mobile;
 
 public static class Startup
 {
-    public static void ConfigureServices(this IServiceCollection services)
+    public static void ConfigureServices(this IServiceCollection services
+        , IConfiguration configuration)
     {
         services.AddMauiBlazorWebView();
 
@@ -18,7 +20,7 @@ public static class Startup
 #endif
         });
 
-        services.AddSharedServices();
+        services.AddSharedServices(configuration);
 
 #if ANDROID
         services.AddAndroidServices();
