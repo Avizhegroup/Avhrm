@@ -25,8 +25,8 @@ public class VacationRequest : IBaseEntity
     public string? Description { get; set; }
 
     [Required]
-    [ProtoMember(5)]
-    public bool IsVerified { get; set; }
+    [ProtoMember(5, IsRequired = true)]
+    public byte IsVerified { get; set; } = 0;
 
     [ProtoMember(6)]
     public string? Verifier { get; set; }
