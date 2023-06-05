@@ -27,7 +27,8 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-		<Using Include="System.ComponentModel.DataAnnotations"/>
+		<Using Include="System.ComponentModel.DataAnnotations" />
+		<Using Include="Avhrm.UI.Shared.Resources" />
 	</ItemGroup>
 
 	<ItemGroup Condition=" '$(BlazorMode)' == 'BlazorHybrid' ">
@@ -54,6 +55,21 @@
 		<ProjectReference Include="..\Avhrm.UI.Source\Avhrm.UI.Source.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" SetTargetFramework="TargetFramework=netstandard2.0" />
 		<ProjectReference Include="..\Avhrm.Core\Avhrm.Core.csproj" />
 		<ProjectReference Include="..\Avhrm\Avhrm.Identity.UI.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Resources\TextResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>TextResources.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\TextResources.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>TextResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	</ItemGroup>
 
 </Project>
