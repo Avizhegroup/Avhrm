@@ -6,11 +6,20 @@ namespace Avhrm.UI.Web;
 
 public static class Startup
 {
-    public static void ConfigureService(this IServiceCollection services)
+    public static void ConfigureService(this IServiceCollection services
+        , ConfigurationManager configuration)
     {
         services.AddRazorPages();
 
+#if DEBUG
+        services.AddServerSideBlazor()
+                .AddCircuitOptions(options =>
+                {
+                    options.DetailedErrors = true;
+                });
+#else
         services.AddServerSideBlazor();
+#endif
 
         services.AddResponseCompression(opts =>
         {
@@ -23,7 +32,7 @@ public static class Startup
             .Configure<BrotliCompressionProviderOptions>(opt => opt.Level = CompressionLevel.Fastest)
             .Configure<GzipCompressionProviderOptions>(opt => opt.Level = CompressionLevel.Fastest);
 
-        services.AddSharedServices();
+        services.AddSharedServices(configuration);
     }
 
     public static void Configure(this WebApplication app)

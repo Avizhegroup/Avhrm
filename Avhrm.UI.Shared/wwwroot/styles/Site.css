@@ -1,1 +1,38 @@
-﻿
+﻿@import 'libraries/bootstrap.min.css';
+@import 'libraries/kendo.bootstrap-v4.min.css';
+.app-all-container {
+  max-width: 500px;
+  margin: 0 auto;
+  height: 100vh;
+  background-color: #F5F5F5;
+}
+
+.text-align-right {
+  text-align: right !important;
+}
+
+.text-align-center {
+  text-align: center !important;
+}
+
+.text-align-left {
+  text-align: left !important;
+}
+
+.text-dir-right {
+  direction: rtl !important;
+}
+
+.text-dir-left {
+  direction: ltr !important;
+}
+
+.message-top {
+  top: 0px;
+  height: 30px;
+}
+
+.pages-account-login {
+  position: absolute;
+  top: 50%;
+}

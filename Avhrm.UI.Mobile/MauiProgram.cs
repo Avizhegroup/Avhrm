@@ -1,4 +1,4 @@
-﻿using Avhrm.UI.Mobile.Shared;
+﻿using Avhrm.UI.Shared;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.FileProviders;
 using System.Reflection;
@@ -16,7 +16,7 @@ public static class MauiProgram
             .UseMauiApp<App>()
             .Configuration.AddJsonFile(new EmbeddedFileProvider(assembly), "appsettings.json", optional: false, false);
 
-        builder.Services.ConfigureServices();
+        builder.Services.ConfigureServices(builder.Configuration);
 
         return builder.Build();
     }

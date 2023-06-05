@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<UseMauiEssentials Condition=" '$(BlazorMode)' == 'BlazorHybrid' ">true</UseMauiEssentials>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="7.0.5" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+		<PackageReference Include="Microsoft.JSInterop" Version="7.0.5" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.30.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Avhrm.Core\Avhrm.Core.csproj" />
+	</ItemGroup>
+
+</Project>

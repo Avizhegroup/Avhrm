@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<PropertyGroup>
-		<TargetFrameworks>net7.0-android;net7.0-ios</TargetFrameworks>
+		<TargetFrameworks>net7.0-android</TargetFrameworks>
+		<!--;net7.0-ios-->
 		<OutputType>Exe</OutputType>
 		<RootNamespace>Avhrm.UI.Mobile</RootNamespace>
 		<UseMaui>true</UseMaui>
