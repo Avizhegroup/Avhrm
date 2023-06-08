@@ -25,7 +25,7 @@ public class VacationRequest : IBaseEntity
     public string? Description { get; set; }
 
     [Required]
-    [ProtoMember(5, IsRequired = true)]
+    [ProtoMember(5)]
     public bool IsVerified { get; set; }
 
     [ProtoMember(6)]
@@ -37,7 +37,7 @@ public class VacationRequest : IBaseEntity
     [ProtoMember(8)]
     public DateTime CreateDateTime { get; set; }
 
-    [Required]
+    [Required(AllowEmptyStrings = true)]
     [ProtoMember(9)]
     public string CreatorUser { get; set; }
 

@@ -9,11 +9,11 @@ using ProtoBuf.Grpc;
 namespace Avhrm.Persistence.Repositories;
 
 [Authorize]
-public class VacationRequestRepository : IVacationRequest
+public class VacationRequestService : IVacationRequest
 {
     private readonly AvhrmDbContext dbContext;
     private DbSet<VacationRequest> dbSet;
-    public VacationRequestRepository(AvhrmDbContext dbContext)
+    public VacationRequestService(AvhrmDbContext dbContext)
     {
         this.dbContext = dbContext;
         dbSet = this.dbContext.VacationRequest;
