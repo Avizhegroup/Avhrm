@@ -129,6 +129,9 @@
   <data name="APP_StringKeys_Add" xml:space="preserve">
     <value>افزودن</value>
   </data>
+  <data name="APP_StringKeys_Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
   <data name="APP_StringKeys_Description" xml:space="preserve">
     <value>توضیحات</value>
   </data>
@@ -136,13 +139,16 @@
     <value>مشخصات کاربری یافت نشد</value>
   </data>
   <data name="APP_StringKeys_Error_Required" xml:space="preserve">
-    <value>پرکردن فیلد {0} الزامی است</value>
+    <value>پرکردن فیلد '{0}' الزامی است</value>
   </data>
   <data name="APP_StringKeys_FromDate" xml:space="preserve">
     <value>از تاریخ</value>
   </data>
   <data name="APP_StringKeys_FromTime" xml:space="preserve">
     <value>از ساعت</value>
+  </data>
+  <data name="APP_StringKeys_NotSpecified" xml:space="preserve">
+    <value>مشخص نشده</value>
   </data>
   <data name="APP_StringKeys_SaveDate" xml:space="preserve">
     <value>تاریخ ثبت</value>

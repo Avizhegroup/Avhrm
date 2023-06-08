@@ -30,10 +30,13 @@
                             @PersianCalendarTools.GregorianToPersian( context.CreateDateTime)
                         </td>
                         <td>
-                            @(context.IsVerified ? TextResources.APP_StringKeys_VacReq_Verified : TextResources.APP_StringKeys_VacReq_NotVerified)
+                            @(context.Verifier is null ? TextResources.APP_StringKeys_NotSpecified : (context.IsVerified ? TextResources.APP_StringKeys_VacReq_Verified : TextResources.APP_StringKeys_VacReq_NotVerified))
                         </td>
                         <td>
-                            
+                            <button type="button"
+                                    class="btn danger">
+                                @TextResources.APP_StringKeys_Delete    
+                            </button>
                         </td>
                     </tr>
                 </Virtualize>

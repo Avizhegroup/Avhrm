@@ -12,21 +12,12 @@ public static class ServicesExtensions
     {
         services.AddScoped(services =>
         {
-            var httpClient = GetHttpClient(services);
-
             var channel = GrpcChannel.ForAddress(configuration.GetSection("Api")["Ip"], new GrpcChannelOptions
             {
-                HttpHandler = httpClient
+                HttpHandler = services.GetRequiredService<AvhrmHttpClient>()
             });
 
             return channel.CreateGrpcService<TService>();
         });
-    }
-
-    private static AvhrmHttpClient GetHttpClient(IServiceProvider services)
-    {
-        var httpClient = services.GetRequiredService<AvhrmHttpClient>();
-
-        return httpClient;
     }
 }

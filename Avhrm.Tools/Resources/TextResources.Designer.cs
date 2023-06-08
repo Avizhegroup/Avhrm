@@ -97,6 +97,15 @@ namespace Avhrm.Tools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to حذف.
+        /// </summary>
+        public static string APP_StringKeys_Delete {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to توضیحات.
         /// </summary>
         public static string APP_StringKeys_Description {
@@ -115,7 +124,7 @@ namespace Avhrm.Tools.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to پرکردن فیلد {0} الزامی است.
+        ///   Looks up a localized string similar to پرکردن فیلد &apos;{0}&apos; الزامی است.
         /// </summary>
         public static string APP_StringKeys_Error_Required {
             get {
@@ -138,6 +147,15 @@ namespace Avhrm.Tools.Resources {
         public static string APP_StringKeys_FromTime {
             get {
                 return ResourceManager.GetString("APP_StringKeys_FromTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to مشخص نشده.
+        /// </summary>
+        public static string APP_StringKeys_NotSpecified {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_NotSpecified", resourceCulture);
             }
         }
         
