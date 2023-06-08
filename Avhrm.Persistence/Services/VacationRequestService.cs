@@ -5,6 +5,7 @@ using Avhrm.Persistence.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using ProtoBuf.Grpc;
+using System.Collections.Generic;
 
 namespace Avhrm.Persistence.Repositories;
 
@@ -22,19 +23,46 @@ public class VacationRequestService : IVacationRequest
     public async Task<BaseDto<bool>> InsertVacationRequest(VacationRequest request, CallContext context = default)
     {
         request.IsVerified = false;
-       
+
         request.CreateDateTime = DateTime.Now;
-       
+
         request.CreatorUser = context.GetUserId();
 
         await dbSet.AddAsync(request);
 
-        return new() 
-        { 
+        return new()
+        {
             Value = await dbContext.SaveChangesAsync() > 0
         };
     }
 
     public async Task<List<VacationRequest>> GetVacationRequests(CallContext context = default)
-    => await dbSet.Where(p=>p.CreatorUser == context.GetUserId()).AsNoTracking().ToListAsync();
+    => await dbSet.Where(p => p.CreatorUser == context.GetUserId()).AsNoTracking().ToListAsync();
+
+    public async Task<VacationRequest> GetVacationRequestById(BaseDto<int> id, CallContext context = default)
+    => await dbSet.FirstOrDefaultAsync(p => p.CreatorUser == context.GetUserId() && p.Id == id.Value);
+
+    public async Task<BaseDto<bool>> UpdateVacationRequest(VacationRequest request, CallContext context = default)
+    {
+        request.LastUpdateDateTime = DateTime.Now;
+
+        request.LastUpdateUser = context.GetUserId();
+
+        dbSet.Update(request);
+
+        return new()
+        {
+            Value = await dbContext.SaveChangesAsync() > 0
+        };
+    }
+
+    public async Task<BaseDto<bool>> DeleteVacationRequest(VacationRequest request, CallContext context = default)
+    {
+        dbSet.Remove(request);
+
+        return new()
+        {
+            Value = await dbContext.SaveChangesAsync() > 0
+        };
+    }
 }

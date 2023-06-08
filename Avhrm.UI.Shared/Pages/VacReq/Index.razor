@@ -27,16 +27,20 @@
                 <Virtualize Items="VacationRequests" ItemSize="10" OverscanCount="10">
                     <tr>
                         <td>
-                            @PersianCalendarTools.GregorianToPersian( context.CreateDateTime)
+                            @PersianCalendarTools.GregorianToPersian(context.CreateDateTime)
                         </td>
                         <td>
                             @(context.Verifier is null ? TextResources.APP_StringKeys_NotSpecified : (context.IsVerified ? TextResources.APP_StringKeys_VacReq_Verified : TextResources.APP_StringKeys_VacReq_NotVerified))
                         </td>
                         <td>
-                            <button type="button"
-                                    class="btn danger">
-                                @TextResources.APP_StringKeys_Delete    
-                            </button>
+                            @if (context.IsVerified)
+                            {
+                                <NavLink href="@($"/vacreq/edit/{context.Id}")"
+                                         Match="NavLinkMatch.All"
+                                         class="btn btn-secondary">
+                                    @TextResources.APP_StringKeys_Edit
+                                </NavLink>
+                            }
                         </td>
                     </tr>
                 </Virtualize>
@@ -46,7 +50,7 @@
     else
     {
         <p>
-            Is Loading..
+            Loading..
         </p>
     }
 </div>

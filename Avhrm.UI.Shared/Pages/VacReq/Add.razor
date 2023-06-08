@@ -1,14 +1,22 @@
 ﻿@page "/vacreq/add"
+@page "/vacreq/edit/{Id:int}"
 
 <div class="pages-vacreq-add text-align-center">
 
     <EditForm Model="Request"
-              OnValidSubmit="OnValidSubmit" >
+              OnValidSubmit="OnValidSubmit">
         <DataAnnotationsValidator />
         <div class="row col-md-12">
             <div class="text-danger">
                 <ValidationSummary />
             </div>
+            @if (Id is not null)
+            {
+                <div class="form-group">
+                    <label>@TextResources.APP_StringKeys_Id:</label>
+                    <input type="text" class="form-input" value="@Request.Id.ToString()" readonly />
+                </div>
+            }
             <div class="form-group">
                 <label>@TextResources.APP_StringKeys_FromDate:</label>
                 <InputText class="form-input" @bind-Value="Request.PersianFromDate"></InputText>
@@ -29,14 +37,24 @@
                 <label>@TextResources.APP_StringKeys_Description:</label>
                 <InputTextArea class="form-input" @bind-Value="Request.Description"></InputTextArea>
             </div>
-            <button type="submit"
-                    class="btn btn-primary">
-                @TextResources.APP_StringKeys_Add
-            </button>
-            <NavLink href="/vacreq"
-                     Match="NavLinkMatch.All"
-                     ActiveClass="btn btn-secondary">
-            </NavLink>
+            <div class="form-group">
+                <button type="submit"
+                        class="btn btn-primary">
+                    @TextResources.APP_StringKeys_Add
+                </button>
+                @if (Id is not null)
+                {
+                    <button type="submit"
+                            class="btn btn-danger"
+                            @onclick="OnDeleteClick">
+                        @TextResources.APP_StringKeys_Delete
+                    </button>
+                }
+                <NavLink href="/vacreq"
+                         Match="NavLinkMatch.All"
+                         ActiveClass="btn btn-secondary">
+                </NavLink>
+            </div>
         </div>
     </EditForm>
 </div>

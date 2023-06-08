@@ -115,6 +115,15 @@ namespace Avhrm.Tools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ویرایش.
+        /// </summary>
+        public static string APP_StringKeys_Edit {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to مشخصات کاربری یافت نشد.
         /// </summary>
         public static string APP_StringKeys_Error_Login {
@@ -147,6 +156,15 @@ namespace Avhrm.Tools.Resources {
         public static string APP_StringKeys_FromTime {
             get {
                 return ResourceManager.GetString("APP_StringKeys_FromTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to شناسه.
+        /// </summary>
+        public static string APP_StringKeys_Id {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Id", resourceCulture);
             }
         }
         
