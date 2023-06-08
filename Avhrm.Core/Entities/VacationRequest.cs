@@ -25,7 +25,7 @@ public class VacationRequest : IBaseEntity
     public string? Description { get; set; }
 
     [Required]
-    [ProtoMember(5, IsRequired = true)]
+    [ProtoMember(5)]
     public bool IsVerified { get; set; }
 
     [ProtoMember(6)]
@@ -70,7 +70,7 @@ public class VacationRequest : IBaseEntity
     [NotMapped]
     public string PersianFromTime
     {
-        get => $"{FromDateTime.Hour}:{FromDateTime.Minute}";
+        get => FromDateTime.ToString("HH:mm");
         set
         {
             var splited = value.Split(':');
@@ -82,7 +82,7 @@ public class VacationRequest : IBaseEntity
     [NotMapped]
     public string PersianToTime
     {
-        get => $"{ToDateTime.Hour}:{ToDateTime.Minute}";
+        get => ToDateTime.ToString("HH:mm");
         set
         {
             var splited = value.Split(':');

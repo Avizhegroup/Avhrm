@@ -23,8 +23,4 @@
 		<SupportedPlatform Include="browser" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Repositories\" />
-	</ItemGroup>
-
 </Project>
