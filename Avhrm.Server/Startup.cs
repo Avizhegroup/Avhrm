@@ -43,7 +43,7 @@ public static class Startup
 
         app.UseEndpoints(endpoints =>
         {
-            endpoints.MapGrpcService<VacationRequestRepository>();
+            endpoints.MapGrpcService<VacationRequestService>();
 
             endpoints.MapGrpcService<AuthenticationService>();
         });

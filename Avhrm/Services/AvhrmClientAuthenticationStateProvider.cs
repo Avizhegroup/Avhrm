@@ -25,8 +25,6 @@ public class AvhrmClientAuthenticationStateProvider : AuthenticationStateProvide
 #else
             token = await jsRuntime.InvokeAsync<string>("window.localStorage.getItem", "jwt");
 #endif
-            string? signTime = await jsRuntime.InvokeAsync<string>("window.localStorage.getItem", "signTime");
-
             if (token.HasNoValue())
             {
                 return new(new(new ClaimsIdentity()));

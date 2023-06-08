@@ -1,4 +1,5 @@
-﻿using Grpc.Net.Client;
+﻿using Avhrm.UI.Shared.Services;
+using Grpc.Net.Client;
 using Microsoft.Extensions.Configuration;
 using ProtoBuf.Grpc.Client;
 
@@ -11,21 +12,12 @@ public static class ServicesExtensions
     {
         services.AddScoped(services =>
         {
-            var httpClient = GetHttpClient(services);
-            
             var channel = GrpcChannel.ForAddress(configuration.GetSection("Api")["Ip"], new GrpcChannelOptions
             {
-                HttpClient = httpClient,
+                HttpHandler = services.GetRequiredService<AvhrmHttpClient>()
             });
 
             return channel.CreateGrpcService<TService>();
         });
-    }
-
-    private static HttpClient GetHttpClient(IServiceProvider services)
-    {
-        var httpClient = services.GetRequiredService<HttpClient>();
-
-        return httpClient;
     }
 }

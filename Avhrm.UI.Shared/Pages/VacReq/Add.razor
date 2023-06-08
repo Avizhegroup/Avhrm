@@ -1,0 +1,42 @@
+﻿@page "/vacreq/add"
+
+<div class="pages-vacreq-add text-align-center">
+
+    <EditForm Model="Request"
+              OnValidSubmit="OnValidSubmit" >
+        <DataAnnotationsValidator />
+        <div class="row col-md-12">
+            <div class="text-danger">
+                <ValidationSummary />
+            </div>
+            <div class="form-group">
+                <label>@TextResources.APP_StringKeys_FromDate:</label>
+                <InputText class="form-input" @bind-Value="Request.PersianFromDate"></InputText>
+            </div>
+            <div class="form-group">
+                <label>@TextResources.APP_StringKeys_FromTime:</label>
+                <InputText class="form-input" @bind-Value="Request.PersianFromTime"></InputText>
+            </div>
+            <div class="form-group">
+                <label>@TextResources.APP_StringKeys_ToDate:</label>
+                <InputText class="form-input" @bind-Value="Request.PersianToDate"></InputText>
+            </div>
+            <div class="form-group">
+                <label>@TextResources.APP_StringKeys_ToTime:</label>
+                <InputText class="form-input" @bind-Value="Request.PersianToTime"></InputText>
+            </div>
+            <div class="form-group">
+                <label>@TextResources.APP_StringKeys_Description:</label>
+                <InputTextArea class="form-input" @bind-Value="Request.Description"></InputTextArea>
+            </div>
+            <button type="submit"
+                    class="btn btn-primary">
+                @TextResources.APP_StringKeys_Add
+            </button>
+            <NavLink href="/vacreq"
+                     Match="NavLinkMatch.All"
+                     ActiveClass="btn btn-secondary">
+            </NavLink>
+        </div>
+    </EditForm>
+</div>
