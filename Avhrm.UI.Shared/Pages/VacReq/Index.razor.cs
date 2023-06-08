@@ -6,6 +6,7 @@ namespace Avhrm.UI.Shared.Pages.VacReq;
 public partial class Index
 {
     public List<VacationRequest> VacationRequests;
+
     [Inject] public IVacationRequest VacReqServices { get; set; }
 
     protected override async Task OnInitializedAsync()

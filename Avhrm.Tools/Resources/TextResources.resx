@@ -135,6 +135,9 @@
   <data name="APP_StringKeys_Description" xml:space="preserve">
     <value>توضیحات</value>
   </data>
+  <data name="APP_StringKeys_Edit" xml:space="preserve">
+    <value>ویرایش</value>
+  </data>
   <data name="APP_StringKeys_Error_Login" xml:space="preserve">
     <value>مشخصات کاربری یافت نشد</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="APP_StringKeys_FromTime" xml:space="preserve">
     <value>از ساعت</value>
+  </data>
+  <data name="APP_StringKeys_Id" xml:space="preserve">
+    <value>شناسه</value>
   </data>
   <data name="APP_StringKeys_NotSpecified" xml:space="preserve">
     <value>مشخص نشده</value>
