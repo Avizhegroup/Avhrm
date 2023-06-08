@@ -88,6 +88,24 @@ namespace Avhrm.Tools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to افزودن.
+        /// </summary>
+        public static string APP_StringKeys_Add {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to توضیحات.
+        /// </summary>
+        public static string APP_StringKeys_Description {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to مشخصات کاربری یافت نشد.
         /// </summary>
         public static string APP_StringKeys_Error_Login {
@@ -106,11 +124,83 @@ namespace Avhrm.Tools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to از تاریخ.
+        /// </summary>
+        public static string APP_StringKeys_FromDate {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_FromDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to از ساعت.
+        /// </summary>
+        public static string APP_StringKeys_FromTime {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_FromTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to تاریخ ثبت.
+        /// </summary>
+        public static string APP_StringKeys_SaveDate {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_SaveDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to تا تاریخ.
+        /// </summary>
+        public static string APP_StringKeys_ToDate {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_ToDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to تا ساعت.
+        /// </summary>
+        public static string APP_StringKeys_ToTime {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_ToTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ثبت مرخصی.
         /// </summary>
         public static string APP_StringKeys_VacReq_Index {
             get {
                 return ResourceManager.GetString("APP_StringKeys_VacReq_Index", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to وضعیت تائید.
+        /// </summary>
+        public static string APP_StringKeys_VacReq_IsVerified {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_VacReq_IsVerified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to رد شده.
+        /// </summary>
+        public static string APP_StringKeys_VacReq_NotVerified {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_VacReq_NotVerified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to تائید شده.
+        /// </summary>
+        public static string APP_StringKeys_VacReq_Verified {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_VacReq_Verified", resourceCulture);
             }
         }
     }

@@ -17,9 +17,9 @@ public partial class Login
 
     public async Task OnValidSubmit(EditContext context)
     {
-        string token = await AuthenticationService.Authenticate(Request);
+        var token = await AuthenticationService.Authenticate(Request);
 
-        if (token.HasNoValue())
+        if (token.Value.HasNoValue())
         {
             IsMessageShown = true;
 
@@ -28,7 +28,7 @@ public partial class Login
             return;
         }
 
-        await ClientAuthProvider.SetUserAuthenticated(token);
+        await ClientAuthProvider.SetUserAuthenticated(token.Value);
 
         NavigationManager.NavigateTo("/", true);
     }

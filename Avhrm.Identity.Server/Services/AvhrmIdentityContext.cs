@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Avhrm.Identity.Server.Seeds;
-using System.Reflection;
 
 namespace Avhrm.Identity.Server.Services;
 

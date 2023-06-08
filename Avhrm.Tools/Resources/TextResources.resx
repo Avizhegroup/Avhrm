@@ -126,13 +126,43 @@
   <data name="APP_StringKeys_Account_Username" xml:space="preserve">
     <value>نام کاربری</value>
   </data>
+  <data name="APP_StringKeys_Add" xml:space="preserve">
+    <value>افزودن</value>
+  </data>
+  <data name="APP_StringKeys_Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
   <data name="APP_StringKeys_Error_Login" xml:space="preserve">
     <value>مشخصات کاربری یافت نشد</value>
   </data>
   <data name="APP_StringKeys_Error_Required" xml:space="preserve">
     <value>پرکردن فیلد {0} الزامی است</value>
   </data>
+  <data name="APP_StringKeys_FromDate" xml:space="preserve">
+    <value>از تاریخ</value>
+  </data>
+  <data name="APP_StringKeys_FromTime" xml:space="preserve">
+    <value>از ساعت</value>
+  </data>
+  <data name="APP_StringKeys_SaveDate" xml:space="preserve">
+    <value>تاریخ ثبت</value>
+  </data>
+  <data name="APP_StringKeys_ToDate" xml:space="preserve">
+    <value>تا تاریخ</value>
+  </data>
+  <data name="APP_StringKeys_ToTime" xml:space="preserve">
+    <value>تا ساعت</value>
+  </data>
   <data name="APP_StringKeys_VacReq_Index" xml:space="preserve">
     <value>ثبت مرخصی</value>
+  </data>
+  <data name="APP_StringKeys_VacReq_IsVerified" xml:space="preserve">
+    <value>وضعیت تائید</value>
+  </data>
+  <data name="APP_StringKeys_VacReq_NotVerified" xml:space="preserve">
+    <value>رد شده</value>
+  </data>
+  <data name="APP_StringKeys_VacReq_Verified" xml:space="preserve">
+    <value>تائید شده</value>
   </data>
 </root>

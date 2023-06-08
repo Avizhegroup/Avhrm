@@ -1,16 +1,14 @@
-﻿using Avhrm.Core.Entities;
+﻿using Avhrm.Core.Common;
+using Avhrm.Core.Entities;
 using ProtoBuf.Grpc;
 using ProtoBuf.Grpc.Configuration;
-using System.ServiceModel;
 
 namespace Avhrm.Core.Contracts;
 
-[ServiceContract]
+[Service]
 public interface IVacationRequest
 {
-    [OperationContract]
-    Task<bool> InsertVacationRequest(VacationRequest request, CallContext context = default);
+    Task<BaseDto<bool>> InsertVacationRequest(VacationRequest request, CallContext context = default);
 
-    [OperationContract]
     Task<List<VacationRequest>> GetVacationRequests(CallContext context = default);
 }

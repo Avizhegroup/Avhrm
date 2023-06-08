@@ -1,12 +1,12 @@
-﻿using Avhrm.Core.Features.Account.Query.GerUserLogin;
+﻿using Avhrm.Core.Common;
+using Avhrm.Core.Features.Account.Query.GerUserLogin;
 using ProtoBuf.Grpc;
-using System.ServiceModel;
+using ProtoBuf.Grpc.Configuration;
 
 namespace Avhrm.Identity.Contracts;
 
-[ServiceContract]
+[Service]
 public interface IAuthenticationService
 {
-    [OperationContract]
-    Task<string> Authenticate(GetUserLoginQuery request, CallContext callContext = default);
+    Task<BaseDto<string>> Authenticate(GetUserLoginQuery request, CallContext callContext = default);
 }

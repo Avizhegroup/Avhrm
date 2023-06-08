@@ -26,7 +26,7 @@ public class VacationRequest : IBaseEntity
 
     [Required]
     [ProtoMember(5, IsRequired = true)]
-    public byte IsVerified { get; set; } = 0;
+    public bool IsVerified { get; set; }
 
     [ProtoMember(6)]
     public string? Verifier { get; set; }
@@ -46,4 +46,48 @@ public class VacationRequest : IBaseEntity
 
     [ProtoMember(11)]
     public string? LastUpdateUser { get; set; }
+
+    [NotMapped]
+    public string PersianFromDate
+    {
+        get => PersianCalendarTools.GregorianToPersian(FromDateTime);
+        set
+        {
+            FromDateTime = PersianCalendarTools.PersianToGregorian(value);
+        }
+    }
+
+    [NotMapped]
+    public string PersianToDate
+    {
+        get => PersianCalendarTools.GregorianToPersian(ToDateTime);
+        set
+        {
+            ToDateTime = PersianCalendarTools.PersianToGregorian(value);
+        }
+    }
+
+    [NotMapped]
+    public string PersianFromTime
+    {
+        get => $"{FromDateTime.Hour}:{FromDateTime.Minute}";
+        set
+        {
+            var splited = value.Split(':');
+
+            FromDateTime = FromDateTime.AddHours(int.Parse(splited[0])).AddMinutes(int.Parse(splited[1])); 
+        }
+    }
+
+    [NotMapped]
+    public string PersianToTime
+    {
+        get => $"{ToDateTime.Hour}:{ToDateTime.Minute}";
+        set
+        {
+            var splited = value.Split(':');
+
+            ToDateTime = ToDateTime.AddHours(int.Parse(splited[0])).AddMinutes(int.Parse(splited[1]));
+        }
+    }
 }

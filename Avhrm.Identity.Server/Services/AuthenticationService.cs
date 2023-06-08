@@ -10,6 +10,7 @@ using Avhrm.Identity.Server.Utilities;
 using CallContext = ProtoBuf.Grpc.CallContext;
 using Avhrm.Identity.Contracts;
 using Avhrm.Core.Features.Account.Query.GerUserLogin;
+using Avhrm.Core.Common;
 
 namespace Avhrm.Identity.Server.Implementation;
 
@@ -27,7 +28,7 @@ public class AuthenticationService : IAuthenticationService
     }
 
     [AllowAnonymous]
-    public async Task<string> Authenticate(GetUserLoginQuery request, CallContext callContext = default)
+    public async Task<BaseDto<string>> Authenticate(GetUserLoginQuery request, CallContext callContext = default)
     {
         string hashedPassword = CryptographyTools.GetHashedStringSha256StringBuilder(request.Password);
 
@@ -37,7 +38,10 @@ public class AuthenticationService : IAuthenticationService
 
         if (user is null)
         {
-            return string.Empty;
+            return new() 
+            {
+                Value = string.Empty 
+            };
         }
 
         var claimsIdentity = GetClaimsIdentity(user);
@@ -62,7 +66,10 @@ public class AuthenticationService : IAuthenticationService
 
         string jwt = tokenHandler.WriteToken(securityToken);
 
-        return jwt;
+        return new()
+        {
+            Value = jwt
+        };
     }
 
     private ClaimsIdentity GetClaimsIdentity(ApplicationUser user)
