@@ -46,7 +46,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="wwwroot\fonts\" />
 		<Folder Include="wwwroot\scripts\" />
 	</ItemGroup>
 
