@@ -37,7 +37,7 @@ public class VacationRequest : IBaseEntity
     [ProtoMember(8)]
     public DateTime CreateDateTime { get; set; }
 
-    [Required]
+    [Required(AllowEmptyStrings = true)]
     [ProtoMember(9)]
     public string CreatorUser { get; set; }
 
