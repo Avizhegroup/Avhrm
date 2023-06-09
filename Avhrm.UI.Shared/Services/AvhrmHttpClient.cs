@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.Extensions.Logging;
-using Microsoft.JSInterop;
-using System.Net.Http.Json;
-using System.Net;
+﻿using System.Net;
 
 namespace Avhrm.UI.Shared.Services;
 
@@ -41,20 +37,15 @@ public class AvhrmHttpClient: HttpClientHandler
 
         if (!response.IsSuccessStatusCode)
         {
-            if (response.Content.Headers.ContentType?.MediaType == "application/json")
-            {
                 if (response.StatusCode == HttpStatusCode.Unauthorized)
                 {
 #if BlazorServer
-                    token = await jsRuntime.InvokeAsync<string?>("window.localStorage.getItem", "jwt");
+                    await jsRuntime.InvokeVoidAsync("window.localStorage.removeItem", "jwt");   
 #else
-                    token = Preferences.Remove("access_token");
+                    Preferences.Remove("access_token");
 #endif
-                    await jsRuntime.InvokeVoidAsync("window.localStorage.removeItem", "jwt");
-
-                    navigationManager.NavigateTo("/account/login", true);
+                navigationManager.NavigateTo("/account/login", true);
                 }
-            }
         }
 
         return response;

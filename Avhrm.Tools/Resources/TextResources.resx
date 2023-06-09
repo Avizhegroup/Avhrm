@@ -138,6 +138,9 @@
   <data name="APP_StringKeys_Edit" xml:space="preserve">
     <value>ویرایش</value>
   </data>
+  <data name="APP_StringKeys_Error_Fail" xml:space="preserve">
+    <value>در انجام عملیات مشکلی بوجود آمده است</value>
+  </data>
   <data name="APP_StringKeys_Error_Login" xml:space="preserve">
     <value>مشخصات کاربری یافت نشد</value>
   </data>
@@ -153,6 +156,12 @@
   <data name="APP_StringKeys_Id" xml:space="preserve">
     <value>شناسه</value>
   </data>
+  <data name="APP_StringKeys_Loading" xml:space="preserve">
+    <value>در حال بارگذاری..</value>
+  </data>
+  <data name="APP_StringKeys_Message_Success" xml:space="preserve">
+    <value>عملیات با موفقیت انجام شد</value>
+  </data>
   <data name="APP_StringKeys_NotSpecified" xml:space="preserve">
     <value>مشخص نشده</value>
   </data>
@@ -166,7 +175,7 @@
     <value>تا ساعت</value>
   </data>
   <data name="APP_StringKeys_VacReq_Index" xml:space="preserve">
-    <value>ثبت مرخصی</value>
+    <value>مرخصی</value>
   </data>
   <data name="APP_StringKeys_VacReq_IsVerified" xml:space="preserve">
     <value>وضعیت تائید</value>

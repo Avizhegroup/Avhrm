@@ -7,6 +7,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Telerik.UI.for.Blazor" Version="4.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<ProjectReference Include="..\Avhrm.UI.Shared\Avhrm.UI.Shared.csproj" />
 	</ItemGroup>
 

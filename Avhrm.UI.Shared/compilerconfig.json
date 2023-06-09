@@ -1,6 +1,10 @@
 ﻿[
   {
-    "outputFile": "wwwroot/styles/Site.css",
-    "inputFile": "wwwroot/styles/Site.scss"
+    "inputFile": "wwwroot/styles/Site.scss",
+    "outputFile": "wwwroot/styles/Site.css"
+  },
+  {
+    "inputFile": "wwwroot/scripts/Site.js",
+    "outputFile": "wwwroot/scripts/Site.min.js"
   }
 ]

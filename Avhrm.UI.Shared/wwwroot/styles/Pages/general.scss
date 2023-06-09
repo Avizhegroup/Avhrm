@@ -29,3 +29,28 @@
     top:0px;
     height:30px;
 }
+
+.page-footer {
+    bottom: 0;
+    width: 450px;
+    height: 50px;
+    border: solid 1px #d9d5cc;
+    position: absolute;
+    background-color: #f5f2e9;
+    border-radius: 5px;
+    border-bottom: none;
+    padding-top: 5px;
+}
+
+.page-header {
+    top: 0;
+    width: 450px;
+    height: 35px;
+    border: solid 1px #d9d5cc;
+    position: absolute;
+    background-color: #f5f2e9;
+    border-radius: 5px;
+    border-top: none;
+    padding-top: 5px;
+    margin-bottom:10px;
+}

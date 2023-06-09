@@ -2,7 +2,6 @@
 @page "/vacreq/edit/{Id:int}"
 
 <div class="pages-vacreq-add text-align-center">
-
     <EditForm Model="Request"
               OnValidSubmit="OnValidSubmit">
         <DataAnnotationsValidator />
@@ -37,24 +36,30 @@
                 <label>@TextResources.APP_StringKeys_Description:</label>
                 <InputTextArea class="form-input" @bind-Value="Request.Description"></InputTextArea>
             </div>
-            <div class="form-group">
-                <button type="submit"
-                        class="btn btn-primary">
-                    @TextResources.APP_StringKeys_Add
-                </button>
-                @if (Id is not null)
-                {
-                    <button type="submit"
-                            class="btn btn-danger"
-                            @onclick="OnDeleteClick">
-                        @TextResources.APP_StringKeys_Delete
-                    </button>
-                }
-                <NavLink href="/vacreq"
-                         Match="NavLinkMatch.All"
-                         ActiveClass="btn btn-secondary">
-                </NavLink>
-            </div>
         </div>
     </EditForm>
+    <TelerikLoaderContainer Visible="IsLoading"
+                            LoaderPosition="@LoaderPosition.End"
+                            LoaderType="LoaderType.InfiniteSpinner"
+                            Text="@TextResources.APP_StringKeys_Loading">
+    </TelerikLoaderContainer>
+</div>
+<div class="page-footer text-align-center">
+    <button type="submit"
+            class="btn btn-primary">
+        <MaterialIcon IconName="@MaterialIconsHelper.Save"></MaterialIcon>
+    </button>
+    @if (Id is not null)
+    {
+        <button type="submit"
+                class="btn btn-danger"
+                @onclick="OnDeleteClick">
+            <MaterialIcon IconName="@MaterialIconsHelper.Delete"></MaterialIcon>
+        </button>
+    }
+    <NavLink href="/vacreq"
+             Match="NavLinkMatch.All"
+             class="btn btn-success">
+        <MaterialIcon IconName="@MaterialIconsHelper.Arrow_back_ios_new"></MaterialIcon>
+    </NavLink>
 </div>

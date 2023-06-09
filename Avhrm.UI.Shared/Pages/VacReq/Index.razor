@@ -2,28 +2,25 @@
 @page "/vacreq/index"
 @using Microsoft.AspNetCore.Components.Web.Virtualization
 
+<div class="page-header text-align-center">
+    @TextResources.APP_StringKeys_VacReq_Index
+</div>
 <div class="pages-vacreq-index text-align-center">
-    @if (VacationRequests is not null)
-    {
-        <NavLink href="/vacreq/add"
-                 Match="NavLinkMatch.All"
-                 class="btn btn-secondary">
-            @TextResources.APP_StringKeys_Add
-        </NavLink>
-
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>
-                        @TextResources.APP_StringKeys_SaveDate
-                    </th>
-                    <th>
-                        @TextResources.APP_StringKeys_VacReq_IsVerified
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    @TextResources.APP_StringKeys_SaveDate
+                </th>
+                <th>
+                    @TextResources.APP_StringKeys_VacReq_IsVerified
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (VacationRequests is not null)
+            {
                 <Virtualize Items="VacationRequests" ItemSize="10" OverscanCount="10">
                     <tr>
                         <td>
@@ -33,24 +30,36 @@
                             @(context.Verifier is null ? TextResources.APP_StringKeys_NotSpecified : (context.IsVerified ? TextResources.APP_StringKeys_VacReq_Verified : TextResources.APP_StringKeys_VacReq_NotVerified))
                         </td>
                         <td>
-                            @if (context.IsVerified)
+                            @if (!context.IsVerified)
                             {
                                 <NavLink href="@($"/vacreq/edit/{context.Id}")"
                                          Match="NavLinkMatch.All"
                                          class="btn btn-secondary">
-                                    @TextResources.APP_StringKeys_Edit
+                                    <MaterialIcon IconName="@MaterialIconsHelper.Edit"></MaterialIcon>
                                 </NavLink>
                             }
                         </td>
                     </tr>
                 </Virtualize>
-            </tbody>
-        </table>
-    }
-    else
-    {
-        <p>
-            Loading..
-        </p>
-    }
+            }
+        </tbody>
+    </table>
+
+    <TelerikLoaderContainer Visible="IsLoading"
+                            LoaderPosition="@LoaderPosition.End"
+                            LoaderType="LoaderType.InfiniteSpinner"
+                            Text="@TextResources.APP_StringKeys_Loading">
+    </TelerikLoaderContainer>
+</div>
+<div class="page-footer text-align-center">
+    <NavLink href="/vacreq/add"
+             Match="NavLinkMatch.All"
+             class="btn btn-success">
+        <MaterialIcon IconName="@MaterialIconsHelper.Add"></MaterialIcon>
+    </NavLink>
+    <NavLink href="/"
+             Match="NavLinkMatch.All"
+             class="btn btn-success">
+        <MaterialIcon IconName="@MaterialIconsHelper.Arrow_back_ios_new"></MaterialIcon>
+    </NavLink>
 </div>
