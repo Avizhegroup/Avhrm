@@ -175,7 +175,7 @@
     <value>تا ساعت</value>
   </data>
   <data name="APP_StringKeys_VacReq_Index" xml:space="preserve">
-    <value>ثبت مرخصی</value>
+    <value>مرخصی</value>
   </data>
   <data name="APP_StringKeys_VacReq_IsVerified" xml:space="preserve">
     <value>وضعیت تائید</value>

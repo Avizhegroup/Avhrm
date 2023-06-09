@@ -232,7 +232,7 @@ namespace Avhrm.Tools.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ثبت مرخصی.
+        ///   Looks up a localized string similar to مرخصی.
         /// </summary>
         public static string APP_StringKeys_VacReq_Index {
             get {

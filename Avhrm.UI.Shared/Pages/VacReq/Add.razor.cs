@@ -1,14 +1,13 @@
 ﻿using Avhrm.Core.Common;
 using Avhrm.Core.Contracts;
 using Avhrm.Core.Entities;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using static Telerik.Blazor.ThemeConstants;
 
 namespace Avhrm.UI.Shared.Pages.VacReq;
 
 public partial class Add
 {
+    public bool IsLoading = true;
     public VacationRequest Request { get; set; } = new();
 
     [CascadingParameter] public TelerikNotification Notification { get; set; }
@@ -27,10 +26,14 @@ public partial class Add
                 Value = Id.Value
             });
         }
+
+        IsLoading = false;
     }
 
     public async Task OnValidSubmit(EditContext context)
     {
+        IsLoading = true;
+
         BaseDto<bool> result;
 
         if (Id is not null)
@@ -52,10 +55,14 @@ public partial class Add
         }
 
         Notification.Show(TextResources.APP_StringKeys_Error_Fail, "error");
+
+        IsLoading = false;
     }
 
     public async Task OnDeleteClick(MouseEventArgs e)
     {
+        IsLoading = true;
+
         BaseDto<bool> result = await VacReqService.DeleteVacationRequest(Request);
 
         if (result.Value)
@@ -68,5 +75,7 @@ public partial class Add
         }
 
         Notification.Show(TextResources.APP_StringKeys_Error_Fail, "error");
+
+        IsLoading = false;
     }
 }
