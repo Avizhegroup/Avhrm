@@ -47,10 +47,10 @@
             </tbody>
         </table>
     }
-    else
-    {
-        <p>
-            Loading..
-        </p>
-    }
+
+    <TelerikLoaderContainer  Visible="IsLoading"
+                             LoaderPosition="@LoaderPosition.End"
+                             LoaderType="LoaderType.InfiniteSpinner"
+                             Text="@TextResources.APP_StringKeys_Loading">
+    </TelerikLoaderContainer>
 </div>

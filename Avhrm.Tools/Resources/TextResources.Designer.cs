@@ -124,6 +124,15 @@ namespace Avhrm.Tools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to در انجام عملیات مشکلی بوجود آمده است.
+        /// </summary>
+        public static string APP_StringKeys_Error_Fail {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Error_Fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to مشخصات کاربری یافت نشد.
         /// </summary>
         public static string APP_StringKeys_Error_Login {
@@ -165,6 +174,24 @@ namespace Avhrm.Tools.Resources {
         public static string APP_StringKeys_Id {
             get {
                 return ResourceManager.GetString("APP_StringKeys_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to در حال بارگذاری...
+        /// </summary>
+        public static string APP_StringKeys_Loading {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to عملیات با موفقیت انجام شد.
+        /// </summary>
+        public static string APP_StringKeys_Message_Success {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Message_Success", resourceCulture);
             }
         }
         
