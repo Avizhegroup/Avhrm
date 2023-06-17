@@ -21,7 +21,7 @@ public class AvhrmClientAuthenticationStateProvider : AuthenticationStateProvide
             string? token;
 
 #if BlazorHybrid
-            token = Preferences.Get("access_token", null);
+            token = Microsoft.Maui.Storage.Preferences.Get("access_token", null);
 #else
             token = await jsRuntime.InvokeAsync<string>("window.localStorage.getItem", "jwt");
 #endif
@@ -54,7 +54,7 @@ public class AvhrmClientAuthenticationStateProvider : AuthenticationStateProvide
     public async Task SetUserLoggedOut()
     {
 #if BlazorHybrid
-        Preferences.Remove("access_token");
+        Microsoft.Maui.Storage.Preferences.Remove("access_token");
 #else
         await jsRuntime.InvokeVoidAsync("window.localStorage.removeItem", "jwt");
 #endif
