@@ -1,18 +1,10 @@
 ﻿@namespace Avhrm.UI.Shared
 @inherits LayoutComponentBase
 
-<TelerikRootComponent>
-    <CascadingValue Value="Notification">
-        <div class="app-all-container k-rtl">
-            <main>
-                <article class="content px-4">
-                    @Body
-                </article>
-            </main>
-        </div>
-    </CascadingValue>
-    <TelerikNotification @ref="Notification"
-                         HorizontalPosition="@NotificationHorizontalPosition.Center"
-                         VerticalPosition="@NotificationVerticalPosition.Top">
-    </TelerikNotification>
-</TelerikRootComponent>
+<div class="app-all-container k-rtl">
+    <main>
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
