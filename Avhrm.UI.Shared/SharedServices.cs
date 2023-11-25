@@ -25,6 +25,8 @@ public static class SharedServices
 
         services.AddGrpcService<IAuthenticationService>(configuration);
 
+        services.AddGrpcService<IWorkTypeService>(configuration);
+
         services.AddIdentityUIServices();
     }
 }

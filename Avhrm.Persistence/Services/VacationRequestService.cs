@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using ProtoBuf.Grpc;
 using System.Collections.Generic;
 
-namespace Avhrm.Persistence.Repositories;
+namespace Avhrm.Persistence.Services;
 
 [Authorize]
 public class VacationRequestService : IVacationRequest

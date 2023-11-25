@@ -2,8 +2,8 @@
 using Avhrm.Persistence;
 using Avhrm.Core;
 using Avhrm.Identity.Server;
-using Avhrm.Persistence.Repositories;
 using Avhrm.Identity.Server.Implementation;
+using Avhrm.Persistence.Services;
 
 namespace Avhrm.Server;
 
@@ -44,6 +44,8 @@ public static class Startup
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapGrpcService<VacationRequestService>();
+
+            endpoints.MapGrpcService<WorkTypeService>();
 
             endpoints.MapGrpcService<AuthenticationService>();
         });
