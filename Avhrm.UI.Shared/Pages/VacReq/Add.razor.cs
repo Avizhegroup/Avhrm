@@ -4,7 +4,6 @@ using Avhrm.Core.Entities;
 using Microsoft.AspNetCore.Components.Web;
 
 namespace Avhrm.UI.Shared.Pages.VacReq;
-
 public partial class Add
 {
     public bool IsLoading = true;

@@ -6,7 +6,6 @@ using Avhrm.Identity.Server.Implementation;
 using Avhrm.Persistence.Services;
 
 namespace Avhrm.Server;
-
 public static class Startup
 {
     // This method gets called by the runtime. Use this method to add services to the container.
@@ -31,23 +30,20 @@ public static class Startup
         app.UseExceptionHandler("/Home/Error");
 #endif
         app.UseRouting();
-       
+
         app.UseGrpcWeb(new GrpcWebOptions
         {
             DefaultEnabled = true
         });
 
         app.UseAuthentication();
-       
+
         app.UseAuthorization();
 
-        app.UseEndpoints(endpoints =>
-        {
-            endpoints.MapGrpcService<VacationRequestService>();
+        app.MapGrpcService<VacationRequestService>();
 
-            endpoints.MapGrpcService<WorkTypeService>();
+        app.MapGrpcService<WorkTypeService>();
 
-            endpoints.MapGrpcService<AuthenticationService>();
-        });
+        app.MapGrpcService<AuthenticationService>();
     }
 }
