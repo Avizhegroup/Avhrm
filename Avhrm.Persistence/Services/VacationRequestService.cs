@@ -17,7 +17,7 @@ public class VacationRequestService : IVacationRequest
     public VacationRequestService(AvhrmDbContext dbContext)
     {
         this.dbContext = dbContext;
-        dbSet = this.dbContext.VacationRequest;
+        dbSet = this.dbContext.VacationRequests;
     }
 
     public async Task<BaseDto<bool>> InsertVacationRequest(VacationRequest request, CallContext context = default)

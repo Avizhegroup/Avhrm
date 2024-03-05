@@ -11,7 +11,7 @@
 	</ItemGroup>
 	
 	<PropertyGroup>
-		<BlazorMode>BlazorHybrid</BlazorMode>
+		<BlazorMode>BlazorServer</BlazorMode>
 		<!-- You can use either BlazorServer, BlazorHybrid -->
 
 		<DefineConstants Condition=" '$(BlazorMode)' == 'BlazorServer' ">$(DefineConstants);BlazorServer</DefineConstants>
