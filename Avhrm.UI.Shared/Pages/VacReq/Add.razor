@@ -37,24 +37,24 @@
                 <InputTextArea class="form-input" @bind-Value="Request.Description"></InputTextArea>
             </div>
         </div>
+        <div class="page-footer text-align-center">
+            <button type="submit"
+                    class="btn btn-primary">
+                <MaterialIcon IconName="@MaterialIconsHelper.Save"></MaterialIcon>
+            </button>
+            @if (Id is not null)
+            {
+                <button type="submit"
+                        class="btn btn-danger"
+                        @onclick="OnDeleteClick">
+                    <MaterialIcon IconName="@MaterialIconsHelper.Delete"></MaterialIcon>
+                </button>
+            }
+            <NavLink href="/vacreq"
+                     Match="NavLinkMatch.All"
+                     class="btn btn-success">
+                <MaterialIcon IconName="@MaterialIconsHelper.Arrow_back_ios_new"></MaterialIcon>
+            </NavLink>
+        </div>
     </EditForm>
-</div>
-<div class="page-footer text-align-center">
-    <button type="submit"
-            class="btn btn-primary">
-        <MaterialIcon IconName="@MaterialIconsHelper.Save"></MaterialIcon>
-    </button>
-    @if (Id is not null)
-    {
-        <button type="submit"
-                class="btn btn-danger"
-                @onclick="OnDeleteClick">
-            <MaterialIcon IconName="@MaterialIconsHelper.Delete"></MaterialIcon>
-        </button>
-    }
-    <NavLink href="/vacreq"
-             Match="NavLinkMatch.All"
-             class="btn btn-success">
-        <MaterialIcon IconName="@MaterialIconsHelper.Arrow_back_ios_new"></MaterialIcon>
-    </NavLink>
 </div>

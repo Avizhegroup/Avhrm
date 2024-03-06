@@ -17,23 +17,31 @@ public class VacationRequestService : IVacationRequest
     public VacationRequestService(AvhrmDbContext dbContext)
     {
         this.dbContext = dbContext;
-        dbSet = this.dbContext.VacationRequest;
+        dbSet = this.dbContext.VacationRequests;
     }
 
     public async Task<BaseDto<bool>> InsertVacationRequest(VacationRequest request, CallContext context = default)
     {
-        request.IsVerified = false;
-
-        request.CreateDateTime = DateTime.Now;
-
-        request.CreatorUser = context.GetUserId();
-
-        await dbSet.AddAsync(request);
-
-        return new()
+        try
         {
-            Value = await dbContext.SaveChangesAsync() > 0
-        };
+            request.IsVerified = false;
+
+            request.CreateDateTime = DateTime.Now;
+
+            request.CreatorUser = context.GetUserId();
+
+            await dbSet.AddAsync(request);
+
+            return new()
+            {
+                Value = await dbContext.SaveChangesAsync() > 0
+            };
+        }
+        catch (Exception ex)
+        {
+
+            throw;
+        }
     }
 
     public async Task<List<VacationRequest>> GetVacationRequests(CallContext context = default)
