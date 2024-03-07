@@ -5,7 +5,6 @@ using Avhrm.Persistence.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using ProtoBuf.Grpc;
-using System.Collections.Generic;
 
 namespace Avhrm.Persistence.Repositories;
 
@@ -22,26 +21,18 @@ public class VacationRequestService : IVacationRequest
 
     public async Task<BaseDto<bool>> InsertVacationRequest(VacationRequest request, CallContext context = default)
     {
-        try
+        request.IsVerified = false;
+
+        request.CreateDateTime = DateTime.Now;
+
+        request.CreatorUser = context.GetUserId();
+
+        await dbSet.AddAsync(request);
+
+        return new()
         {
-            request.IsVerified = false;
-
-            request.CreateDateTime = DateTime.Now;
-
-            request.CreatorUser = context.GetUserId();
-
-            await dbSet.AddAsync(request);
-
-            return new()
-            {
-                Value = await dbContext.SaveChangesAsync() > 0
-            };
-        }
-        catch (Exception ex)
-        {
-
-            throw;
-        }
+            Value = await dbContext.SaveChangesAsync() > 0
+        };
     }
 
     public async Task<List<VacationRequest>> GetVacationRequests(CallContext context = default)

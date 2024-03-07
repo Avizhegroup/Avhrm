@@ -4,6 +4,8 @@ using Avhrm.Core;
 using Avhrm.Identity.Server;
 using Avhrm.Persistence.Repositories;
 using Avhrm.Identity.Server.Implementation;
+using Avhrm.Core.Entities;
+using Avhrm.Persistence.Services;
 
 namespace Avhrm.Server;
 
@@ -31,21 +33,22 @@ public static class Startup
         app.UseExceptionHandler("/Home/Error");
 #endif
         app.UseRouting();
-       
+
         app.UseGrpcWeb(new GrpcWebOptions
         {
             DefaultEnabled = true
         });
 
         app.UseAuthentication();
-       
+
         app.UseAuthorization();
 
-        app.UseEndpoints(endpoints =>
-        {
-            endpoints.MapGrpcService<VacationRequestService>();
+        app.MapGrpcService<VacationRequestService>();
 
-            endpoints.MapGrpcService<AuthenticationService>();
-        });
+        app.MapGrpcService<AuthenticationService>();
+
+        app.MapGrpcService<WorkingReportService>();
+
+        app.MapGrpcService<WorkTypeService>();
     }
 }

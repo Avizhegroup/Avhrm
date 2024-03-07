@@ -97,6 +97,15 @@ namespace Avhrm.Tools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to تاریخ.
+        /// </summary>
+        public static string APP_StringKeys_Date {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to حذف.
         /// </summary>
         public static string APP_StringKeys_Delete {
@@ -264,6 +273,15 @@ namespace Avhrm.Tools.Resources {
         public static string APP_StringKeys_VacReq_Verified {
             get {
                 return ResourceManager.GetString("APP_StringKeys_VacReq_Verified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to گزارش کار.
+        /// </summary>
+        public static string APP_StringKeys_WorkingReport_Search {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_WorkingReport_Search", resourceCulture);
             }
         }
     }
