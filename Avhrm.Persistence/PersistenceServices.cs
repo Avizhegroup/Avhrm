@@ -1,7 +1,4 @@
-﻿using Avhrm.Core.Entities;
-using Avhrm.Persistence.Repositories;
-using Avhrm.Persistence.Services;
-using Microsoft.AspNetCore.Builder;
+﻿using Avhrm.Persistence.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

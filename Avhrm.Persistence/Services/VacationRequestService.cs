@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using ProtoBuf.Grpc;
 
-namespace Avhrm.Persistence.Repositories;
+namespace Avhrm.Persistence.Services;
 
 [Authorize]
 public class VacationRequestService : IVacationRequest
