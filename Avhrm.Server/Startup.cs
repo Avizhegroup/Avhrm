@@ -2,13 +2,10 @@
 using Avhrm.Persistence;
 using Avhrm.Core;
 using Avhrm.Identity.Server;
-using Avhrm.Persistence.Repositories;
 using Avhrm.Identity.Server.Implementation;
-using Avhrm.Core.Entities;
 using Avhrm.Persistence.Services;
 
 namespace Avhrm.Server;
-
 public static class Startup
 {
     // This method gets called by the runtime. Use this method to add services to the container.
