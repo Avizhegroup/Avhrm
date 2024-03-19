@@ -11,12 +11,12 @@
             <label>@TextResources.APP_StringKeys_Date:</label>
             <InputText class="form-input" @bind-Value="Request.Date"></InputText>
             <button type="submit"
-                    class="btn btn-success"> 
-                <MaterialIcon IconName="@MaterialIconsHelper.Search"></MaterialIcon>    
+                    class="btn btn-success">
+                <MaterialIcon IconName="@MaterialIconsHelper.Search"></MaterialIcon>
             </button>
         </div>
     </EditForm>
-    <hr/>
+    <hr />
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -32,25 +32,22 @@
         <tbody>
             @if (Reports is not null)
             {
-                <Virtualize Items="Reports" 
-                            ItemSize="10" 
+                <Virtualize Items="Reports"
+                            ItemSize="10"
                             OverscanCount="10">
                     <tr>
                         <td>
                             @PersianCalendarTools.GregorianToPersian(context.CreateDateTime)
                         </td>
                         <td>
-                            @(context.IsVerified ? TextResources.APP_StringKeys_VacReq_Verified : TextResources.APP_StringKeys_VacReq_NotVerified)
+                            @context.SpentHours
                         </td>
                         <td>
-                            @if (!context.IsVerified)
-                            {
-                                <NavLink href="@($"/workingreport/edit/{context.Id}")"
-                                         Match="NavLinkMatch.All"
-                                         class="btn btn-secondary">
-                                    <MaterialIcon IconName="@MaterialIconsHelper.Edit"></MaterialIcon>
-                                </NavLink>
-                            }
+                            <NavLink href="@($"/workingreport/edit/{context.Id}")"
+                                     Match="NavLinkMatch.All"
+                                     class="btn btn-secondary">
+                                <MaterialIcon IconName="@MaterialIconsHelper.Edit"></MaterialIcon>
+                            </NavLink>
                         </td>
                     </tr>
                 </Virtualize>
