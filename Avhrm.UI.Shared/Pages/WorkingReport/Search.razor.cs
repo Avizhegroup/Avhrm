@@ -6,9 +6,9 @@ namespace Avhrm.UI.Shared.Pages.WorkingReport;
 public partial class Search
 {
     public GetUserWorkingReportByDateQuery Request = new();
-    public List<Avhrm.Core.Entities.WorkingReport> Reports;
+    public List<Avhrm.Core.Entities.WorkReport> Reports;
 
-    [Inject] public IWorkingReportService Service { get; set; }
+    [Inject] public IWorkReportService Service { get; set; }
 
     public async Task OnValidSubmit(EditContext context)
     {

@@ -30,7 +30,7 @@ public class WorkType : IBaseEntity
     public string? LastUpdateUser { get; set; }
 
     [ProtoMember(7)]
-    public ICollection<WorkingReport> WorkingReports { get; set; }
+    public ICollection<WorkReport> WorkingReports { get; set; }
 }
 
 public class WorkTypeConfig : IEntityTypeConfiguration<WorkType>

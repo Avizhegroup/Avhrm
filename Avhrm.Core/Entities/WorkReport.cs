@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Avhrm.Core.Entities;
 
 [ProtoContract]
-public class WorkingReport : IBaseEntity
+public class WorkReport : IBaseEntity
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

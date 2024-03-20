@@ -44,7 +44,7 @@ public static class Startup
 
         app.MapGrpcService<AuthenticationService>();
 
-        app.MapGrpcService<WorkingReportService>();
+        app.MapGrpcService<WorkReportService>();
 
         app.MapGrpcService<WorkTypeService>();
     }

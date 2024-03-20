@@ -11,7 +11,7 @@ public class AvhrmDbContext : DbContext
     }
 
     public DbSet<VacationRequest> VacationRequests { get; set; }
-    public DbSet<WorkingReport> WorkingReports { get; set; }
+    public DbSet<WorkReport> WorkingReports { get; set; }
     public DbSet<WorkType> WorkTypes { get; set; }
     public DbSet<Project> Projects { get; set; }
 
