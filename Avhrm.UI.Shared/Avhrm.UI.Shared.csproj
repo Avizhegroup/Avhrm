@@ -47,6 +47,8 @@
 		<Using Include="Microsoft.Maui.Media" />
 		<Using Include="Microsoft.Maui.Networking" />
 		<Using Include="Microsoft.Maui.Storage" />
+		<Using Include="Telerik.Blazor" />
+		<Using Include="Telerik.Blazor.Components" />
 	</ItemGroup>
 
 	<ItemGroup>

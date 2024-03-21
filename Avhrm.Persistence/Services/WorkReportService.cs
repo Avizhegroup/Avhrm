@@ -1,7 +1,9 @@
-﻿using Avhrm.Core.Contracts;
+﻿using Avhrm.Core.Common;
+using Avhrm.Core.Contracts;
 using Avhrm.Core.Entities;
 using Avhrm.Core.Features.WorkingReport.Query.GetUserWorkingReportByDate;
 using Avhrm.Core.Features.WorkingReport.Query.GetWorkReportById;
+using Azure.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using ProtoBuf.Grpc;
@@ -28,4 +30,42 @@ public class WorkReportService : IWorkReportService
 
     public async Task<WorkReport> GetWorkReportById(GetWorkReportByIdQuery query, CallContext context = default)
     => await dbSet.FirstOrDefaultAsync(p=>p.Id == query.Id);
+
+    public async Task<BaseDto<bool>> InsertWorkReport(WorkReport workReport, CallContext context = default)
+    {
+        workReport.CreateDateTime = DateTime.Now;
+
+        workReport.CreatorUser = context.GetUserId();
+
+        await dbSet.AddAsync(workReport);
+
+        return new()
+        {
+            Value = await dbContext.SaveChangesAsync() > 0
+        };
+    }
+
+    public async Task<BaseDto<bool>> UpdateWorkReport(WorkReport workReport, CallContext context = default)
+    {
+        workReport.LastUpdateDateTime = DateTime.Now;
+
+        workReport.LastUpdateUser = context.GetUserId();
+
+        dbSet.Update(workReport);
+
+        return new()
+        {
+            Value = await dbContext.SaveChangesAsync() > 0
+        };
+    }
+
+    public async Task<BaseDto<bool>> DeleteWorkReport(WorkReport workReport, CallContext context = default)
+    {
+        dbSet.Remove(workReport);
+
+        return new()
+        {
+            Value = await dbContext.SaveChangesAsync() > 0
+        };
+    }
 }
