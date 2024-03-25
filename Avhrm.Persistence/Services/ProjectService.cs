@@ -16,4 +16,5 @@ public class ProjectService : IProjectService
 
     public async Task<List<Project>> GetAllProjects(CallContext callContext = default)
     => await dbSet.ToListAsync();
+    
 }

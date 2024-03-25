@@ -11,7 +11,7 @@ public class Project : IBaseEntity
     public int Id { get; set; }
 
     [ProtoMember(2)]
-    public int Name { get; set; }
+    public string Name { get; set; }
 
     [ProtoMember(3)]
     public DateTime CreateDateTime { get; set; }

@@ -18,27 +18,33 @@
             }
             <div class="form-group">
                 <label>@TextResources.APP_StringKeys_Date:</label>
-                <InputText class="form-input" @bind-Value="Request.Date"></InputText>
+                <InputText class="form-input" @bind-Value="Request.PersianDate"></InputText>
             </div>
             <div class="form-group">
                 <label>@TextResources.APP_StringKeys_SpentHours:</label>
-                <InputText class="form-input" @bind-Value="Request.SpentHours"></InputText>
+                <InputNumber class="form-input" @bind-Value="Request.SpentHours"></InputNumber>
             </div>
             <div class="form-group">
                 <label>@TextResources.APP_StringKeys_WorkType :</label>
-                <InputSelect @bind-Value="Request.WorkTypeId" >
-                    @foreach(var workType in WorkTypes)
+                <InputSelect @bind-Value="Request.WorkTypeId">
+                    @if (WorkTypes is not null)
                     {
-                        <option value="@workType.Id">@workType.Name</option>
-                    }        
+                        @foreach (var workType in WorkTypes)
+                        {
+                            <option value="@workType.Id">@workType.Name</option>
+                        }
+                    }
                 </InputSelect>
             </div>
             <div class="form-group">
                 <label>@TextResources.APP_StringKeys_Project :</label>
                 <InputSelect @bind-Value="Request.ProjectId">
-                    @foreach (var project in Projects)
+                    @if (Projects is not null)
                     {
-                        <option value="@project.Id">@project.Name</option>
+                        @foreach (var project in Projects)
+                        {
+                            <option value="@project.Id">@project.Name</option>
+                        }
                     }
                 </InputSelect>
             </div>

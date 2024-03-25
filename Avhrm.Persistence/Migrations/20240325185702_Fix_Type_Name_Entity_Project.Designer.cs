@@ -4,6 +4,7 @@ using Avhrm.Persistence.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Avhrm.Persistence.Migrations
 {
     [DbContext(typeof(AvhrmDbContext))]
-    partial class AvhrmDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240325185702_Fix_Type_Name_Entity_Project")]
+    partial class Fix_Type_Name_Entity_Project
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
