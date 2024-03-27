@@ -24,7 +24,10 @@
                     @TextResources.APP_StringKeys_SaveDate
                 </th>
                 <th>
-                    @TextResources.APP_StringKeys_VacReq_IsVerified
+                    @TextResources.APP_StringKeys_SpentHours
+                </th>
+                <th>
+                    @TextResources.APP_StringKeys_Description
                 </th>
                 <th></th>
             </tr>
@@ -41,6 +44,9 @@
                         </td>
                         <td>
                             @context.SpentHours
+                        </td>
+                        <td>
+                            @context.Desc
                         </td>
                         <td>
                             <NavLink href="@($"/workingreport/edit/{context.Id}")"

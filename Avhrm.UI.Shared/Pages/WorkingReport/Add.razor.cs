@@ -7,8 +7,8 @@ namespace Avhrm.UI.Shared.Pages.WorkingReport;
 
 public partial class Add
 {
-    public List<WorkType> WorkTypes;
-    public List<Project> Projects;
+    public List<WorkType> WorkTypes = new();
+    public List<Project> Projects = new();
     public WorkReport Request = new();  
 
     [Parameter] public int? Id { get; set; }

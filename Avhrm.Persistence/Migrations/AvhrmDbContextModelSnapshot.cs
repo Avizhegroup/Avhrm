@@ -134,9 +134,8 @@ namespace Avhrm.Persistence.Migrations
                     b.Property<decimal>("SpentHours")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("WorkDayDateTime")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("WorkDayDateTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("WorkDayType")
                         .HasColumnType("int");

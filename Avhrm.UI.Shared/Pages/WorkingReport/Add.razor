@@ -27,24 +27,20 @@
             <div class="form-group">
                 <label>@TextResources.APP_StringKeys_WorkType :</label>
                 <InputSelect @bind-Value="Request.WorkTypeId">
-                    @if (WorkTypes is not null)
+                    <option value="">...</option>
+                    @foreach (var workType in WorkTypes)
                     {
-                        @foreach (var workType in WorkTypes)
-                        {
-                            <option value="@workType.Id">@workType.Name</option>
-                        }
+                        <option value="@workType.Id">@workType.Name</option>
                     }
                 </InputSelect>
             </div>
             <div class="form-group">
                 <label>@TextResources.APP_StringKeys_Project :</label>
                 <InputSelect @bind-Value="Request.ProjectId">
-                    @if (Projects is not null)
+                    <option value="">...</option>
+                    @foreach (var project in Projects)
                     {
-                        @foreach (var project in Projects)
-                        {
-                            <option value="@project.Id">@project.Name</option>
-                        }
+                        <option value="@project.Id">@project.Name</option>
                     }
                 </InputSelect>
             </div>

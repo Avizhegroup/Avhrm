@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Avhrm.Persistence.Migrations
 {
     [DbContext(typeof(AvhrmDbContext))]
-    [Migration("20240306232220_Fix_WorkingDate_Type")]
-    partial class Fix_WorkingDate_Type
+    [Migration("20240327060803_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,8 +46,9 @@ namespace Avhrm.Persistence.Migrations
                     b.Property<string>("LastUpdateUser")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Name")
-                        .HasColumnType("int");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -99,37 +100,7 @@ namespace Avhrm.Persistence.Migrations
                     b.ToTable("VacationRequests");
                 });
 
-            modelBuilder.Entity("Avhrm.Core.Entities.WorkType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreateDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CreatorUser")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("LastUpdateDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("LastUpdateUser")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("WorkTypes");
-                });
-
-            modelBuilder.Entity("Avhrm.Core.Entities.WorkingReport", b =>
+            modelBuilder.Entity("Avhrm.Core.Entities.WorkReport", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -166,9 +137,8 @@ namespace Avhrm.Persistence.Migrations
                     b.Property<decimal>("SpentHours")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("WorkDayDateTime")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("WorkDayDateTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("WorkDayType")
                         .HasColumnType("int");
@@ -185,7 +155,37 @@ namespace Avhrm.Persistence.Migrations
                     b.ToTable("WorkingReports");
                 });
 
-            modelBuilder.Entity("Avhrm.Core.Entities.WorkingReport", b =>
+            modelBuilder.Entity("Avhrm.Core.Entities.WorkType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreateDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatorUser")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastUpdateDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastUpdateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("WorkTypes");
+                });
+
+            modelBuilder.Entity("Avhrm.Core.Entities.WorkReport", b =>
                 {
                     b.HasOne("Avhrm.Core.Entities.Project", "Project")
                         .WithMany("WorkingReports")

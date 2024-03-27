@@ -24,36 +24,38 @@ public class WorkReportService : IWorkReportService
     }
 
     public async Task<List<WorkReport>> GetWorkingReportByDate(GetUserWorkingReportByDateQuery query, CallContext context = default)
-    => await dbSet.Where(p => p.PersianDate == query.Date
-                                    && p.CreatorUser == context.GetUserId())
-                  .ToListAsync();
-
-    public async Task<WorkReport> GetWorkReportById(GetWorkReportByIdQuery query, CallContext context = default)
-    => await dbSet.FirstOrDefaultAsync(p=>p.Id == query.Id);
-
-    public async Task<BaseDto<bool>> InsertWorkReport(WorkReport workReport, CallContext context = default)
     {
         try
         {
-            workReport.WorkDayDateTime = PersianCalendarTools.PersianToGregorian(workReport.PersianDate);
-
-            workReport.CreateDateTime = DateTime.Now;
-
-            workReport.CreatorUser = context.GetUserId();
-
-            await dbSet.AddAsync(workReport);
-
-            return new()
-            {
-                Value = await dbContext.SaveChangesAsync() > 0
-            };
+            return await dbSet.Where(p => p.PersianDate == query.Date
+                                        && p.CreatorUser == context.GetUserId())
+                      .ToListAsync();
         }
         catch (Exception ex)
         {
 
             throw;
         }
-       
+        
+    }
+
+    public async Task<WorkReport> GetWorkReportById(GetWorkReportByIdQuery query, CallContext context = default)
+    => await dbSet.FirstOrDefaultAsync(p => p.Id == query.Id);
+
+    public async Task<BaseDto<bool>> InsertWorkReport(WorkReport workReport, CallContext context = default)
+    {
+        workReport.WorkDayDateTime = PersianCalendarTools.PersianToGregorian(workReport.PersianDate);
+
+        workReport.CreateDateTime = DateTime.Now;
+
+        workReport.CreatorUser = context.GetUserId();
+
+        await dbSet.AddAsync(workReport);
+
+        return new()
+        {
+            Value = await dbContext.SaveChangesAsync() > 0
+        };
     }
 
     public async Task<BaseDto<bool>> UpdateWorkReport(WorkReport workReport, CallContext context = default)

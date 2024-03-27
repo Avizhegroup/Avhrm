@@ -10,6 +10,11 @@ public partial class Search
 
     [Inject] public IWorkReportService Service { get; set; }
 
+    protected override async Task OnInitializedAsync()
+    {
+        Request.Date = PersianCalendarTools.GregorianToPersian(DateTime.Now);
+    }
+
     public async Task OnValidSubmit(EditContext context)
     {
         Reports = await Service.GetWorkingReportByDate(Request);
