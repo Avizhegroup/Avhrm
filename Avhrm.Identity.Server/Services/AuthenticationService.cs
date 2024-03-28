@@ -33,8 +33,9 @@ public class AuthenticationService : IAuthenticationService
         string hashedPassword = CryptographyTools.GetHashedStringSha256StringBuilder(request.Password);
 
         var user = await context.Users
-            .FirstOrDefaultAsync(p => p.UserName == request.Username
-                                && p.PasswordHash == hashedPassword);
+                                             .FirstOrDefaultAsync(p => 
+                                             p.UserName == request.Username
+                                          && p.PasswordHash == hashedPassword);
 
         if (user is null)
         {

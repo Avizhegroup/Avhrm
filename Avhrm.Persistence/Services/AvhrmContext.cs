@@ -10,5 +10,15 @@ public class AvhrmDbContext : DbContext
         Database.Migrate();
     }
 
-    public DbSet<VacationRequest> VacationRequest { get; set; }
+    public DbSet<VacationRequest> VacationRequests { get; set; }
+    public DbSet<WorkReport> WorkingReports { get; set; }
+    public DbSet<WorkType> WorkTypes { get; set; }
+    public DbSet<Project> Projects { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(Project).Assembly);
+
+        base.OnModelCreating(modelBuilder);
+    }
 }

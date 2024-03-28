@@ -27,7 +27,7 @@
                             @PersianCalendarTools.GregorianToPersian(context.CreateDateTime)
                         </td>
                         <td>
-                            @(context.Verifier is null ? TextResources.APP_StringKeys_NotSpecified : (context.IsVerified ? TextResources.APP_StringKeys_VacReq_Verified : TextResources.APP_StringKeys_VacReq_NotVerified))
+                            @(context.IsVerified ? TextResources.APP_StringKeys_VacReq_Verified : TextResources.APP_StringKeys_VacReq_NotVerified)
                         </td>
                         <td>
                             @if (!context.IsVerified)

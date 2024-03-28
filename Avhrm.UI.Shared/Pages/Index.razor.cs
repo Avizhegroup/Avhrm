@@ -10,4 +10,9 @@ public partial class Index
     {
         NavigationManager.NavigateTo("/vacreq");
     }
+
+    public async Task OnWorkingSearchClick(MouseEventArgs e)
+    {
+        NavigationManager.NavigateTo("/workingreport/search");
+    }
 }

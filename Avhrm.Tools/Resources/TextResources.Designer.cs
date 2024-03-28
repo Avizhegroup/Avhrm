@@ -97,6 +97,15 @@ namespace Avhrm.Tools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to تاریخ.
+        /// </summary>
+        public static string APP_StringKeys_Date {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to حذف.
         /// </summary>
         public static string APP_StringKeys_Delete {
@@ -205,11 +214,29 @@ namespace Avhrm.Tools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to پروژه.
+        /// </summary>
+        public static string APP_StringKeys_Project {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Project", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to تاریخ ثبت.
         /// </summary>
         public static string APP_StringKeys_SaveDate {
             get {
                 return ResourceManager.GetString("APP_StringKeys_SaveDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ساعت صرف شده.
+        /// </summary>
+        public static string APP_StringKeys_SpentHours {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_SpentHours", resourceCulture);
             }
         }
         
@@ -264,6 +291,24 @@ namespace Avhrm.Tools.Resources {
         public static string APP_StringKeys_VacReq_Verified {
             get {
                 return ResourceManager.GetString("APP_StringKeys_VacReq_Verified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to گزارش کار.
+        /// </summary>
+        public static string APP_StringKeys_WorkingReport_Search {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_WorkingReport_Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to نوع کار.
+        /// </summary>
+        public static string APP_StringKeys_WorkType {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_WorkType", resourceCulture);
             }
         }
     }

@@ -5,9 +5,8 @@ using Avhrm.Persistence.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using ProtoBuf.Grpc;
-using System.Collections.Generic;
 
-namespace Avhrm.Persistence.Repositories;
+namespace Avhrm.Persistence.Services;
 
 [Authorize]
 public class VacationRequestService : IVacationRequest
@@ -17,7 +16,7 @@ public class VacationRequestService : IVacationRequest
     public VacationRequestService(AvhrmDbContext dbContext)
     {
         this.dbContext = dbContext;
-        dbSet = this.dbContext.VacationRequest;
+        dbSet = this.dbContext.VacationRequests;
     }
 
     public async Task<BaseDto<bool>> InsertVacationRequest(VacationRequest request, CallContext context = default)

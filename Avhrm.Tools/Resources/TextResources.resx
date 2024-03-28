@@ -129,6 +129,9 @@
   <data name="APP_StringKeys_Add" xml:space="preserve">
     <value>افزودن</value>
   </data>
+  <data name="APP_StringKeys_Date" xml:space="preserve">
+    <value>تاریخ</value>
+  </data>
   <data name="APP_StringKeys_Delete" xml:space="preserve">
     <value>حذف</value>
   </data>
@@ -165,8 +168,14 @@
   <data name="APP_StringKeys_NotSpecified" xml:space="preserve">
     <value>مشخص نشده</value>
   </data>
+  <data name="APP_StringKeys_Project" xml:space="preserve">
+    <value>پروژه</value>
+  </data>
   <data name="APP_StringKeys_SaveDate" xml:space="preserve">
     <value>تاریخ ثبت</value>
+  </data>
+  <data name="APP_StringKeys_SpentHours" xml:space="preserve">
+    <value>ساعت صرف شده</value>
   </data>
   <data name="APP_StringKeys_ToDate" xml:space="preserve">
     <value>تا تاریخ</value>
@@ -185,5 +194,11 @@
   </data>
   <data name="APP_StringKeys_VacReq_Verified" xml:space="preserve">
     <value>تائید شده</value>
+  </data>
+  <data name="APP_StringKeys_WorkingReport_Search" xml:space="preserve">
+    <value>گزارش کار</value>
+  </data>
+  <data name="APP_StringKeys_WorkType" xml:space="preserve">
+    <value>نوع کار</value>
   </data>
 </root>

@@ -1,0 +1,75 @@
+﻿@page "/workingreport/search"
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+
+<div class="page-header text-align-center">
+    @TextResources.APP_StringKeys_WorkingReport_Search
+</div>
+<div class="pages-workingreport-search text-align-center">
+    <EditForm Model="Request"
+              OnValidSubmit="OnValidSubmit">
+        <div class="search-box">
+            <label>@TextResources.APP_StringKeys_Date:</label>
+            <InputText class="form-input" @bind-Value="Request.Date"></InputText>
+            <button type="submit"
+                    class="btn btn-success">
+                <MaterialIcon IconName="@MaterialIconsHelper.Search"></MaterialIcon>
+            </button>
+        </div>
+    </EditForm>
+    <hr />
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    @TextResources.APP_StringKeys_SaveDate
+                </th>
+                <th>
+                    @TextResources.APP_StringKeys_SpentHours
+                </th>
+                <th>
+                    @TextResources.APP_StringKeys_Description
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Reports is not null)
+            {
+                <Virtualize Items="Reports"
+                            ItemSize="10"
+                            OverscanCount="10">
+                    <tr>
+                        <td>
+                            @PersianCalendarTools.GregorianToPersian(context.CreateDateTime)
+                        </td>
+                        <td>
+                            @context.SpentHours
+                        </td>
+                        <td>
+                            @context.Desc
+                        </td>
+                        <td>
+                            <NavLink href="@($"/workingreport/edit/{context.Id}")"
+                                     Match="NavLinkMatch.All"
+                                     class="btn btn-secondary">
+                                <MaterialIcon IconName="@MaterialIconsHelper.Edit"></MaterialIcon>
+                            </NavLink>
+                        </td>
+                    </tr>
+                </Virtualize>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="page-footer text-align-center">
+    <NavLink href="/workingreport/add"
+             Match="NavLinkMatch.All"
+             class="btn btn-primary">
+        <MaterialIcon IconName="@MaterialIconsHelper.Add"></MaterialIcon>
+    </NavLink>
+    <NavLink href="/"
+             Match="NavLinkMatch.All"
+             class="btn btn-light">
+        <MaterialIcon IconName="@MaterialIconsHelper.Arrow_back_ios_new"></MaterialIcon>
+    </NavLink>
+</div>

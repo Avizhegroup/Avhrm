@@ -1,5 +1,5 @@
-﻿@page "/vacreq/add"
-@page "/vacreq/edit/{Id:int}"
+﻿@page "/workingreport/add"
+@page "/workingreport/edit/{Id:int}"
 
 <div class="pages-vacreq-add text-align-center">
     <EditForm Model="Request"
@@ -17,24 +17,36 @@
                 </div>
             }
             <div class="form-group">
-                <label>@TextResources.APP_StringKeys_FromDate:</label>
-                <InputText class="form-input" @bind-Value="Request.PersianFromDate"></InputText>
+                <label>@TextResources.APP_StringKeys_Date:</label>
+                <InputText class="form-input" @bind-Value="Request.PersianDate"></InputText>
             </div>
             <div class="form-group">
-                <label>@TextResources.APP_StringKeys_FromTime:</label>
-                <InputText class="form-input" @bind-Value="Request.PersianFromTime"></InputText>
+                <label>@TextResources.APP_StringKeys_SpentHours:</label>
+                <InputNumber class="form-input" @bind-Value="Request.SpentHours"></InputNumber>
             </div>
             <div class="form-group">
-                <label>@TextResources.APP_StringKeys_ToDate:</label>
-                <InputText class="form-input" @bind-Value="Request.PersianToDate"></InputText>
+                <label>@TextResources.APP_StringKeys_WorkType :</label>
+                <InputSelect @bind-Value="Request.WorkTypeId">
+                    <option value="">...</option>
+                    @foreach (var workType in WorkTypes)
+                    {
+                        <option value="@workType.Id">@workType.Name</option>
+                    }
+                </InputSelect>
             </div>
             <div class="form-group">
-                <label>@TextResources.APP_StringKeys_ToTime:</label>
-                <InputText class="form-input" @bind-Value="Request.PersianToTime"></InputText>
+                <label>@TextResources.APP_StringKeys_Project :</label>
+                <InputSelect @bind-Value="Request.ProjectId">
+                    <option value="">...</option>
+                    @foreach (var project in Projects)
+                    {
+                        <option value="@project.Id">@project.Name</option>
+                    }
+                </InputSelect>
             </div>
             <div class="form-group">
                 <label>@TextResources.APP_StringKeys_Description:</label>
-                <InputTextArea class="form-input" @bind-Value="Request.Description"></InputTextArea>
+                <InputText class="form-input" @bind-Value="Request.Desc"></InputText>
             </div>
         </div>
         <div class="page-footer text-align-center">
@@ -50,9 +62,9 @@
                     <MaterialIcon IconName="@MaterialIconsHelper.Delete"></MaterialIcon>
                 </button>
             }
-            <NavLink href="/vacreq"
+            <NavLink href="/workingreport/search"
                      Match="NavLinkMatch.All"
-                     class="btn btn-success">
+                     class="btn btn-light">
                 <MaterialIcon IconName="@MaterialIconsHelper.Arrow_back_ios_new"></MaterialIcon>
             </NavLink>
         </div>
