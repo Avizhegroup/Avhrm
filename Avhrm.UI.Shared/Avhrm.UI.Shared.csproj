@@ -28,8 +28,9 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
 		</PackageReference>
+		<PackageReference Include="MudBlazor" Version="6.19.1" />
 	</ItemGroup>
-	
+
 	<ItemGroup>
 		<Using Include="System.ComponentModel.DataAnnotations" />
 	</ItemGroup>
