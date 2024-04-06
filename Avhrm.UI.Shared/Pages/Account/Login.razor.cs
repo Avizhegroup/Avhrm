@@ -3,7 +3,6 @@ using Avhrm.Identity.Contracts;
 using Avhrm.Identity.UI.Services;
 
 namespace Avhrm.UI.Shared.Pages.Account;
-
 public partial class Login
 {
     public bool IsMessageShown = false;
@@ -14,6 +13,8 @@ public partial class Login
     [Inject] public IAuthenticationService AuthenticationService { get; set; } 
     [Inject] public AvhrmClientAuthenticationStateProvider ClientAuthProvider { get; set; }
     [Inject] public NavigationManager NavigationManager { get; set; }
+
+    public MudAlert Alert { get; set; }
 
     public async Task OnValidSubmit(EditContext context)
     {
@@ -31,5 +32,17 @@ public partial class Login
         await ClientAuthProvider.SetUserAuthenticated(token.Value);
 
         NavigationManager.NavigateTo("/", true);
+    }
+
+    public async Task OnInvalidSubmit(EditContext context)
+    {
+        IsMessageShown = true;
+
+        MessageText = string.Empty;
+
+        foreach (var valid in context.GetValidationMessages())
+        {
+            MessageText += $"{valid} \n"; 
+        }
     }
 }
