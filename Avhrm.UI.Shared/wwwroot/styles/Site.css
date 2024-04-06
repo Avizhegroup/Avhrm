@@ -57,6 +57,10 @@
   margin-bottom: 10px;
 }
 
+.mud-main-content {
+  padding-top: unset !important;
+}
+
 body, h1, h2, h3, h4, h5, h6, input, textarea {
   font-family: IRANSans !important;
 }

@@ -6,7 +6,7 @@ namespace Avhrm.UI.Shared.Pages.Account;
 public partial class Login
 {
     public bool IsMessageShown = false;
-    public string MessageText = string.Empty;
+    public List<string> MessageTexts = new();
 
     public GetUserLoginQuery Request { get; set; } = new();
 
@@ -24,7 +24,9 @@ public partial class Login
         {
             IsMessageShown = true;
 
-            MessageText = TextResources.APP_StringKeys_Error_Login;
+            MessageTexts.Clear();
+
+            MessageTexts.Add( TextResources.APP_StringKeys_Error_Login);
 
             return;
         }
@@ -38,11 +40,11 @@ public partial class Login
     {
         IsMessageShown = true;
 
-        MessageText = string.Empty;
+        MessageTexts.Clear();
 
         foreach (var valid in context.GetValidationMessages())
         {
-            MessageText += $"{valid} \n"; 
+            MessageTexts.Add(valid); 
         }
     }
 }

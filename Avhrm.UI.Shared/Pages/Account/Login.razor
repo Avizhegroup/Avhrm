@@ -1,14 +1,31 @@
 ﻿@page "/account/login"
 
 <div class="pages-account-login text-align-center">
+    @if (IsMessageShown)
+    {
+        <MudAlert Severity="Severity.Error"
+                  Variant="Variant.Filled"
+                  Class="rounded-0"
+                  ShowCloseIcon="true"
+                  CloseIconClicked="()=> IsMessageShown = false">
+            <ul>
+                @foreach (var text in MessageTexts)
+                {
+                    <li>
+                        @text
+                    </li>
+                }
+            </ul>
+        </MudAlert>
+    }
     <EditForm Model="Request"
               OnValidSubmit="OnValidSubmit"
               OnInvalidSubmit="OnInvalidSubmit">
         <DataAnnotationsValidator />
         <div class="form-group">
-            <MudTextField @bind-Value="Request.Username" 
-                          Label="@TextResources.APP_StringKeys_Account_Username" 
-                          Variant="Variant.Outlined" 
+            <MudTextField @bind-Value="Request.Username"
+                          Label="@TextResources.APP_StringKeys_Account_Username"
+                          Variant="Variant.Outlined"
                           Margin="Margin.Dense">
             </MudTextField>
         </div>
@@ -28,13 +45,3 @@
         </div>
     </EditForm>
 </div>
-
-@if (IsMessageShown)
-{
-    <MudAlert Severity="Severity.Error"
-              Class="rounded-0"
-              ShowCloseIcon="true"
-              CloseIconClicked="()=> IsMessageShown = false">
-        @MessageText
-    </MudAlert>
-}
