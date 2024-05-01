@@ -4,6 +4,7 @@ using Avhrm.Identity.Contracts;
 using Avhrm.UI.Shared.Extensions;
 using Avhrm.UI.Shared.Services;
 using Microsoft.Extensions.Configuration;
+using MudBlazor.Services;
 
 namespace Avhrm.UI.Shared;
 
@@ -32,5 +33,7 @@ public static class SharedServices
         services.AddGrpcService<IProjectService>(configuration);
 
         services.AddIdentityUIServices();
+
+        services.AddMudServices();
     }
 }

@@ -15,7 +15,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="8.0.0" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.3" />
 		<PackageReference Include="Grpc.Net.Client" Version="2.59.0" />
 		<PackageReference Include="Grpc.Net.Client.Web" Version="2.59.0" />
 		<PackageReference Include="BuildWebCompiler2022" Version="1.14.9.1">
@@ -28,8 +28,9 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
 		</PackageReference>
+		<PackageReference Include="MudBlazor" Version="6.19.1" />
 	</ItemGroup>
-	
+
 	<ItemGroup>
 		<Using Include="System.ComponentModel.DataAnnotations" />
 	</ItemGroup>

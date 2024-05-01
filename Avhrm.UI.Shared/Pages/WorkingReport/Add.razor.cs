@@ -7,9 +7,11 @@ namespace Avhrm.UI.Shared.Pages.WorkingReport;
 
 public partial class Add
 {
+    public bool IsMessageShown = false;
     public List<WorkType> WorkTypes = new();
     public List<Project> Projects = new();
     public WorkReport Request = new();  
+    public List<string> MessageTexts = new();
 
     [Parameter] public int? Id { get; set; }
 
@@ -55,6 +57,18 @@ public partial class Add
             NavigationManager.NavigateTo("/workingreport/search");
 
             return;
+        }
+    }
+
+    public async Task OnInvalidSubmit(EditContext context)
+    {
+        IsMessageShown = true;
+
+        MessageTexts.Clear();
+
+        foreach (var valid in context.GetValidationMessages())
+        {
+            MessageTexts.Add(valid);
         }
     }
 

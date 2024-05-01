@@ -1,6 +1,5 @@
 ﻿@charset "UTF-8";
 @import 'libraries/bootstrap.min.css';
-@import 'libraries/kendo.bootstrap-v4.min.css';
 .app-all-container {
   max-width: 500px;
   margin: 0 auto;
@@ -56,6 +55,10 @@
   border-top: none;
   padding-top: 5px;
   margin-bottom: 10px;
+}
+
+.mud-main-content {
+  padding-top: unset !important;
 }
 
 body, h1, h2, h3, h4, h5, h6, input, textarea {
@@ -1383,8 +1386,7 @@ blockquote {
 }
 
 .pages-account-login {
-  position: absolute;
-  top: 50%;
+  padding-top: 20%;
 }
 
 .pages-vacreq-index {

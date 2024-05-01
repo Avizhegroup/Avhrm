@@ -24,27 +24,15 @@ public class WorkReportService : IWorkReportService
     }
 
     public async Task<List<WorkReport>> GetWorkingReportByDate(GetUserWorkingReportByDateQuery query, CallContext context = default)
-    {
-        try
-        {
-            return await dbSet.Where(p => p.PersianDate == query.Date
-                                        && p.CreatorUser == context.GetUserId())
+        => await dbSet.Where(p => p.PersianDate == query.Date && p.CreatorUser == context.GetUserId())
                       .ToListAsync();
-        }
-        catch (Exception ex)
-        {
-
-            throw;
-        }
-        
-    }
 
     public async Task<WorkReport> GetWorkReportById(GetWorkReportByIdQuery query, CallContext context = default)
     => await dbSet.FirstOrDefaultAsync(p => p.Id == query.Id);
 
     public async Task<BaseDto<bool>> InsertWorkReport(WorkReport workReport, CallContext context = default)
     {
-        workReport.WorkDayDateTime = PersianCalendarTools.PersianToGregorian(workReport.PersianDate);
+        workReport.PersianDate = PersianCalendarTools.GregorianToPersian(workReport.WorkDayDateTime);
 
         workReport.CreateDateTime = DateTime.Now;
 
@@ -60,6 +48,8 @@ public class WorkReportService : IWorkReportService
 
     public async Task<BaseDto<bool>> UpdateWorkReport(WorkReport workReport, CallContext context = default)
     {
+        workReport.PersianDate = PersianCalendarTools.GregorianToPersian(workReport.WorkDayDateTime);
+
         workReport.LastUpdateDateTime = DateTime.Now;
 
         workReport.LastUpdateUser = context.GetUserId();

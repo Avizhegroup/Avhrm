@@ -8,6 +8,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Avhrm.UI.Shared\Avhrm.UI.Shared.csproj" />
+		<PackageReference Include="MudBlazor" Version="6.19.1" />
 	</ItemGroup>
 
 	<ItemGroup>
