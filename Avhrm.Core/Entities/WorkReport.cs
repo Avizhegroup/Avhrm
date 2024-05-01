@@ -42,7 +42,7 @@ public class WorkReport : IBaseEntity
     public WorkDayType WorkDayType { get; set; }
 
     [ProtoMember(10)]
-    public DateTime WorkDayDateTime { get; set; }
+    public DateTime? WorkDayDateTime { get; set; }
 
     [ProtoMember(11)]
     public DateTime CreateDateTime { get; set; }
