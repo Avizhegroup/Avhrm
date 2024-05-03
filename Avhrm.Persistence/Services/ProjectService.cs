@@ -1,5 +1,5 @@
 ﻿using Avhrm.Core.Contracts;
-using Avhrm.Core.Entities;
+using Avhrm.Domains;
 using Microsoft.EntityFrameworkCore;
 using ProtoBuf.Grpc;
 

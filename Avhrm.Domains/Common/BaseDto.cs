@@ -1,6 +1,6 @@
 ﻿using ProtoBuf;
 
-namespace Avhrm.Core.Common;
+namespace Avhrm.Domains;
 
 [ProtoContract]
 public class BaseDto<T>

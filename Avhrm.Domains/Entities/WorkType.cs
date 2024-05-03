@@ -1,35 +1,28 @@
-﻿using ProtoBuf;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 
-namespace Avhrm.Core.Entities;
+namespace Avhrm.Domains;
 
-[ProtoContract]
 public class WorkType : IBaseEntity
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    [ProtoMember(1)]
     public int Id { get; set; }
 
-    [ProtoMember(2)]
-    public string Name { get; set; }
+    [Required]
+    [StringLength(256)]
+    public string Description { get; set; }
 
-    [ProtoMember(3)]
+    [Required]
+    public int DepartmentId { get; set; }
+    public Department Department { get; set; }
+
     public DateTime CreateDateTime { get; set; }
-
-    [ProtoMember(4)]
-    public string CreatorUser { get; set; }
-
-    [ProtoMember(5)]
+    public string CreatorUserId { get; set; }
     public DateTime? LastUpdateDateTime { get; set; }
-
-    [ProtoMember(6)]
-    public string? LastUpdateUser { get; set; }
-
-    [ProtoMember(7)]
+    public string? LastUpdateUserId { get; set; }
     public ICollection<WorkReport> WorkingReports { get; set; }
 }
 

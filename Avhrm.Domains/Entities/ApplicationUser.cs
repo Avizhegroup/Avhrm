@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 
-namespace Avhrm.Identity.Server.Models;
-
+namespace Avhrm.Domains;
 public class ApplicationUser : IdentityUser
 {
     [Required]
@@ -11,4 +10,7 @@ public class ApplicationUser : IdentityUser
 
     public ApplicationUser? Parent { get; set; }
 	public ICollection<ApplicationUser> Children { get; set; }
+
+    public int DepartmentId { get; set; }
+    public Department Department { get; set; }
 }
