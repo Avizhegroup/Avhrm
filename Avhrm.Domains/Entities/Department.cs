@@ -17,7 +17,7 @@ public class Department : IBaseEntity
 
     public ICollection<ApplicationUser> Users { get; set; }
     public ICollection<WorkType> WorkTypes { get; set; }
-    public ICollection<WorkingChallenge> WorkingChallenges { get; set; }
+    public ICollection<WorkChallenge> WorkingChallenges { get; set; }
 
     public DateTime CreateDateTime { get; set; }
     public string CreatorUserId { get; set; }

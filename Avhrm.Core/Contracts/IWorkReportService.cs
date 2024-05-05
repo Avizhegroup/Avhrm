@@ -1,5 +1,4 @@
 ﻿using Avhrm.Core.Common;
-using Avhrm.Core.Entities;
 using Avhrm.Core.Features.WorkingReport.Query.GetUserWorkingReportByDate;
 using Avhrm.Core.Features.WorkingReport.Query.GetWorkReportById;
 using ProtoBuf.Grpc;

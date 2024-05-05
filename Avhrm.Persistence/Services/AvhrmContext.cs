@@ -22,6 +22,8 @@ public class AvhrmDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<Project> Projects { get; set; }
     public DbSet<Customer> Customers { get; set; }
     public DbSet<Department> Departments { get; set; }
+    public DbSet<WorkChallenge> WorkChallenges { get; set; }
+    public DbSet<UserPointChangeLog> PointChangeLogs { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
