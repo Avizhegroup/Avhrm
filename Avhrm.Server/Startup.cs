@@ -46,6 +46,8 @@ public static class Startup
 
         app.MapGrpcService<WorkReportService>();
 
+        app.MapGrpcService<WorkChallengeService>();
+
         app.MapGrpcService<WorkTypeService>();
 
         app.MapGrpcService<ProjectService>();

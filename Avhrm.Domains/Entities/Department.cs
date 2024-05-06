@@ -2,7 +2,6 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
-using Avhrm.Domains.Entities;
 
 namespace Avhrm.Domains;
 public class Department : IBaseEntity

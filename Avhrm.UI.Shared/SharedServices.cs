@@ -28,6 +28,8 @@ public static class SharedServices
 
         services.AddGrpcService<IWorkReportService>(configuration);
 
+        services.AddGrpcService<IWorkChallengeService>(configuration);
+
         services.AddGrpcService<IWorkTypeService>(configuration);
 
         services.AddGrpcService<IProjectService>(configuration);

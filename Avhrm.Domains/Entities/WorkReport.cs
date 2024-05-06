@@ -20,6 +20,8 @@ public class WorkReport : IBaseEntity
     [Required]
     public decimal SpentHours { get; set; }
 
+    public decimal? EstimateHours { get; set; }
+
     public int? ProjectId { get; set; }
     public Project? Project { get; set; }
 
