@@ -1,5 +1,4 @@
 ﻿using Avhrm.Core.Common;
-using Avhrm.Core.Entities;
 using ProtoBuf.Grpc;
 using ProtoBuf.Grpc.Configuration;
 

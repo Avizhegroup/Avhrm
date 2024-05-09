@@ -9,6 +9,12 @@ public class UserPointChangeLog : IBaseEntity
     public int Id { get; set; }
 
     [Required]
+    public int BeforePoint { get; set; }
+
+    [Required]
+    public int AfterPoint { get; set; }
+
+    [Required]
     public int UserId { get; set; }
     public ApplicationUser User { get; set; }
 

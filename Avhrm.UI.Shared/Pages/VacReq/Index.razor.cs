@@ -1,5 +1,5 @@
 ﻿using Avhrm.Core.Contracts;
-using Avhrm.Core.Entities;
+using Avhrm.Domains;
 
 namespace Avhrm.UI.Shared.Pages.VacReq;
 

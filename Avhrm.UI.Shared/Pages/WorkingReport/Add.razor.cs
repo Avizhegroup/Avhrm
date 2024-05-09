@@ -1,16 +1,18 @@
 ﻿using Avhrm.Core.Common;
 using Avhrm.Core.Contracts;
-using Avhrm.Core.Entities;
+using Avhrm.Core.Features.Project.Query.GetAllProjects;
+using Avhrm.Core.Features.WorkingReport.Command;
+using Avhrm.Core.Features.WorkType.Query.GetAllWorkTypes;
+using Avhrm.Domains;
 using Microsoft.AspNetCore.Components.Web;
 
 namespace Avhrm.UI.Shared.Pages.WorkingReport;
-
 public partial class Add
 {
     public bool IsMessageShown = false;
-    public List<WorkType> WorkTypes = new();
-    public List<Project> Projects = new();
-    public WorkReport Request = new();  
+    public List<GetAllWorkTypesVm> WorkTypes = new();
+    public List<GetAllProjectsVm> Projects = new();
+    public SaveWorkReportCommand Command = new();  
     public List<string> MessageTexts = new();
 
     [Parameter] public int? Id { get; set; }
@@ -28,14 +30,14 @@ public partial class Add
 
         if (Id is not null)
         {
-            Request = await WorkReportService.GetWorkReportById(new()
+            Command = await WorkReportService.GetWorkReportById(new()
             {
                 Id = Id.Value
             });
         }
         else
         {
-            Request.PersianDate = PersianCalendarTools.GregorianToPersian(DateTime.Now);
+            Command.PersianDate = PersianCalendarTools.GregorianToPersian(DateTime.Now);
         }
     }
 
@@ -45,11 +47,11 @@ public partial class Add
 
         if (Id is not null)
         {
-            result = await WorkReportService.UpdateWorkReport(Request);
+            result = await WorkReportService.UpdateWorkReport(Command);
         }
         else
         {
-            result = await WorkReportService.InsertWorkReport(Request);
+            result = await WorkReportService.InsertWorkReport(Command);
         }
 
         if (result.Value)
@@ -74,7 +76,7 @@ public partial class Add
 
     public async Task OnDeleteClick(MouseEventArgs e)
     {
-        BaseDto<bool> result = await WorkReportService.DeleteWorkReport(Request);
+        BaseDto<bool> result = await WorkReportService.DeleteWorkReport(Command);
 
         if (result.Value)
         {

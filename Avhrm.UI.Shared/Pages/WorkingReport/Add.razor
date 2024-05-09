@@ -20,7 +20,7 @@
             </ul>
         </MudAlert>
     }
-    <EditForm Model="Request"
+    <EditForm Model="Command"
               OnValidSubmit="OnValidSubmit"
               OnInvalidSubmit="OnInvalidSubmit">
         <DataAnnotationsValidator />
@@ -28,7 +28,7 @@
             @if (Id is not null)
             {
                 <div class="form-group">
-                    <MudTextField @bind-Value="Request.Id"
+                    <MudTextField @bind-Value="Command.Id"
                                   Label="@TextResources.APP_StringKeys_Id"
                                   Variant="Variant.Outlined"
                                   Margin="Margin.Dense"
@@ -38,12 +38,12 @@
             }
             <div class="form-group">
                 <MudDatePicker Label="@TextResources.APP_StringKeys_Date"
-                               @bind-Date="Request.WorkDayDateTime"
+                               @bind-Date="Command.WorkDayDateTime"
                                Culture="@MudblazorDatePickerHelper.GetPersianCulture()"
                                TitleDateFormat="dddd, dd MMMM" />
             </div>
             <div class="form-group">
-                <MudTextField @bind-Value="Request.SpentHours"
+                <MudTextField @bind-Value="Command.SpentHours"
                               Label="@TextResources.APP_StringKeys_SpentHours"
                               Variant="Variant.Outlined"
                               Margin="Margin.Dense">
@@ -51,7 +51,7 @@
             </div>
             <div class="form-group">
                 <label>@TextResources.APP_StringKeys_WorkType :</label>
-                <InputSelect @bind-Value="Request.WorkTypeId">
+                <InputSelect @bind-Value="Command.WorkTypeId">
                     <option value="">...</option>
                     @foreach (var workType in WorkTypes)
                     {
@@ -61,7 +61,7 @@
             </div>
             <div class="form-group">
                 <label>@TextResources.APP_StringKeys_Project :</label>
-                <InputSelect @bind-Value="Request.ProjectId">
+                <InputSelect @bind-Value="Command.ProjectId">
                     <option value="">...</option>
                     @foreach (var project in Projects)
                     {
@@ -71,7 +71,7 @@
             </div>
             <div class="form-group">
                 <label>@TextResources.APP_StringKeys_Description:</label>
-                <InputText class="form-input" @bind-Value="Request.Desc"></InputText>
+                <InputText class="form-input" @bind-Value="Command.Desc"></InputText>
             </div>
         </div>
         <div class="page-footer text-align-center">

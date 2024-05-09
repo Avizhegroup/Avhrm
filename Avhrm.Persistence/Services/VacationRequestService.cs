@@ -1,7 +1,6 @@
 ﻿using Avhrm.Core.Common;
 using Avhrm.Core.Contracts;
-using Avhrm.Core.Entities;
-using Avhrm.Persistence.Services;
+using Avhrm.Domains;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using ProtoBuf.Grpc;
@@ -25,7 +24,7 @@ public class VacationRequestService : IVacationRequest
 
         request.CreateDateTime = DateTime.Now;
 
-        request.CreatorUser = context.GetUserId();
+        request.CreatorUserId = context.GetUserId();
 
         await dbSet.AddAsync(request);
 
@@ -36,16 +35,16 @@ public class VacationRequestService : IVacationRequest
     }
 
     public async Task<List<VacationRequest>> GetVacationRequests(CallContext context = default)
-    => await dbSet.Where(p => p.CreatorUser == context.GetUserId()).AsNoTracking().ToListAsync();
+    => await dbSet.Where(p => p.CreatorUserId == context.GetUserId()).AsNoTracking().ToListAsync();
 
     public async Task<VacationRequest> GetVacationRequestById(BaseDto<int> id, CallContext context = default)
-    => await dbSet.FirstOrDefaultAsync(p => p.CreatorUser == context.GetUserId() && p.Id == id.Value);
+    => await dbSet.FirstOrDefaultAsync(p => p.CreatorUserId == context.GetUserId() && p.Id == id.Value);
 
     public async Task<BaseDto<bool>> UpdateVacationRequest(VacationRequest request, CallContext context = default)
     {
         request.LastUpdateDateTime = DateTime.Now;
 
-        request.LastUpdateUser = context.GetUserId();
+        request.LastUpdateUserId = context.GetUserId();
 
         dbSet.Update(request);
 

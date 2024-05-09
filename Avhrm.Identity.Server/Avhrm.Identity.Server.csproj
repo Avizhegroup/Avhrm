@@ -20,6 +20,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Avhrm.Core\Avhrm.Core.csproj" />
+		<ProjectReference Include="..\Avhrm.Persistence\Avhrm.Persistence.csproj" />
 	</ItemGroup>
 
 </Project>

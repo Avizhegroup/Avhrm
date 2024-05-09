@@ -1,4 +1,5 @@
-﻿using ProtoBuf.Grpc;
+﻿using Avhrm.Core.Features.WorkType.Query.GetAllWorkTypes;
+using ProtoBuf.Grpc;
 using ProtoBuf.Grpc.Configuration;
 
 namespace Avhrm.Core.Contracts;
@@ -6,5 +7,5 @@ namespace Avhrm.Core.Contracts;
 [Service]
 public interface IProjectService
 {
-    Task<List<Project>> GetAllProjects(CallContext callContext = default);
+    Task<List<GetAllWorkTypesVm>> GetAllProjects(CallContext callContext = default);
 }

@@ -1,5 +1,7 @@
-﻿using Avhrm.Core.Contracts;
-using Avhrm.Core.Entities;
+﻿using AutoMapper;
+using Avhrm.Core.Contracts;
+using Avhrm.Core.Features.WorkType.Query.GetAllWorkTypes;
+using Avhrm.Domains;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using ProtoBuf.Grpc;
@@ -7,17 +9,19 @@ using ProtoBuf.Grpc;
 namespace Avhrm.Persistence.Services;
 
 [Authorize]
-public class WorkTypeService: IWorkTypeService
+public class WorkTypeService : IWorkTypeService
 {
     private readonly AvhrmDbContext dbContext;
+    private readonly IMapper mapper;
     private readonly DbSet<WorkType> dbSet;
-    public WorkTypeService(AvhrmDbContext dbContext)
+    public WorkTypeService(AvhrmDbContext dbContext
+        , IMapper mapper)
     {
         this.dbContext = dbContext;
-
+        this.mapper = mapper;
         dbSet = dbContext.WorkTypes;
     }
 
-    public async Task<List<WorkType>> GetAllWorkTypes(CallContext context = default)
-       => await dbContext.WorkTypes.ToListAsync();
+    public async Task<List<GetAllWorkTypesVm>> GetAllWorkTypes(CallContext context = default)
+       => mapper.Map<List<GetAllWorkTypesVm>>(await dbContext.WorkTypes.ToListAsync());
 }

@@ -5,7 +5,6 @@ using Avhrm.Core.Features.WorkingReport.Command;
 using Avhrm.Core.Features.WorkingReport.Query.GetUserWorkingReportByDate;
 using Avhrm.Core.Features.WorkingReport.Query.GetWorkReportById;
 using Avhrm.Domains;
-using Azure.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using ProtoBuf.Grpc;
@@ -67,6 +66,22 @@ public class WorkReportService : IWorkReportService
     public async Task<BaseDto<bool>> UpdateWorkReport(SaveWorkReportCommand command, CallContext context = default)
     {
         WorkReport workReport = mapper.Map<WorkReport>(command);
+
+        dbSet.Attach(workReport);
+
+        workReport.WorkChallenges.Clear();
+
+        foreach (var workChallengeId in command.WorkChallengesIds)
+        {
+            WorkChallenge workChallenge = new()
+            {
+                Id = workChallengeId
+            };
+
+            dbContext.WorkChallenges.Attach(workChallenge);
+
+            workReport.WorkChallenges.Add(workChallenge);
+        }
 
         workReport.LastUpdateDateTime = DateTime.Now;
 

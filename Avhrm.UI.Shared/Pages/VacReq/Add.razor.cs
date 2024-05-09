@@ -1,6 +1,6 @@
 ﻿using Avhrm.Core.Common;
 using Avhrm.Core.Contracts;
-using Avhrm.Core.Entities;
+using Avhrm.Domains;
 using Microsoft.AspNetCore.Components.Web;
 
 namespace Avhrm.UI.Shared.Pages.VacReq;
