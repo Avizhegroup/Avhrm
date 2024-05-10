@@ -6,7 +6,7 @@ namespace Avhrm.UI.Shared.Pages.WorkingReport;
 public partial class Search
 {
     public GetUserWorkingReportByDateQuery Request = new();
-    public List<Avhrm.Core.Entities.WorkReport> Reports;
+    public List<GetUserWorkingReportByDateVm> Reports;
 
     [Inject] public IWorkReportService Service { get; set; }
 

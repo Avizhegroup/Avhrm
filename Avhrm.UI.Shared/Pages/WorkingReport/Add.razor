@@ -37,10 +37,12 @@
                 </div>
             }
             <div class="form-group">
-                <MudDatePicker Label="@TextResources.APP_StringKeys_Date"
-                               @bind-Date="Command.WorkDayDateTime"
-                               Culture="@MudblazorDatePickerHelper.GetPersianCulture()"
-                               TitleDateFormat="dddd, dd MMMM" />
+                <MudTextField @bind-Value="Command.PersianDate"
+                              Label="@TextResources.APP_StringKeys_Date"
+                              Variant="Variant.Outlined"
+                              Margin="Margin.Dense"
+                              ReadOnly="true">
+                </MudTextField>
             </div>
             <div class="form-group">
                 <MudTextField @bind-Value="Command.SpentHours"
@@ -50,14 +52,18 @@
                 </MudTextField>
             </div>
             <div class="form-group">
-                <label>@TextResources.APP_StringKeys_WorkType :</label>
-                <InputSelect @bind-Value="Command.WorkTypeId">
-                    <option value="">...</option>
-                    @foreach (var workType in WorkTypes)
+                
+                <MudSelect MultiSelection="true" 
+                    @bind-Value="enumValue"
+                           Label="TextResources.APP_StringKeys_WorkType"
+                           HelperText="Enum" 
+                           OpenIcon="@MaterialIconsHelper." 
+                           AdornmentColor="Color.Secondary">
+                    @foreach (Drink item in Enum.GetValues(typeof(Drink)))
                     {
-                        <option value="@workType.Id">@workType.Name</option>
+                        <MudSelectItem Value="@item">@item</MudSelectItem>
                     }
-                </InputSelect>
+                </MudSelect>
             </div>
             <div class="form-group">
                 <label>@TextResources.APP_StringKeys_Project :</label>

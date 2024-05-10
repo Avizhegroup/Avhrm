@@ -8,6 +8,11 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0" />
+		<PackageReference Include="AutoMapper" Version="13.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Avhrm.Core\Avhrm.Core.csproj" />
 	</ItemGroup>
 
 </Project>

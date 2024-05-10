@@ -2,8 +2,8 @@
 using Avhrm.Core.Contracts;
 using Avhrm.Core.Features.Project.Query.GetAllProjects;
 using Avhrm.Core.Features.WorkingReport.Command;
+using Avhrm.Core.Features.WorkingReport.Command.SaveWorkReport;
 using Avhrm.Core.Features.WorkType.Query.GetAllWorkTypes;
-using Avhrm.Domains;
 using Microsoft.AspNetCore.Components.Web;
 
 namespace Avhrm.UI.Shared.Pages.WorkingReport;
@@ -27,6 +27,8 @@ public partial class Add
         WorkTypes = await WorkTypeService.GetAllWorkTypes();
 
         Projects = await ProjectService.GetAllProjects();
+
+        Command.PersianDate = PersianCalendarTools.GregorianToPersian(DateTime.Now);
 
         if (Id is not null)
         {
@@ -76,7 +78,10 @@ public partial class Add
 
     public async Task OnDeleteClick(MouseEventArgs e)
     {
-        BaseDto<bool> result = await WorkReportService.DeleteWorkReport(Command);
+        BaseDto<bool> result = await WorkReportService.DeleteWorkReport(new()
+        {
+            Id = Command.Id
+        });
 
         if (result.Value)
         {

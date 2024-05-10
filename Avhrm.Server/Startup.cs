@@ -4,6 +4,7 @@ using Avhrm.Core;
 using Avhrm.Identity.Server;
 using Avhrm.Identity.Server.Implementation;
 using Avhrm.Persistence.Services;
+using Avhrm.Domains;
 
 namespace Avhrm.Server;
 public static class Startup
@@ -15,6 +16,8 @@ public static class Startup
         services.AddGrpc(options => options.Interceptors.Add<LogInterceptor>());
 
         services.AddCoreServices();
+
+        services.AddDomainServices();
 
         services.AddPersistenceServices(configuration);
 

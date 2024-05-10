@@ -2,7 +2,7 @@
 using ProtoBuf;
 using System.ComponentModel.DataAnnotations;
 
-namespace Avhrm.Core.Features.WorkingReport.Command;
+namespace Avhrm.Core.Features.WorkingReport.Command.SaveWorkReport;
 
 [ProtoContract]
 public class SaveWorkReportCommand
