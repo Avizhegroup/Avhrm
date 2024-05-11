@@ -43,5 +43,5 @@ public class SaveWorkReportCommand
     public WorkReportTimeOfDay WorkReportTimeOfDay { get; set; }
 
     [ProtoMember(11)]
-    public List<int> WorkChallengesIds { get; set; }
+    public IEnumerable<int> WorkChallengesIds { get; set; }
 }

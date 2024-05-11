@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Avhrm.Core.Features.Customer.Query.GetAllCustomers;
 using Avhrm.Core.Features.Project.Query.GetAllProjects;
 using Avhrm.Core.Features.WorkChallenge.Query.GetAllWorkChallenge;
 using Avhrm.Core.Features.WorkingReport.Command.SaveWorkReport;
@@ -19,5 +20,7 @@ public class ApplicationProfile : Profile
         CreateMap<WorkType, GetAllWorkTypesVm>().ReverseMap();
 
         CreateMap<Project, GetAllProjectsVm>().ReverseMap();
+
+        CreateMap<Customer, GetAllCustomersVm>().ReverseMap();
     }
 }

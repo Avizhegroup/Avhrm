@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Avhrm.Core.Contracts;
+using Avhrm.Core.Features.Project.Query.GetAllProjects;
 using Avhrm.Core.Features.WorkType.Query.GetAllWorkTypes;
 using Avhrm.Domains;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,6 @@ public class ProjectService : IProjectService
         dbSet = this.dbContext.Projects;
     }
 
-    public async Task<List<GetAllWorkTypesVm>> GetAllProjects(CallContext callContext = default)
-    => mapper.Map<List<GetAllWorkTypesVm>>(await dbSet.ToListAsync());
+    public async Task<List<GetAllProjectsVm>> GetAllProjects(CallContext callContext = default)
+    => mapper.Map<List<GetAllProjectsVm>>(await dbSet.ToListAsync());
 }

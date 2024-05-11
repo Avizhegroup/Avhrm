@@ -1,11 +1,12 @@
 ﻿@page "/workingreport/add"
 @page "/workingreport/edit/{Id:int}"
+@using Avhrm.Core.Features.WorkingReport.Enum
 @using Avhrm.UI.Shared.Tools
 
 <div class="pages-vacreq-add text-align-center">
     @if (IsMessageShown)
     {
-        <MudAlert Severity="Severity.Error"
+        <MudAlert Severity="AlertSeverity"
                   Variant="Variant.Filled"
                   Class="rounded-0"
                   ShowCloseIcon="true"
@@ -52,33 +53,79 @@
                 </MudTextField>
             </div>
             <div class="form-group">
-                
-                <MudSelect MultiSelection="true" 
-                    @bind-Value="enumValue"
-                           Label="TextResources.APP_StringKeys_WorkType"
-                           HelperText="Enum" 
-                           OpenIcon="@MaterialIconsHelper." 
-                           AdornmentColor="Color.Secondary">
-                    @foreach (Drink item in Enum.GetValues(typeof(Drink)))
+                <MudSelect T="int"
+                           @bind-Value="Command.WorkTypeId"
+                           Label="@TextResources.APP_StringKeys_WorkType"
+                           Variant="Variant.Outlined"
+                           Margin="Margin.Dense">
+                    @foreach (var workType in WorkTypes)
                     {
-                        <MudSelectItem Value="@item">@item</MudSelectItem>
+                        <MudSelectItem T="int" Value="@workType.Id">@workType.Description</MudSelectItem>
                     }
                 </MudSelect>
-            </div>
-            <div class="form-group">
-                <label>@TextResources.APP_StringKeys_Project :</label>
-                <InputSelect @bind-Value="Command.ProjectId">
-                    <option value="">...</option>
-                    @foreach (var project in Projects)
-                    {
-                        <option value="@project.Id">@project.Name</option>
-                    }
-                </InputSelect>
             </div>
             <div class="form-group">
                 <label>@TextResources.APP_StringKeys_Description:</label>
                 <InputText class="form-input" @bind-Value="Command.Desc"></InputText>
             </div>
+            <div class="form-group">
+                <MudSelect T="WorkReportTimeOfDay"
+                           @bind-Value="Command.WorkReportTimeOfDay"
+                           Label="@TextResources.APP_StringKeys_TimeOfDay"
+                           Variant="Variant.Outlined"
+                           Margin="Margin.Dense">
+                    @foreach (WorkReportTimeOfDay time in Enum.GetValues(typeof(WorkReportTimeOfDay)))
+                    {
+                        <MudSelectItem T="WorkReportTimeOfDay" Value="@time">
+                            @TextResources.ResourceManager.GetString($"APP_StringKeys_{time.ToString()}")
+                        </MudSelectItem>
+                    }
+                </MudSelect>
+            </div>
+            <div class="form-group">
+                <MudSelect T="int?"
+                           @bind-Value="Command.ProjectId"
+                           Label="@TextResources.APP_StringKeys_Project"
+                           Variant="Variant.Outlined"
+                           Margin="Margin.Dense">
+                    @foreach (var project in Projects)
+                    {
+                        <MudSelectItem T="int" 
+                                       Value="@project.Id">
+                            @project.Name
+                        </MudSelectItem>
+                    }
+                </MudSelect>
+            </div>
+            <div class="form-group">
+                <MudSelect T="int?"
+                           @bind-Value="Command.CustomerId"
+                           Label="@TextResources.APP_StringKeys_Customer"
+                           Variant="Variant.Outlined"
+                           Margin="Margin.Dense">
+                    @foreach (var customer in Customers)
+                    {
+                        <MudSelectItem T="int"
+                                       Value="@customer.Id">
+                            @customer.Name
+                        </MudSelectItem>
+                    }
+                </MudSelect>
+            </div>
+            <div class="form-group">
+                <MudSelect T="int"
+                           MultiSelection="true"
+                           @bind-SelectedValues="Command.WorkChallengesIds"
+                           Label="@TextResources.APP_StringKeys_WorkChallenge"
+                           Variant="Variant.Outlined"
+                           Margin="Margin.Dense">
+                    @foreach (var workType in WorkTypes)
+                    {
+                        <MudSelectItem T="int" Value="@workType.Id">@workType.Description</MudSelectItem>
+                    }
+                </MudSelect>
+            </div>
+            
         </div>
         <div class="page-footer text-align-center">
             <button type="submit"
@@ -87,7 +134,7 @@
             </button>
             @if (Id is not null)
             {
-                <button type="submit"
+                <button type="button"
                         class="btn btn-danger"
                         @onclick="OnDeleteClick">
                     <MaterialIcon IconName="@MaterialIconsHelper.Delete"></MaterialIcon>

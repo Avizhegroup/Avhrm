@@ -34,6 +34,8 @@ public static class SharedServices
 
         services.AddGrpcService<IProjectService>(configuration);
 
+        services.AddGrpcService<ICustomerService>(configuration);
+
         services.AddIdentityUIServices();
 
         services.AddMudServices();
