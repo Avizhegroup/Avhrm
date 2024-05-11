@@ -15,7 +15,7 @@ public class UserPointChangeLog : IBaseEntity
     public int AfterPoint { get; set; }
 
     [Required]
-    public int UserId { get; set; }
+    public string UserId { get; set; }
     public ApplicationUser User { get; set; }
 
     public DateTime CreateDateTime { get; set; }

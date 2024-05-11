@@ -51,10 +51,6 @@ public class WorkReportConfigs : IEntityTypeConfiguration<WorkReport>
     public void Configure(EntityTypeBuilder<WorkReport> builder)
     {
         builder.HasMany(p => p.WorkChallenges)
-               .WithMany(p => p.WorkReports)
-               .UsingEntity<WorkReportWorkChallenge>("WorkReportWorkChallenge",
-               l => l.HasOne(typeof(WorkReport)).WithMany().HasForeignKey("WorkReportId").HasPrincipalKey(nameof(WorkReport.Id)),
-            r => r.HasOne(typeof(WorkChallenge)).WithMany().HasForeignKey("WorkChallengeId").HasPrincipalKey(nameof(WorkChallenge.Id)),
-            j => j.HasKey("WorkReportId", "WorkChallengeId"));
+               .WithMany(p => p.WorkReports);
     }
 }

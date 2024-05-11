@@ -1,6 +1,5 @@
 ﻿using Avhrm.Core.Contracts;
 using Avhrm.Core.Features.WorkingReport.Query.GetUserWorkingReportByDate;
-using Microsoft.AspNetCore.Components.Web;
 
 namespace Avhrm.UI.Shared.Pages.WorkingReport;
 public partial class Search

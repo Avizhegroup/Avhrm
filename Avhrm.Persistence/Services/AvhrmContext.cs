@@ -6,11 +6,6 @@ namespace Avhrm.Persistence.Services;
 
 public class AvhrmDbContext : IdentityDbContext<ApplicationUser>
 {
-    public AvhrmDbContext()
-    {
-        Database.Migrate();
-    }
-
     public AvhrmDbContext(DbContextOptions<AvhrmDbContext> options) : base(options)
     {
         Database.Migrate();
