@@ -7,5 +7,5 @@ namespace Avhrm.Core.Contracts;
 [Service]
 public interface IWorkChallengeService
 {
-    Task<List<GetAllWorkChallengeVm>> GetAllWorkChallenges(CallContext context = default);
+    Task<List<GetAllWorkChallengeVm>> GetWorkChallengesByDepartmentId(CallContext context = default);
 }

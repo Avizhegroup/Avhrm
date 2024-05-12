@@ -7,5 +7,5 @@ namespace Avhrm.Core.Contracts;
 [Service]
 public interface IWorkTypeService
 {
-    Task<List<GetAllWorkTypesVm>> GetAllWorkTypes(CallContext context = default);
+    Task<List<GetAllWorkTypesVm>> GetWorkTypesByDepartmentId(CallContext context = default);
 }

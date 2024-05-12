@@ -117,10 +117,10 @@
                        Label="@TextResources.APP_StringKeys_WorkChallenge"
                        Variant="Variant.Outlined"
                        Margin="Margin.Dense">
-                @foreach (var workType in WorkTypes)
+                @foreach (var challenge in WorkChallenges)
                 {
-                    <MudSelectItem Value="@workType.Id">
-                        @workType.Description
+                    <MudSelectItem Value="@challenge.Id">
+                        @challenge.Description
                     </MudSelectItem>
                 }
             </MudSelect>

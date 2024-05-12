@@ -74,6 +74,8 @@ public class AuthenticationService(AvhrmDbContext context
 
         claims.Add(new(ClaimTypes.Surname, user.PersianName));
 
+        claims.Add(new(ClaimTypes.UserData, user.DepartmentId.ToString()));
+
         return new(claims);
     }
 }

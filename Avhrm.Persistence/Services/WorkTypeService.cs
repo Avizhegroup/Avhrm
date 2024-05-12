@@ -22,6 +22,6 @@ public class WorkTypeService : IWorkTypeService
         dbSet = dbContext.WorkTypes;
     }
 
-    public async Task<List<GetAllWorkTypesVm>> GetAllWorkTypes(CallContext context = default)
-       => mapper.Map<List<GetAllWorkTypesVm>>(await dbContext.WorkTypes.ToListAsync());
+    public async Task<List<GetAllWorkTypesVm>> GetWorkTypesByDepartmentId(CallContext context = default)
+    => mapper.Map<List<GetAllWorkTypesVm>>(await dbContext.WorkTypes.Where(p=>p.DepartmentId == context.GetDepartmentId()).ToListAsync());
 }

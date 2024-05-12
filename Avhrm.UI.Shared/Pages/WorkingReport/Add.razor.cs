@@ -3,6 +3,7 @@ using Avhrm.Core.Contracts;
 using Avhrm.Core.Dtos;
 using Avhrm.Core.Features.Customer.Query.GetAllCustomers;
 using Avhrm.Core.Features.Project.Query.GetAllProjects;
+using Avhrm.Core.Features.WorkChallenge.Query.GetAllWorkChallenge;
 using Avhrm.Core.Features.WorkingReport.Command;
 using Avhrm.Core.Features.WorkingReport.Command.SaveWorkReport;
 using Avhrm.Core.Features.WorkingReport.Enum;
@@ -16,7 +17,8 @@ public partial class Add
     public bool IsLoading = true;
     public List<GetAllWorkTypesVm> WorkTypes = new();
     public List<GetAllProjectsVm> Projects = new();
-    private List<GetAllCustomersVm> Customers = new();
+    public List<GetAllCustomersVm> Customers = new();
+    public List<GetAllWorkChallengeVm> WorkChallenges = new();
     public SaveWorkReportCommand Command = new();  
     public List<string> MessageTexts = new();
     public List<DropDownDualItem<WorkReportTimeOfDay>> TimeOfDays = new()
@@ -45,15 +47,18 @@ public partial class Add
     [Inject] public IWorkReportService WorkReportService { get; set; }
     [Inject] public IProjectService ProjectService { get; set; }
     [Inject] public ICustomerService CustomerService { get; set; }
+    [Inject] public IWorkChallengeService WorkChallengeService { get; set; }
     [Inject] public NavigationManager NavigationManager { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        WorkTypes = await WorkTypeService.GetAllWorkTypes();
+        WorkTypes = await WorkTypeService.GetWorkTypesByDepartmentId();
 
         Projects = await ProjectService.GetAllProjects();
 
         Customers = await CustomerService.GetAllCustomers();
+
+        WorkChallenges = await WorkChallengeService.GetWorkChallengesByDepartmentId();
 
         Command.PersianDate = PersianCalendarTools.GregorianToPersian(DateTime.Now);
 

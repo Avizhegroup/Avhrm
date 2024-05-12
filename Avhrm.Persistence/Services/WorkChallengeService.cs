@@ -22,6 +22,6 @@ public class WorkChallengeService : IWorkChallengeService
         dbSet = dbContext.WorkChallenges;
     }
 
-    public async Task<List<GetAllWorkChallengeVm>> GetAllWorkChallenges(CallContext context = default)
-    => mapper.Map<List<GetAllWorkChallengeVm>>(await dbSet.ToListAsync());
+    public async Task<List<GetAllWorkChallengeVm>> GetWorkChallengesByDepartmentId(CallContext context = default) 
+    => mapper.Map<List<GetAllWorkChallengeVm>>(await dbSet.Where(p => p.DepartmentId == context.GetDepartmentId()).ToListAsync());
 }
