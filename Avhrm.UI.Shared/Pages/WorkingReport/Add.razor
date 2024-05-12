@@ -3,6 +3,9 @@
 @using Avhrm.Core.Features.WorkingReport.Enum
 @using Avhrm.UI.Shared.Tools
 
+<div class="page-header text-align-center">
+    @TextResources.APP_StringKeys_WorkingReport_Add
+</div>
 <div class="pages-vacreq-add text-align-center">
     @if (IsMessageShown)
     {
@@ -25,107 +28,102 @@
               OnValidSubmit="OnValidSubmit"
               OnInvalidSubmit="OnInvalidSubmit">
         <DataAnnotationsValidator />
-        <div class="row col-md-12">
-            @if (Id is not null)
-            {
-                <div class="form-group">
-                    <MudTextField @bind-Value="Command.Id"
-                                  Label="@TextResources.APP_StringKeys_Id"
-                                  Variant="Variant.Outlined"
-                                  Margin="Margin.Dense"
-                                  ReadOnly="true">
-                    </MudTextField>
-                </div>
-            }
+        @if (Id is not null)
+        {
             <div class="form-group">
-                <MudTextField @bind-Value="Command.PersianDate"
-                              Label="@TextResources.APP_StringKeys_Date"
+                <MudTextField @bind-Value="Command.Id"
+                              Label="@TextResources.APP_StringKeys_Id"
                               Variant="Variant.Outlined"
                               Margin="Margin.Dense"
                               ReadOnly="true">
                 </MudTextField>
             </div>
-            <div class="form-group">
-                <MudTextField @bind-Value="Command.SpentHours"
-                              Label="@TextResources.APP_StringKeys_SpentHours"
-                              Variant="Variant.Outlined"
-                              Margin="Margin.Dense">
-                </MudTextField>
-            </div>
-            <div class="form-group">
-                <MudSelect T="int"
-                           @bind-Value="Command.WorkTypeId"
-                           Label="@TextResources.APP_StringKeys_WorkType"
-                           Variant="Variant.Outlined"
-                           Margin="Margin.Dense">
-                    @foreach (var workType in WorkTypes)
-                    {
-                        <MudSelectItem T="int" Value="@workType.Id">@workType.Description</MudSelectItem>
-                    }
-                </MudSelect>
-            </div>
-            <div class="form-group">
-                <label>@TextResources.APP_StringKeys_Description:</label>
-                <InputText class="form-input" @bind-Value="Command.Desc"></InputText>
-            </div>
-            <div class="form-group">
-                <MudSelect T="WorkReportTimeOfDay"
-                           @bind-Value="Command.WorkReportTimeOfDay"
-                           Label="@TextResources.APP_StringKeys_TimeOfDay"
-                           Variant="Variant.Outlined"
-                           Margin="Margin.Dense">
-                    @foreach (WorkReportTimeOfDay time in Enum.GetValues(typeof(WorkReportTimeOfDay)))
-                    {
-                        <MudSelectItem T="WorkReportTimeOfDay" Value="@time">
-                            @TextResources.ResourceManager.GetString($"APP_StringKeys_{time.ToString()}")
-                        </MudSelectItem>
-                    }
-                </MudSelect>
-            </div>
-            <div class="form-group">
-                <MudSelect T="int?"
-                           @bind-Value="Command.ProjectId"
-                           Label="@TextResources.APP_StringKeys_Project"
-                           Variant="Variant.Outlined"
-                           Margin="Margin.Dense">
-                    @foreach (var project in Projects)
-                    {
-                        <MudSelectItem T="int" 
-                                       Value="@project.Id">
-                            @project.Name
-                        </MudSelectItem>
-                    }
-                </MudSelect>
-            </div>
-            <div class="form-group">
-                <MudSelect T="int?"
-                           @bind-Value="Command.CustomerId"
-                           Label="@TextResources.APP_StringKeys_Customer"
-                           Variant="Variant.Outlined"
-                           Margin="Margin.Dense">
-                    @foreach (var customer in Customers)
-                    {
-                        <MudSelectItem T="int"
-                                       Value="@customer.Id">
-                            @customer.Name
-                        </MudSelectItem>
-                    }
-                </MudSelect>
-            </div>
-            <div class="form-group">
-                <MudSelect T="int"
-                           MultiSelection="true"
-                           @bind-SelectedValues="Command.WorkChallengesIds"
-                           Label="@TextResources.APP_StringKeys_WorkChallenge"
-                           Variant="Variant.Outlined"
-                           Margin="Margin.Dense">
-                    @foreach (var workType in WorkTypes)
-                    {
-                        <MudSelectItem T="int" Value="@workType.Id">@workType.Description</MudSelectItem>
-                    }
-                </MudSelect>
-            </div>
-            
+        }
+        <div class="form-group">
+            <MudTextField @bind-Value="Command.PersianDate"
+                          Label="@TextResources.APP_StringKeys_Date"
+                          Variant="Variant.Outlined"
+                          Margin="Margin.Dense"
+                          ReadOnly="true">
+            </MudTextField>
+        </div>
+        <div class="form-group">
+            <MudTextField @bind-Value="Command.SpentHours"
+                          Label="@TextResources.APP_StringKeys_SpentHours"
+                          Variant="Variant.Outlined"
+                          Margin="Margin.Dense">
+            </MudTextField>
+        </div>
+        <div class="form-group">
+            <MudSelect @bind-Value="Command.WorkTypeId"
+                       Label="@TextResources.APP_StringKeys_WorkType"
+                       Variant="Variant.Outlined"
+                       Margin="Margin.Dense">
+                @foreach (var workType in WorkTypes)
+                {
+                    <MudSelectItem Value="@workType.Id">@workType.Description</MudSelectItem>
+                }
+            </MudSelect>
+        </div>
+        <div class="form-group">
+            <MudTextField Label="@TextResources.APP_StringKeys_Description"
+                          Variant="Variant.Outlined"
+                          Margin="Margin.Dense"
+                          @bind-Value="@Command.Desc"
+                          Lines="3" />
+        </div>
+        <div class="form-group">
+            <MudSelect @bind-Value="Command.WorkReportTimeOfDay"
+                       Label="@TextResources.APP_StringKeys_TimeOfDay"
+                       Variant="Variant.Outlined"
+                       Margin="Margin.Dense">
+                @foreach (WorkReportTimeOfDay time in Enum.GetValues(typeof(WorkReportTimeOfDay)))
+                {
+                    <MudSelectItem Value="@time">
+                        @TextResources.ResourceManager.GetString($"APP_StringKeys_{time.ToString()}")
+                    </MudSelectItem>
+                }
+            </MudSelect>
+        </div>
+        <div class="form-group">
+            <MudSelect @bind-Value="Command.ProjectId"
+                       Label="@TextResources.APP_StringKeys_Project"
+                       Variant="Variant.Outlined"
+                       Margin="Margin.Dense">
+                @foreach (var project in Projects)
+                {
+                    <MudSelectItem Value="@project.Id">
+                        @project.Name
+                    </MudSelectItem>
+                }
+            </MudSelect>
+        </div>
+        <div class="form-group">
+            <MudSelect @bind-Value="Command.CustomerId"
+                       Label="@TextResources.APP_StringKeys_Customer"
+                       Variant="Variant.Outlined"
+                       Margin="Margin.Dense">
+                @foreach (var customer in Customers)
+                {
+                    <MudSelectItem Value="@customer.Id">
+                        @customer.Name
+                    </MudSelectItem>
+                }
+            </MudSelect>
+        </div>
+        <div class="form-group">
+            <MudSelect MultiSelection="true"
+                       @bind-SelectedValues="Command.WorkChallengesIds"
+                       Label="@TextResources.APP_StringKeys_WorkChallenge"
+                       Variant="Variant.Outlined"
+                       Margin="Margin.Dense">
+                @foreach (var workType in WorkTypes)
+                {
+                    <MudSelectItem Value="@workType.Id">
+                        @workType.Description
+                    </MudSelectItem>
+                }
+            </MudSelect>
         </div>
         <div class="page-footer text-align-center">
             <button type="submit"
@@ -147,4 +145,11 @@
             </NavLink>
         </div>
     </EditForm>
+    <MudOverlay Visible="IsLoading"
+                DarkBackground="true">
+        @TextResources.APP_StringKeys_Loading
+        <MudProgressCircular Color="Color.Primary"
+                             Size="Size.Large"
+                             Indeterminate="true" />
+    </MudOverlay>
 </div>

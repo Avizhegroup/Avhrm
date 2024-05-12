@@ -1394,5 +1394,9 @@ blockquote {
 }
 
 .pages-workingreport-search {
-  margin-top: 50px;
+  padding-top: 20%;
+}
+
+.pages-vacreq-add {
+  padding-top: 20%;
 }

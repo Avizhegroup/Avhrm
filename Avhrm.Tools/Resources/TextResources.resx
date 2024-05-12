@@ -216,6 +216,9 @@
   <data name="APP_StringKeys_WorkChallenge" xml:space="preserve">
     <value>چالش کاری</value>
   </data>
+  <data name="APP_StringKeys_WorkingReport_Add" xml:space="preserve">
+    <value>ثبت گزارش کاری</value>
+  </data>
   <data name="APP_StringKeys_WorkingReport_Search" xml:space="preserve">
     <value>گزارش کار</value>
   </data>

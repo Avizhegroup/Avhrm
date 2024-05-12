@@ -6,7 +6,7 @@ namespace Avhrm.Core.Features.WorkType.Query.GetAllWorkTypes;
 public class GetAllWorkTypesVm
 {
     [ProtoMember(1)]
-    public int Id { get; set; }
+    public int? Id { get; set; }
 
     [ProtoMember(2)]
     public string Description { get; set; }

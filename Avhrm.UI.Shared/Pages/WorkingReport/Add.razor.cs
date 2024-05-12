@@ -13,6 +13,7 @@ namespace Avhrm.UI.Shared.Pages.WorkingReport;
 public partial class Add
 {
     public bool IsMessageShown = false;
+    public bool IsLoading = true;
     public List<GetAllWorkTypesVm> WorkTypes = new();
     public List<GetAllProjectsVm> Projects = new();
     private List<GetAllCustomersVm> Customers = new();
@@ -67,11 +68,15 @@ public partial class Add
         {
             Command.PersianDate = PersianCalendarTools.GregorianToPersian(DateTime.Now);
         }
+
+        IsLoading = false;
     }
 
     public async Task OnValidSubmit(EditContext context)
     {
         BaseDto<bool> result;
+
+        IsLoading = true;
 
         if (Id is not null)
         {
@@ -102,6 +107,8 @@ public partial class Add
                 TextResources.APP_StringKeys_Message_Failed
             };
         }
+
+        IsLoading = false;
 
         IsMessageShown = true;
     }

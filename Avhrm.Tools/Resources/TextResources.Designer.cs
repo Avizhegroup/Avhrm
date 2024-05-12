@@ -358,6 +358,15 @@ namespace Avhrm.Tools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ثبت گزارش کاری.
+        /// </summary>
+        public static string APP_StringKeys_WorkingReport_Add {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_WorkingReport_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to گزارش کار.
         /// </summary>
         public static string APP_StringKeys_WorkingReport_Search {
