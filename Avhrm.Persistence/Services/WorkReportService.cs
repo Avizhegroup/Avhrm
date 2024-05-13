@@ -30,15 +30,19 @@ public class WorkReportService : IWorkReportService
 
     public async Task<List<GetUserWorkingReportByDateVm>> GetWorkingReportByDate(GetUserWorkingReportByDateQuery query, CallContext context = default)
     => mapper.Map<List< GetUserWorkingReportByDateVm >>( 
-       await dbSet.Where(p => p.PersianDate == query.Date && p.CreatorUserId == context.GetUserId())
+       await dbSet.Where(p => p.PersianDate == PersianCalendarTools.GregorianToPersian(query.Date) 
+                                  && p.CreatorUserId == context.GetUserId())
                   .ToListAsync());
 
     public async Task<SaveWorkReportCommand> GetWorkReportById(GetWorkReportByIdQuery query, CallContext context = default)
-    => mapper.Map<SaveWorkReportCommand>(await dbSet.FirstOrDefaultAsync(p => p.Id == query.Id));
+    => mapper.Map<SaveWorkReportCommand>(await dbSet.Include(p=>p.WorkChallenges)
+                                                    .FirstOrDefaultAsync(p => p.Id == query.Id));
 
     public async Task<BaseDto<bool>> InsertWorkReport(SaveWorkReportCommand command, CallContext context = default)
     {
         WorkReport workReport = mapper.Map<WorkReport>(command);
+
+        workReport.WorkChallenges = new HashSet<WorkChallenge>();
 
         foreach (var workChallengeId in command.WorkChallengesIds)
         {
@@ -69,6 +73,20 @@ public class WorkReportService : IWorkReportService
     public async Task<BaseDto<bool>> UpdateWorkReport(SaveWorkReportCommand command, CallContext context = default)
     {
         WorkReport workReport = mapper.Map<WorkReport>(command);
+
+        workReport.WorkChallenges = new HashSet<WorkChallenge>();
+
+        foreach (var workChallengeId in command.WorkChallengesIds)
+        {
+            WorkChallenge workChallenge = new()
+            {
+                Id = workChallengeId
+            };
+
+            dbContext.WorkChallenges.Attach(workChallenge);
+
+            workReport.WorkChallenges.Add(workChallenge);
+        }
 
         workReport.LastUpdateDateTime = DateTime.Now;
 

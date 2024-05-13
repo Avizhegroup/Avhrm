@@ -6,5 +6,5 @@ namespace Avhrm.Core.Features.WorkingReport.Query.GetUserWorkingReportByDate;
 public class GetUserWorkingReportByDateQuery
 {
     [ProtoMember(1)]
-    public string Date { get; set; }
+    public DateTime? Date { get; set; }
 }

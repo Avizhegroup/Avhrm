@@ -8,8 +8,11 @@
     <EditForm Model="Request"
               OnValidSubmit="OnValidSubmit">
         <div class="search-box">
-            <label>@TextResources.APP_StringKeys_Date:</label>
-            <InputText class="form-input" @bind-Value="Request.Date"></InputText>
+            <MudDatePicker Label="@TextResources.APP_StringKeys_Date"
+                           @bind-Date="Request.Date"
+                           Culture="@MudblazorDatePickerHelper.GetPersianCulture()"
+                           TitleDateFormat="dddd, dd MMMM" 
+                           Style="width: 80%"/>
             <button type="submit"
                     class="btn btn-success">
                 <MaterialIcon IconName="@MaterialIconsHelper.Search"></MaterialIcon>
@@ -60,6 +63,13 @@
             }
         </tbody>
     </table>
+    <MudOverlay Visible="IsLoading"
+                DarkBackground="true">
+        @TextResources.APP_StringKeys_Loading
+        <MudProgressCircular Color="Color.Primary"
+                             Size="Size.Large"
+                             Indeterminate="true" />
+    </MudOverlay>
 </div>
 <div class="page-footer text-align-center">
     <NavLink href="/workingreport/add"
