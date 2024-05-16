@@ -106,6 +106,15 @@ namespace Avhrm.Tools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to تدبیر داده آویژه.
+        /// </summary>
+        public static string APP_StringKeys_Avizhe {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Avizhe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to مشتری.
         /// </summary>
         public static string APP_StringKeys_Customer {
@@ -192,6 +201,15 @@ namespace Avhrm.Tools.Resources {
         public static string APP_StringKeys_FromTime {
             get {
                 return ResourceManager.GetString("APP_StringKeys_FromTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to خانه.
+        /// </summary>
+        public static string APP_StringKeys_Home {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Home", resourceCulture);
             }
         }
         

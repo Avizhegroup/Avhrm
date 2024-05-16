@@ -132,6 +132,9 @@
   <data name="APP_StringKeys_Afternoon" xml:space="preserve">
     <value>بعد از ظهر</value>
   </data>
+  <data name="APP_StringKeys_Avizhe" xml:space="preserve">
+    <value>تدبیر داده آویژه</value>
+  </data>
   <data name="APP_StringKeys_Customer" xml:space="preserve">
     <value>مشتری</value>
   </data>
@@ -161,6 +164,9 @@
   </data>
   <data name="APP_StringKeys_FromTime" xml:space="preserve">
     <value>از ساعت</value>
+  </data>
+  <data name="APP_StringKeys_Home" xml:space="preserve">
+    <value>خانه</value>
   </data>
   <data name="APP_StringKeys_Id" xml:space="preserve">
     <value>شناسه</value>
