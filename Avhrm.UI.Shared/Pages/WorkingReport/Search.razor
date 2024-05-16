@@ -6,60 +6,68 @@
 </div>
 <div class="pages-workingreport-search text-align-center">
     <EditForm Model="Request"
+              OnInvalidSubmit="OnInvalidSubmit"
               OnValidSubmit="OnValidSubmit">
         <div class="search-box">
-            <label>@TextResources.APP_StringKeys_Date:</label>
-            <InputText class="form-input" @bind-Value="Request.Date"></InputText>
-            <button type="submit"
-                    class="btn btn-success">
-                <MaterialIcon IconName="@MaterialIconsHelper.Search"></MaterialIcon>
-            </button>
+            <MudStack Justify="Justify.Center" Spacing="10" Row="true">
+                <div class="form-group">
+                    <MudDatePicker Label="@TextResources.APP_StringKeys_Date"
+                                   @bind-Date="Request.Date"
+                                   Culture="@MudblazorDatePickerHelper.GetPersianCulture()"
+                                   TitleDateFormat="dddd, dd MMMM" />
+                </div>
+                <button type="submit"
+                        class="btn btn-success"
+                        style="width: 45px;height: 40px;">
+                    <MaterialIcon IconName="@MaterialIconsHelper.Search"></MaterialIcon>
+                </button>
+            </MudStack>
         </div>
     </EditForm>
     <hr />
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>
-                    @TextResources.APP_StringKeys_SaveDate
-                </th>
-                <th>
-                    @TextResources.APP_StringKeys_SpentHours
-                </th>
-                <th>
-                    @TextResources.APP_StringKeys_Description
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (Reports is not null)
-            {
-                <Virtualize Items="Reports"
-                            ItemSize="10"
-                            OverscanCount="10">
-                    <tr>
-                        <td>
-                            @context.PersianDate
-                        </td>
-                        <td>
+
+    <div class="div-ver-overflow"
+         style="max-height:65vh; overflow-y:scroll;">
+        @if (Reports is not null)
+        {
+            <Virtualize Items="Reports"
+                        ItemSize="10"
+                        OverscanCount="10">
+                <MudCard Outlined="true">
+                    <MudCardHeader>
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.h6">@context.PersianDate</MudText>
+                        </CardHeaderContent>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudText Typo="Typo.body2">
+                            <MaterialIcon IconName="@MaterialIconsHelper.Timer"></MaterialIcon>
                             @context.SpentHours
-                        </td>
-                        <td>
-                            @context.Desc
-                        </td>
-                        <td>
-                            <NavLink href="@($"/workingreport/edit/{context.Id}")"
-                                     Match="NavLinkMatch.All"
-                                     class="btn btn-secondary">
-                                <MaterialIcon IconName="@MaterialIconsHelper.Edit"></MaterialIcon>
-                            </NavLink>
-                        </td>
-                    </tr>
-                </Virtualize>
-            }
-        </tbody>
-    </table>
+                        </MudText>
+                        <MudText Typo="Typo.body2">
+                            <MaterialIcon IconName="@MaterialIconsHelper.Work"></MaterialIcon>
+                            @context.WorkTypeDescription
+                        </MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <NavLink href="@($"/workingreport/edit/{context.Id}")"
+                                 Match="NavLinkMatch.All"
+                                 class="btn btn-secondary">
+                            <MaterialIcon IconName="@MaterialIconsHelper.Edit"></MaterialIcon>
+                        </NavLink>
+                    </MudCardActions>
+                </MudCard>
+            </Virtualize>
+        }
+    </div>
+
+    <MudOverlay Visible="IsLoading"
+                DarkBackground="true">
+        @TextResources.APP_StringKeys_Loading
+        <MudProgressCircular Color="Color.Primary"
+                             Size="Size.Large"
+                             Indeterminate="true" />
+    </MudOverlay>
 </div>
 <div class="page-footer text-align-center">
     <NavLink href="/workingreport/add"

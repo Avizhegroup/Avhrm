@@ -15,5 +15,8 @@ public class GetUserWorkingReportByDateVm
     public decimal SpentHours { get; set; }
 
     [ProtoMember(4)]
+    public string WorkTypeDescription { get; set; }
+
+    [ProtoMember(5)]
     public string Desc { get; set; }
 }

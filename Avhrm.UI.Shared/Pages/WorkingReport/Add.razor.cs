@@ -4,7 +4,6 @@ using Avhrm.Core.Dtos;
 using Avhrm.Core.Features.Customer.Query.GetAllCustomers;
 using Avhrm.Core.Features.Project.Query.GetAllProjects;
 using Avhrm.Core.Features.WorkChallenge.Query.GetAllWorkChallenge;
-using Avhrm.Core.Features.WorkingReport.Command;
 using Avhrm.Core.Features.WorkingReport.Command.SaveWorkReport;
 using Avhrm.Core.Features.WorkingReport.Enum;
 using Avhrm.Core.Features.WorkType.Query.GetAllWorkTypes;
