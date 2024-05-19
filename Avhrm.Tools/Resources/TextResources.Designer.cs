@@ -97,6 +97,33 @@ namespace Avhrm.Tools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to بعد از ظهر.
+        /// </summary>
+        public static string APP_StringKeys_Afternoon {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Afternoon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to تدبیر داده آویژه.
+        /// </summary>
+        public static string APP_StringKeys_Avizhe {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Avizhe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to مشتری.
+        /// </summary>
+        public static string APP_StringKeys_Customer {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Customer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to تاریخ.
         /// </summary>
         public static string APP_StringKeys_Date {
@@ -160,6 +187,15 @@ namespace Avhrm.Tools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to خروج.
+        /// </summary>
+        public static string APP_StringKeys_Exit {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to از تاریخ.
         /// </summary>
         public static string APP_StringKeys_FromDate {
@@ -174,6 +210,15 @@ namespace Avhrm.Tools.Resources {
         public static string APP_StringKeys_FromTime {
             get {
                 return ResourceManager.GetString("APP_StringKeys_FromTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to خانه.
+        /// </summary>
+        public static string APP_StringKeys_Home {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Home", resourceCulture);
             }
         }
         
@@ -196,11 +241,38 @@ namespace Avhrm.Tools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to در انجام عملیات مشکلی بوجود آمده است.
+        /// </summary>
+        public static string APP_StringKeys_Message_Failed {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Message_Failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to عملیات با موفقیت انجام شد.
         /// </summary>
         public static string APP_StringKeys_Message_Success {
             get {
                 return ResourceManager.GetString("APP_StringKeys_Message_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to صبح.
+        /// </summary>
+        public static string APP_StringKeys_Morning {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Morning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ظهر.
+        /// </summary>
+        public static string APP_StringKeys_Noon {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Noon", resourceCulture);
             }
         }
         
@@ -237,6 +309,15 @@ namespace Avhrm.Tools.Resources {
         public static string APP_StringKeys_SpentHours {
             get {
                 return ResourceManager.GetString("APP_StringKeys_SpentHours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to زمان روز.
+        /// </summary>
+        public static string APP_StringKeys_TimeOfDay {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_TimeOfDay", resourceCulture);
             }
         }
         
@@ -291,6 +372,24 @@ namespace Avhrm.Tools.Resources {
         public static string APP_StringKeys_VacReq_Verified {
             get {
                 return ResourceManager.GetString("APP_StringKeys_VacReq_Verified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to چالش کاری.
+        /// </summary>
+        public static string APP_StringKeys_WorkChallenge {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_WorkChallenge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ثبت گزارش کاری.
+        /// </summary>
+        public static string APP_StringKeys_WorkingReport_Add {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_WorkingReport_Add", resourceCulture);
             }
         }
         

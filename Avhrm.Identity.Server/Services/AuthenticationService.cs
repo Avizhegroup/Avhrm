@@ -1,32 +1,23 @@
-﻿using Avhrm.Identity.Server.Services;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
-using Avhrm.Identity.Server.Models;
 using Microsoft.Extensions.Configuration;
 using Avhrm.Identity.Server.Utilities;
 using CallContext = ProtoBuf.Grpc.CallContext;
 using Avhrm.Identity.Contracts;
 using Avhrm.Core.Features.Account.Query.GerUserLogin;
 using Avhrm.Core.Common;
+using Avhrm.Persistence.Services;
+using Avhrm.Domains;
 
 namespace Avhrm.Identity.Server.Implementation;
 
 [Authorize]
-public class AuthenticationService : IAuthenticationService
+public class AuthenticationService(AvhrmDbContext context
+        , IConfiguration configuration) : IAuthenticationService
 {
-    private readonly AvhrmIdentityContext context;
-    private readonly IConfiguration configuration;
-
-    public AuthenticationService(AvhrmIdentityContext context
-        , IConfiguration configuration)
-    {
-        this.context = context;
-        this.configuration = configuration;
-    }
-
     [AllowAnonymous]
     public async Task<BaseDto<string>> Authenticate(GetUserLoginQuery request, CallContext callContext = default)
     {
@@ -82,6 +73,8 @@ public class AuthenticationService : IAuthenticationService
         claims.Add(new(ClaimTypes.NameIdentifier, user.Id));
 
         claims.Add(new(ClaimTypes.Surname, user.PersianName));
+
+        claims.Add(new(ClaimTypes.UserData, user.DepartmentId.ToString()));
 
         return new(claims);
     }

@@ -1,8 +1,11 @@
-﻿using Avhrm.Core.Common;
+﻿using AutoMapper;
+using Avhrm.Core.Common;
 using Avhrm.Core.Contracts;
-using Avhrm.Core.Entities;
+using Avhrm.Core.Features.WorkingReport.Command.DeleteWorkReport;
+using Avhrm.Core.Features.WorkingReport.Command.SaveWorkReport;
 using Avhrm.Core.Features.WorkingReport.Query.GetUserWorkingReportByDate;
 using Avhrm.Core.Features.WorkingReport.Query.GetWorkReportById;
+using Avhrm.Domains;
 using Azure.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
@@ -14,29 +17,51 @@ namespace Avhrm.Persistence.Services;
 public class WorkReportService : IWorkReportService
 {
     private readonly AvhrmDbContext dbContext;
+    private readonly IMapper mapper;
     private DbSet<WorkReport> dbSet;
 
-    public WorkReportService(AvhrmDbContext dbContext)
+    public WorkReportService(AvhrmDbContext dbContext
+        , IMapper mapper)
     {
         this.dbContext = dbContext;
-
+        this.mapper = mapper;
         dbSet = this.dbContext.WorkingReports;
     }
 
-    public async Task<List<WorkReport>> GetWorkingReportByDate(GetUserWorkingReportByDateQuery query, CallContext context = default)
-        => await dbSet.Where(p => p.PersianDate == query.Date && p.CreatorUser == context.GetUserId())
-                      .ToListAsync();
+    public async Task<List<GetUserWorkingReportByDateVm>> GetWorkingReportByDate(GetUserWorkingReportByDateQuery query, CallContext context = default)
+    => mapper.Map<List<GetUserWorkingReportByDateVm>>(
+       await dbSet.Where(p => p.PersianDate == PersianCalendarTools.GregorianToPersian(query.Date)
+                               && p.CreatorUserId == context.GetUserId())
+                  .Include(p => p.WorkType)
+                  .ToListAsync());
 
-    public async Task<WorkReport> GetWorkReportById(GetWorkReportByIdQuery query, CallContext context = default)
-    => await dbSet.FirstOrDefaultAsync(p => p.Id == query.Id);
+    public async Task<SaveWorkReportCommand> GetWorkReportById(GetWorkReportByIdQuery query, CallContext context = default)
+    => mapper.Map<SaveWorkReportCommand>(await dbSet.Include(p => p.WorkChallenges)
+                                                    .FirstOrDefaultAsync(p => p.Id == query.Id));
 
-    public async Task<BaseDto<bool>> InsertWorkReport(WorkReport workReport, CallContext context = default)
+    public async Task<BaseDto<bool>> InsertWorkReport(SaveWorkReportCommand command, CallContext context = default)
     {
-        workReport.PersianDate = PersianCalendarTools.GregorianToPersian(workReport.WorkDayDateTime);
+        WorkReport workReport = mapper.Map<WorkReport>(command);
+
+        workReport.WorkChallenges = new HashSet<WorkChallenge>();
+
+        foreach (var workChallengeId in command.WorkChallengesIds)
+        {
+            WorkChallenge workChallenge = new()
+            {
+                Id = workChallengeId
+            };
+
+            dbContext.WorkChallenges.Attach(workChallenge);
+
+            workReport.WorkChallenges.Add(workChallenge);
+        }
+
+        workReport.PersianDate = PersianCalendarTools.GregorianToPersian(DateTime.Now);
 
         workReport.CreateDateTime = DateTime.Now;
 
-        workReport.CreatorUser = context.GetUserId();
+        workReport.CreatorUserId = context.GetUserId();
 
         await dbSet.AddAsync(workReport);
 
@@ -46,13 +71,13 @@ public class WorkReportService : IWorkReportService
         };
     }
 
-    public async Task<BaseDto<bool>> UpdateWorkReport(WorkReport workReport, CallContext context = default)
+    public async Task<BaseDto<bool>> UpdateWorkReport(SaveWorkReportCommand command, CallContext context = default)
     {
-        workReport.PersianDate = PersianCalendarTools.GregorianToPersian(workReport.WorkDayDateTime);
+        WorkReport workReport = mapper.Map<WorkReport>(command);
 
         workReport.LastUpdateDateTime = DateTime.Now;
 
-        workReport.LastUpdateUser = context.GetUserId();
+        workReport.LastUpdateUserId = context.GetUserId();
 
         dbSet.Update(workReport);
 
@@ -62,13 +87,9 @@ public class WorkReportService : IWorkReportService
         };
     }
 
-    public async Task<BaseDto<bool>> DeleteWorkReport(WorkReport workReport, CallContext context = default)
+    public async Task<BaseDto<bool>> DeleteWorkReport(DeleteWorkReportCommand command, CallContext context = default)
+    => new()
     {
-        dbSet.Remove(workReport);
-
-        return new()
-        {
-            Value = await dbContext.SaveChangesAsync() > 0
-        };
-    }
+        Value = dbSet.Where(p => p.Id == command.Id).ExecuteDelete() > 0
+    };
 }

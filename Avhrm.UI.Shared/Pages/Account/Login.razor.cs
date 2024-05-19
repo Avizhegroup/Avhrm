@@ -6,6 +6,7 @@ namespace Avhrm.UI.Shared.Pages.Account;
 public partial class Login
 {
     public bool IsMessageShown = false;
+    public bool IsLoading = false;
     public List<string> MessageTexts = new();
 
     public GetUserLoginQuery Request { get; set; } = new();
@@ -13,11 +14,18 @@ public partial class Login
     [Inject] public IAuthenticationService AuthenticationService { get; set; } 
     [Inject] public AvhrmClientAuthenticationStateProvider ClientAuthProvider { get; set; }
     [Inject] public NavigationManager NavigationManager { get; set; }
+   
+    [CascadingParameter] public ComponentsContext Context { get; set; }
 
-    public MudAlert Alert { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        Context.IsDrawerShown = false;
+    }
 
     public async Task OnValidSubmit(EditContext context)
     {
+        IsLoading = true;
+
         var token = await AuthenticationService.Authenticate(Request);
 
         if (token.Value.HasNoValue())
@@ -28,10 +36,14 @@ public partial class Login
 
             MessageTexts.Add( TextResources.APP_StringKeys_Error_Login);
 
+            IsLoading = false;
+
             return;
         }
 
         await ClientAuthProvider.SetUserAuthenticated(token.Value);
+
+        IsLoading = false;
 
         NavigationManager.NavigateTo("/", true);
     }

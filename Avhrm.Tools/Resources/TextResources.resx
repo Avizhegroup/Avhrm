@@ -129,6 +129,15 @@
   <data name="APP_StringKeys_Add" xml:space="preserve">
     <value>افزودن</value>
   </data>
+  <data name="APP_StringKeys_Afternoon" xml:space="preserve">
+    <value>بعد از ظهر</value>
+  </data>
+  <data name="APP_StringKeys_Avizhe" xml:space="preserve">
+    <value>تدبیر داده آویژه</value>
+  </data>
+  <data name="APP_StringKeys_Customer" xml:space="preserve">
+    <value>مشتری</value>
+  </data>
   <data name="APP_StringKeys_Date" xml:space="preserve">
     <value>تاریخ</value>
   </data>
@@ -150,11 +159,17 @@
   <data name="APP_StringKeys_Error_Required" xml:space="preserve">
     <value>پرکردن فیلد '{0}' الزامی است</value>
   </data>
+  <data name="APP_StringKeys_Exit" xml:space="preserve">
+    <value>خروج</value>
+  </data>
   <data name="APP_StringKeys_FromDate" xml:space="preserve">
     <value>از تاریخ</value>
   </data>
   <data name="APP_StringKeys_FromTime" xml:space="preserve">
     <value>از ساعت</value>
+  </data>
+  <data name="APP_StringKeys_Home" xml:space="preserve">
+    <value>خانه</value>
   </data>
   <data name="APP_StringKeys_Id" xml:space="preserve">
     <value>شناسه</value>
@@ -162,8 +177,17 @@
   <data name="APP_StringKeys_Loading" xml:space="preserve">
     <value>در حال بارگذاری..</value>
   </data>
+  <data name="APP_StringKeys_Message_Failed" xml:space="preserve">
+    <value>در انجام عملیات مشکلی بوجود آمده است</value>
+  </data>
   <data name="APP_StringKeys_Message_Success" xml:space="preserve">
     <value>عملیات با موفقیت انجام شد</value>
+  </data>
+  <data name="APP_StringKeys_Morning" xml:space="preserve">
+    <value>صبح</value>
+  </data>
+  <data name="APP_StringKeys_Noon" xml:space="preserve">
+    <value>ظهر</value>
   </data>
   <data name="APP_StringKeys_NotSpecified" xml:space="preserve">
     <value>مشخص نشده</value>
@@ -176,6 +200,9 @@
   </data>
   <data name="APP_StringKeys_SpentHours" xml:space="preserve">
     <value>ساعت صرف شده</value>
+  </data>
+  <data name="APP_StringKeys_TimeOfDay" xml:space="preserve">
+    <value>زمان روز</value>
   </data>
   <data name="APP_StringKeys_ToDate" xml:space="preserve">
     <value>تا تاریخ</value>
@@ -194,6 +221,12 @@
   </data>
   <data name="APP_StringKeys_VacReq_Verified" xml:space="preserve">
     <value>تائید شده</value>
+  </data>
+  <data name="APP_StringKeys_WorkChallenge" xml:space="preserve">
+    <value>چالش کاری</value>
+  </data>
+  <data name="APP_StringKeys_WorkingReport_Add" xml:space="preserve">
+    <value>ثبت گزارش کاری</value>
   </data>
   <data name="APP_StringKeys_WorkingReport_Search" xml:space="preserve">
     <value>گزارش کار</value>

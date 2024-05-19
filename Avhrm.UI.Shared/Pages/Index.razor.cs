@@ -6,6 +6,13 @@ public partial class Index
 {
     [Inject] public NavigationManager NavigationManager { get; set; }
 
+    [CascadingParameter] public ComponentsContext Context { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Context.IsDrawerShown = true;
+    }
+
     public async Task OnVaqReqIndexClick(MouseEventArgs e)
     {
         NavigationManager.NavigateTo("/vacreq");

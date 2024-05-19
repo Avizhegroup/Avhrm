@@ -1,5 +1,6 @@
 ﻿using Avhrm.Core.Common;
-using Avhrm.Core.Entities;
+using Avhrm.Core.Features.WorkingReport.Command.DeleteWorkReport;
+using Avhrm.Core.Features.WorkingReport.Command.SaveWorkReport;
 using Avhrm.Core.Features.WorkingReport.Query.GetUserWorkingReportByDate;
 using Avhrm.Core.Features.WorkingReport.Query.GetWorkReportById;
 using ProtoBuf.Grpc;
@@ -10,9 +11,9 @@ namespace Avhrm.Core.Contracts;
 [Service]
 public interface IWorkReportService
 {
-    Task<List<WorkReport>> GetWorkingReportByDate(GetUserWorkingReportByDateQuery query, CallContext context = default);
-    Task<WorkReport> GetWorkReportById(GetWorkReportByIdQuery query, CallContext context = default);
-    Task<BaseDto<bool>> InsertWorkReport(WorkReport workReport, CallContext context = default);
-    Task<BaseDto<bool>> UpdateWorkReport(WorkReport workReport, CallContext context = default);
-    Task<BaseDto<bool>> DeleteWorkReport(WorkReport workReport, CallContext context = default);
+    Task<List<GetUserWorkingReportByDateVm>> GetWorkingReportByDate(GetUserWorkingReportByDateQuery query, CallContext context = default);
+    Task<SaveWorkReportCommand> GetWorkReportById(GetWorkReportByIdQuery query, CallContext context = default);
+    Task<BaseDto<bool>> InsertWorkReport(SaveWorkReportCommand command, CallContext context = default);
+    Task<BaseDto<bool>> UpdateWorkReport(SaveWorkReportCommand command, CallContext context = default);
+    Task<BaseDto<bool>> DeleteWorkReport(DeleteWorkReportCommand command, CallContext context = default);
 }

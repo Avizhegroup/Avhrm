@@ -21,7 +21,7 @@ public class BlazorModeDetector
 #if BlazorServer
             return BlazorMode.BlazorServer;
 #elif BlazorHybrid
-            return BlazorMode.BlazorServer;
+            return BlazorMode.BlazorHybrid;
 #endif
         }
     }

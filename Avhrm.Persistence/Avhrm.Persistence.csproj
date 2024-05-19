@@ -8,9 +8,11 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Avhrm.Core\Avhrm.Core.csproj" />
+		<ProjectReference Include="..\Avhrm.Domains\Avhrm.Domains.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0" />
 		<PackageReference Include="Microsoft.entityframeworkcore.sqlserver" Version="8.0.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
 			<PrivateAssets>all</PrivateAssets>
@@ -21,10 +23,6 @@
 
 	<ItemGroup>
 		<SupportedPlatform Include="browser" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Migrations\" />
 	</ItemGroup>
 
 </Project>

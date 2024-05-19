@@ -11,7 +11,7 @@
 		<EnableDefaultCssItems>false</EnableDefaultCssItems>
 
 		<!-- Display name -->
-		<ApplicationTitle>Avhrm.UI.Mobile</ApplicationTitle>
+		<ApplicationTitle>Avhrm</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.tadda.avhrm.mobile</ApplicationId>

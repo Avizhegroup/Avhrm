@@ -1,3 +1,8 @@
 ﻿.pages-workingreport-search {
-    margin-top: 50px;
+    padding-top: 10%;
+
+    .div-ver-overflow {
+        max-height: 65vh;
+        overflow-y: scroll;
+    }
 }

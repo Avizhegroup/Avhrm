@@ -44,4 +44,11 @@
             </button>
         </div>
     </EditForm>
+    <MudOverlay Visible="IsLoading"
+                DarkBackground="true">
+        @TextResources.APP_StringKeys_Loading
+        <MudProgressCircular Color="Color.Primary"
+                             Size="Size.Large"
+                             Indeterminate="true" />
+    </MudOverlay>
 </div>

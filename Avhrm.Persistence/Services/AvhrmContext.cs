@@ -1,19 +1,24 @@
-﻿using Avhrm.Core.Entities;
+﻿using Avhrm.Domains;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Avhrm.Persistence.Services;
 
-public class AvhrmDbContext : DbContext
+public class AvhrmDbContext : IdentityDbContext<ApplicationUser>
 {
     public AvhrmDbContext(DbContextOptions<AvhrmDbContext> options) : base(options)
     {
         Database.Migrate();
     }
-
+  
     public DbSet<VacationRequest> VacationRequests { get; set; }
     public DbSet<WorkReport> WorkingReports { get; set; }
     public DbSet<WorkType> WorkTypes { get; set; }
     public DbSet<Project> Projects { get; set; }
+    public DbSet<Customer> Customers { get; set; }
+    public DbSet<Department> Departments { get; set; }
+    public DbSet<WorkChallenge> WorkChallenges { get; set; }
+    public DbSet<UserPointChangeLog> PointChangeLogs { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

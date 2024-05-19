@@ -1,7 +1,5 @@
-﻿using Avhrm.Identity.Server.Services;
-using Avhrm.Identity.Server.Utilities;
+﻿using Avhrm.Identity.Server.Utilities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;

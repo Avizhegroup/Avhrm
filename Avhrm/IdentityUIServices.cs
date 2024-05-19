@@ -8,6 +8,8 @@ public static class IdentityUIServices
 {
     public static void AddIdentityUIServices(this IServiceCollection services)
     {
+        services.AddAuthorizationCore();
+
         services.AddScoped<AuthenticationStateProvider, AvhrmClientAuthenticationStateProvider>();
 
         services.AddScoped(sp => (AvhrmClientAuthenticationStateProvider)sp.GetRequiredService<AuthenticationStateProvider>());

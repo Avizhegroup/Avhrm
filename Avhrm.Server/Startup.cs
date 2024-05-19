@@ -4,6 +4,7 @@ using Avhrm.Core;
 using Avhrm.Identity.Server;
 using Avhrm.Identity.Server.Implementation;
 using Avhrm.Persistence.Services;
+using Avhrm.Domains;
 
 namespace Avhrm.Server;
 public static class Startup
@@ -12,9 +13,17 @@ public static class Startup
     public static void ConfigureServices(this IServiceCollection services
         , IConfiguration configuration)
     {
-        services.AddGrpc(options => options.Interceptors.Add<LogInterceptor>());
+        services.AddGrpc(options =>
+        {
+            options.Interceptors.Add<LogInterceptor>();
+            options.EnableDetailedErrors = true;
+            options.MaxReceiveMessageSize = null;
+            options.MaxSendMessageSize = null;
+        });
 
         services.AddCoreServices();
+
+        services.AddDomainServices();
 
         services.AddPersistenceServices(configuration);
 
@@ -46,8 +55,12 @@ public static class Startup
 
         app.MapGrpcService<WorkReportService>();
 
+        app.MapGrpcService<WorkChallengeService>();
+
         app.MapGrpcService<WorkTypeService>();
 
         app.MapGrpcService<ProjectService>();
+
+        app.MapGrpcService<CustomerService>();
     }
 }

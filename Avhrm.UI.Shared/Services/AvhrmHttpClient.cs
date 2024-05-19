@@ -12,6 +12,9 @@ public class AvhrmHttpClient: HttpClientHandler
     {
         this.jsRuntime = jsRuntime;
         this.navigationManager = navigationManager;
+
+        this.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
+        this.SslProtocols = System.Security.Authentication.SslProtocols.Tls12;
     }
 
     protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
@@ -47,7 +50,6 @@ public class AvhrmHttpClient: HttpClientHandler
                 navigationManager.NavigateTo("/account/login", true);
                 }
         }
-
         return response;
     }
 }
