@@ -29,14 +29,14 @@ public class WorkReportService : IWorkReportService
     }
 
     public async Task<List<GetUserWorkingReportByDateVm>> GetWorkingReportByDate(GetUserWorkingReportByDateQuery query, CallContext context = default)
-    => mapper.Map<List< GetUserWorkingReportByDateVm >>( 
-       await dbSet.Where(p => p.PersianDate == PersianCalendarTools.GregorianToPersian(query.Date)  
+    => mapper.Map<List<GetUserWorkingReportByDateVm>>(
+       await dbSet.Where(p => p.PersianDate == PersianCalendarTools.GregorianToPersian(query.Date)
                                && p.CreatorUserId == context.GetUserId())
-                  .Include(p=>p.WorkType)
+                  .Include(p => p.WorkType)
                   .ToListAsync());
 
     public async Task<SaveWorkReportCommand> GetWorkReportById(GetWorkReportByIdQuery query, CallContext context = default)
-    => mapper.Map<SaveWorkReportCommand>(await dbSet.Include(p=> p.WorkChallenges)
+    => mapper.Map<SaveWorkReportCommand>(await dbSet.Include(p => p.WorkChallenges)
                                                     .FirstOrDefaultAsync(p => p.Id == query.Id));
 
     public async Task<BaseDto<bool>> InsertWorkReport(SaveWorkReportCommand command, CallContext context = default)
@@ -47,7 +47,7 @@ public class WorkReportService : IWorkReportService
 
         foreach (var workChallengeId in command.WorkChallengesIds)
         {
-            WorkChallenge workChallenge = new ()
+            WorkChallenge workChallenge = new()
             {
                 Id = workChallengeId
             };
@@ -89,7 +89,7 @@ public class WorkReportService : IWorkReportService
 
     public async Task<BaseDto<bool>> DeleteWorkReport(DeleteWorkReportCommand command, CallContext context = default)
     => new()
-       {
-           Value = dbSet.Where(p => p.Id == command.Id).ExecuteDelete() > 0
-       };
+    {
+        Value = dbSet.Where(p => p.Id == command.Id).ExecuteDelete() > 0
+    };
 }

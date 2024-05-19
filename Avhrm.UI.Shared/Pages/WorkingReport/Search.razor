@@ -25,7 +25,6 @@
         </div>
     </EditForm>
     <hr />
-
     <div class="div-ver-overflow">
         @if (Reports is not null)
         {
@@ -48,7 +47,7 @@
                             @context.WorkTypeDescription
                         </MudText>
                     </MudCardContent>
-                    <MudCardActions>
+                    <MudCardActions Class="text-align-center">
                         <NavLink href="@($"/workingreport/edit/{context.Id}")"
                                  Match="NavLinkMatch.All"
                                  class="btn btn-secondary">

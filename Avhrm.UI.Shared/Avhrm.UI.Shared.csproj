@@ -8,7 +8,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Content Remove="appsettings.Hybrid.json" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<SupportedPlatform Include="browser" />
+		<EmbeddedResource Include="appsettings.Hybrid.json" />
 
 		<EmbeddedResource Include="appsettings.json" />
 	</ItemGroup>
@@ -48,8 +53,6 @@
 		<Using Include="Microsoft.Maui.Media" />
 		<Using Include="Microsoft.Maui.Networking" />
 		<Using Include="Microsoft.Maui.Storage" />
-		<Using Include="Telerik.Blazor" />
-		<Using Include="Telerik.Blazor.Components" />
 	</ItemGroup>
 
 	<ItemGroup>

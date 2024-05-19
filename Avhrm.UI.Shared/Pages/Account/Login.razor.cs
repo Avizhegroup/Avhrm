@@ -14,6 +14,13 @@ public partial class Login
     [Inject] public IAuthenticationService AuthenticationService { get; set; } 
     [Inject] public AvhrmClientAuthenticationStateProvider ClientAuthProvider { get; set; }
     [Inject] public NavigationManager NavigationManager { get; set; }
+   
+    [CascadingParameter] public ComponentsContext Context { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Context.IsDrawerShown = false;
+    }
 
     public async Task OnValidSubmit(EditContext context)
     {

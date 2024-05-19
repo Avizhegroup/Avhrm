@@ -1,12 +1,13 @@
-﻿using Microsoft.AspNetCore.Components.Routing;
-using Microsoft.AspNetCore.Components.Web;
+﻿using Avhrm.Identity.UI.Services;
+using Microsoft.AspNetCore.Components.Routing;
 
 namespace Avhrm.UI.Shared;
 public partial class MainLayout
 {
-    public bool IsDrawerOpen = false;
+    public ComponentsContext Context { get; set; } = new();
 
     [Inject] public NavigationManager NavigationManager { get; set; }
+    [Inject] public AvhrmClientAuthenticationStateProvider AuthStateProvider { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -15,7 +16,7 @@ public partial class MainLayout
 
     public void NavigationManager_LocationChanged(object? sender, LocationChangedEventArgs e)
     {
-        IsDrawerOpen = false;
+        Context.IsDrawerOpen = false;
 
         StateHasChanged();
     }
@@ -24,11 +25,16 @@ public partial class MainLayout
     {
         if (e.SwipeDirection == SwipeDirection.RightToLeft)
         {
-            IsDrawerOpen = true;
+            Context.IsDrawerOpen = true;
         }
         else if (e.SwipeDirection == SwipeDirection.LeftToRight)
         {
-            IsDrawerOpen = false;
+            Context.IsDrawerOpen = false;
         }
+    }
+
+    public async Task OnClickExit()
+    {
+        await AuthStateProvider.SetUserLoggedOut();
     }
 }

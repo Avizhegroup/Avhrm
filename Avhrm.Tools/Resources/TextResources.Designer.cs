@@ -187,6 +187,15 @@ namespace Avhrm.Tools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to خروج.
+        /// </summary>
+        public static string APP_StringKeys_Exit {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to از تاریخ.
         /// </summary>
         public static string APP_StringKeys_FromDate {

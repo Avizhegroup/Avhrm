@@ -6,6 +6,7 @@
 
     <MudLayout>
         <MudMainContent>
+            <CascadingValue Value="Context">
             <MudSwipeArea OnSwipeEnd="OnSwipEnd"
                           Style="width: 100%; height: 100%">
                 <div class="app-all-container k-rtl">
@@ -15,29 +16,38 @@
                         </article>
                     </main>
                 </div>
-                <MudDrawer Open="IsDrawerOpen"
-                           Anchor="@Anchor.Right"
-                           Elevation="0"
-                           Variant="@DrawerVariant.Temporary">
-                    <MudDrawerHeader>
-                        <MudText Typo="Typo.h6">
-                            @TextResources.APP_StringKeys_Avizhe
-                        </MudText>
-                    </MudDrawerHeader>
-                    <MudNavMenu>
-                        <MudNavLink Match="NavLinkMatch.All"
-                                    Href="/home">
-                            <MaterialIcon IconName="@MaterialIconsHelper.Home"></MaterialIcon>
-                            @TextResources.APP_StringKeys_Home
-                        </MudNavLink>
-                        <MudNavLink Match="NavLinkMatch.All"
-                                    Href="/workingreport/search">
-                            <MaterialIcon IconName="@MaterialIconsHelper.Work"></MaterialIcon>
-                            @TextResources.APP_StringKeys_WorkingReport_Search
-                        </MudNavLink>
-                    </MudNavMenu>
-                </MudDrawer>
+                @if (Context.IsDrawerShown)
+                {
+                    <MudDrawer Open="Context.IsDrawerOpen"
+                               Anchor="@Anchor.Right"
+                               Elevation="0"
+                               Variant="@DrawerVariant.Temporary">
+                        <MudDrawerHeader>
+                            <MudText Typo="Typo.h6">
+                                @TextResources.APP_StringKeys_Avizhe
+                            </MudText>
+                        </MudDrawerHeader>
+                        <MudNavMenu>
+                            <MudNavLink Match="NavLinkMatch.All"
+                                        Href="/home">
+                                <MaterialIcon IconName="@MaterialIconsHelper.Home"></MaterialIcon>
+                                @TextResources.APP_StringKeys_Home
+                            </MudNavLink>
+                            <MudNavLink Match="NavLinkMatch.All"
+                                        Href="/workingreport/search">
+                                <MaterialIcon IconName="@MaterialIconsHelper.Work"></MaterialIcon>
+                                @TextResources.APP_StringKeys_WorkingReport_Search
+                            </MudNavLink>
+                            <MudNavLink OnClick="OnClickExit">
+                                <MaterialIcon IconName="@MaterialIconsHelper.Logout"></MaterialIcon>
+                                @TextResources.APP_StringKeys_Exit
+                            </MudNavLink>
+                        </MudNavMenu>
+                    </MudDrawer>
+                }
+
             </MudSwipeArea>
+            </CascadingValue>
         </MudMainContent>
     </MudLayout>
 </MudRTLProvider>

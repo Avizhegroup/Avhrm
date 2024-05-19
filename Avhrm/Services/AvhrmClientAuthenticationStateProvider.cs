@@ -42,7 +42,11 @@ public class AvhrmClientAuthenticationStateProvider : AuthenticationStateProvide
     {
         var claims = GetClaims(token);
 
+#if BlazorHybrid
+        Microsoft.Maui.Storage.Preferences.Set("access_token", token);
+#else
         await jsRuntime.InvokeVoidAsync("window.localStorage.setItem", "jwt", token);
+#endif
 
         var authUser = new ClaimsPrincipal(new ClaimsIdentity(claims));
 

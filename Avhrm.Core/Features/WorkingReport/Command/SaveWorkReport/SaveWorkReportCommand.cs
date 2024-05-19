@@ -44,4 +44,10 @@ public class SaveWorkReportCommand
 
     [ProtoMember(11)]
     public IEnumerable<int> WorkChallengesIds { get; set; }
+
+    [ProtoMember(12)]
+    public DateTime CreateDateTime { get; set; }
+
+    [ProtoMember(13)]
+    public string CreatorUserId { get; set; }
 }

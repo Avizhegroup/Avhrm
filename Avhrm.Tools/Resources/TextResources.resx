@@ -159,6 +159,9 @@
   <data name="APP_StringKeys_Error_Required" xml:space="preserve">
     <value>پرکردن فیلد '{0}' الزامی است</value>
   </data>
+  <data name="APP_StringKeys_Exit" xml:space="preserve">
+    <value>خروج</value>
+  </data>
   <data name="APP_StringKeys_FromDate" xml:space="preserve">
     <value>از تاریخ</value>
   </data>
