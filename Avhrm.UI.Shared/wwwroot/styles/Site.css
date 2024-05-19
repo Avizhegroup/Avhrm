@@ -1396,6 +1396,10 @@ blockquote {
 .pages-workingreport-search {
   padding-top: 10%;
 }
+.pages-workingreport-search .div-ver-overflow {
+  max-height: 65vh;
+  overflow-y: scroll;
+}
 
 .pages-vacreq-add {
   padding-top: 10%;

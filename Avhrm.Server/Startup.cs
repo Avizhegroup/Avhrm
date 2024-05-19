@@ -13,7 +13,13 @@ public static class Startup
     public static void ConfigureServices(this IServiceCollection services
         , IConfiguration configuration)
     {
-        services.AddGrpc(options => options.Interceptors.Add<LogInterceptor>());
+        services.AddGrpc(options =>
+        {
+            options.Interceptors.Add<LogInterceptor>();
+            options.EnableDetailedErrors = true;
+            options.MaxReceiveMessageSize = null;
+            options.MaxSendMessageSize = null;
+        });
 
         services.AddCoreServices();
 
