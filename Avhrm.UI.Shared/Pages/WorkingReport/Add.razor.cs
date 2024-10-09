@@ -1,12 +1,12 @@
-﻿using Avhrm.Core.Common;
-using Avhrm.Core.Contracts;
-using Avhrm.Core.Dtos;
-using Avhrm.Core.Features.Customer.Query.GetAllCustomers;
-using Avhrm.Core.Features.Project.Query.GetAllProjects;
-using Avhrm.Core.Features.WorkChallenge.Query.GetAllWorkChallenge;
-using Avhrm.Core.Features.WorkingReport.Command.SaveWorkReport;
-using Avhrm.Core.Features.WorkingReport.Enum;
-using Avhrm.Core.Features.WorkType.Query.GetAllWorkTypes;
+﻿using Avhrm.Application.Common;
+using Avhrm.Application.Contracts;
+using Avhrm.Application.Dtos;
+using Avhrm.Application.Features.Customer.Query.GetAllCustomers;
+using Avhrm.Application.Features.Project.Query.GetAllProjects;
+using Avhrm.Application.Features.WorkChallenge.Query.GetAllWorkChallenge;
+using Avhrm.Application.Features.WorkingReport.Command.SaveWorkReport;
+using Avhrm.Application.Features.WorkingReport.Enum;
+using Avhrm.Application.Features.WorkType.Query.GetAllWorkTypes;
 using Microsoft.AspNetCore.Components.Web;
 
 namespace Avhrm.UI.Shared.Pages.WorkingReport;

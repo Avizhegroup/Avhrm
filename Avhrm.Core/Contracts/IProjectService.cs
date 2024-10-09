@@ -1,9 +1,9 @@
-﻿using Avhrm.Core.Features.Project.Query.GetAllProjects;
-using Avhrm.Core.Features.WorkType.Query.GetAllWorkTypes;
+﻿using Avhrm.Application.Features.Project.Query.GetAllProjects;
+using Avhrm.Application.Features.WorkType.Query.GetAllWorkTypes;
 using ProtoBuf.Grpc;
 using ProtoBuf.Grpc.Configuration;
 
-namespace Avhrm.Core.Contracts;
+namespace Avhrm.Application;
 
 [Service]
 public interface IProjectService

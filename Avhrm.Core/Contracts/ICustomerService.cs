@@ -1,8 +1,8 @@
-﻿using Avhrm.Core.Features.Customer.Query.GetAllCustomers;
+﻿using Avhrm.Application.Features.Customer.Query.GetAllCustomers;
 using ProtoBuf.Grpc;
 using ProtoBuf.Grpc.Configuration;
 
-namespace Avhrm.Core.Contracts;
+namespace Avhrm.Application;
 
 [Service]
 public interface ICustomerService

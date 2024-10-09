@@ -7,8 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Avhrm.Identity.Server.Utilities;
 using CallContext = ProtoBuf.Grpc.CallContext;
 using Avhrm.Identity.Contracts;
-using Avhrm.Core.Features.Account.Query.GerUserLogin;
-using Avhrm.Core.Common;
+using Avhrm.Application.Features.Account.Query.GerUserLogin;
+using Avhrm.Application.Common;
 using Avhrm.Persistence.Services;
 using Avhrm.Domains;
 

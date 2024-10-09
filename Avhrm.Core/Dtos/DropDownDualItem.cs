@@ -1,4 +1,4 @@
-﻿namespace Avhrm.Core.Dtos;
+﻿namespace Avhrm.Application.Dtos;
 public class DropDownDualItem<T>
 {
     public string Name { get; set; }

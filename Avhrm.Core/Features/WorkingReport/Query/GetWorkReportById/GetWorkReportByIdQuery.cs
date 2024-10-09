@@ -1,6 +1,6 @@
 ﻿using ProtoBuf;
 
-namespace Avhrm.Core.Features.WorkingReport.Query.GetWorkReportById;
+namespace Avhrm.Application.Features.WorkingReport.Query.GetWorkReportById;
 
 [ProtoContract]
 public class GetWorkReportByIdQuery

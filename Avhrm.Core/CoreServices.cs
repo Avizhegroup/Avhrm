@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Avhrm.Core;
+namespace Avhrm.Application;
 public static class CoreServices
 {
     public static void AddCoreServices(this IServiceCollection services)

@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using Avhrm.Core.Contracts;
-using Avhrm.Core.Features.Customer.Query.GetAllCustomers;
+using Avhrm.Application.Contracts;
+using Avhrm.Application.Features.Customer.Query.GetAllCustomers;
 using Avhrm.Domains;
 using Microsoft.EntityFrameworkCore;
 using ProtoBuf.Grpc;
 
-namespace Avhrm.Persistence.Services;
+namespace Avhrm.Infrastructure.Services;
 
 public class CustomerService : ICustomerService
 {

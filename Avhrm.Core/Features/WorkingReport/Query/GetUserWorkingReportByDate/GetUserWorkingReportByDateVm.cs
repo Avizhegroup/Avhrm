@@ -1,6 +1,6 @@
 ﻿using ProtoBuf;
 
-namespace Avhrm.Core.Features.WorkingReport.Query.GetUserWorkingReportByDate;
+namespace Avhrm.Application.Features.WorkingReport.Query.GetUserWorkingReportByDate;
 
 [ProtoContract]
 public class GetUserWorkingReportByDateVm

@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
-using Avhrm.Core.Contracts;
-using Avhrm.Core.Features.Project.Query.GetAllProjects;
-using Avhrm.Core.Features.WorkType.Query.GetAllWorkTypes;
+using Avhrm.Application.Contracts;
+using Avhrm.Application.Features.Project.Query.GetAllProjects;
+using Avhrm.Application.Features.WorkType.Query.GetAllWorkTypes;
 using Avhrm.Domains;
 using Microsoft.EntityFrameworkCore;
 using ProtoBuf.Grpc;
 
-namespace Avhrm.Persistence.Services;
+namespace Avhrm.Infrastructure.Services;
 public class ProjectService : IProjectService
 {
     private readonly AvhrmDbContext dbContext;

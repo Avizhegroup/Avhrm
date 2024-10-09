@@ -19,7 +19,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Avhrm.Core\Avhrm.Core.csproj" />
+		<ProjectReference Include="..\Avhrm.Application\Avhrm.Application.csproj" />
 		<ProjectReference Include="..\Avhrm.Persistence\Avhrm.Persistence.csproj" />
 	</ItemGroup>
 

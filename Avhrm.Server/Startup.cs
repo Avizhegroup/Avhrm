@@ -1,6 +1,6 @@
 ﻿using Avhrm.Server.Intercepters;
 using Avhrm.Persistence;
-using Avhrm.Core;
+using Avhrm.Application;
 using Avhrm.Identity.Server;
 using Avhrm.Identity.Server.Implementation;
 using Avhrm.Persistence.Services;

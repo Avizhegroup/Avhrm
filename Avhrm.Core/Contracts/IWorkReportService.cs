@@ -1,12 +1,12 @@
-﻿using Avhrm.Core.Common;
-using Avhrm.Core.Features.WorkingReport.Command.DeleteWorkReport;
-using Avhrm.Core.Features.WorkingReport.Command.SaveWorkReport;
-using Avhrm.Core.Features.WorkingReport.Query.GetUserWorkingReportByDate;
-using Avhrm.Core.Features.WorkingReport.Query.GetWorkReportById;
+﻿using Avhrm.Application.Common;
+using Avhrm.Application.Features.WorkingReport.Command.DeleteWorkReport;
+using Avhrm.Application.Features.WorkingReport.Command.SaveWorkReport;
+using Avhrm.Application.Features.WorkingReport.Query.GetUserWorkingReportByDate;
+using Avhrm.Application.Features.WorkingReport.Query.GetWorkReportById;
 using ProtoBuf.Grpc;
 using ProtoBuf.Grpc.Configuration;
 
-namespace Avhrm.Core.Contracts;
+namespace Avhrm.Application;
 
 [Service]
 public interface IWorkReportService

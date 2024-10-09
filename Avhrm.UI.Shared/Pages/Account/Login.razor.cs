@@ -1,4 +1,4 @@
-﻿using Avhrm.Core.Features.Account.Query.GerUserLogin;
+﻿using Avhrm.Application.Features.Account.Query.GerUserLogin;
 using Avhrm.Identity.Contracts;
 using Avhrm.Identity.UI.Services;
 

@@ -1,9 +1,9 @@
-﻿using Avhrm.Core.Common;
-using Avhrm.Core.Features.Account.Query.GerUserLogin;
+﻿using Avhrm.Application.Common;
+using Avhrm.Application.Features.Account.Query.GerUserLogin;
 using ProtoBuf.Grpc;
 using ProtoBuf.Grpc.Configuration;
 
-namespace Avhrm.Identity.Contracts;
+namespace Avhrm.Application;
 
 [Service]
 public interface IAuthenticationService

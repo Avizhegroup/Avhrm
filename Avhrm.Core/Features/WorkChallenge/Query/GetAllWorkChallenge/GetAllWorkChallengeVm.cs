@@ -1,6 +1,6 @@
 ﻿using ProtoBuf;
 
-namespace Avhrm.Core.Features.WorkChallenge.Query.GetAllWorkChallenge;
+namespace Avhrm.Application.Features.WorkChallenge.Query.GetAllWorkChallenge;
 
 [ProtoContract]
 public class GetAllWorkChallengeVm

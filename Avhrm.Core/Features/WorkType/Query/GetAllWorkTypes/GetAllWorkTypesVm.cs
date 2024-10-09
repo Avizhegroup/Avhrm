@@ -1,6 +1,6 @@
 ﻿using ProtoBuf;
 
-namespace Avhrm.Core.Features.WorkType.Query.GetAllWorkTypes;
+namespace Avhrm.Application.Features.WorkType.Query.GetAllWorkTypes;
 
 [ProtoContract]
 public class GetAllWorkTypesVm

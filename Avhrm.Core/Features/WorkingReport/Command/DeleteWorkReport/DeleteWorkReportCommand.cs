@@ -1,6 +1,6 @@
 ﻿using ProtoBuf;
 
-namespace Avhrm.Core.Features.WorkingReport.Command.DeleteWorkReport;
+namespace Avhrm.Application.Features.WorkingReport.Command.DeleteWorkReport;
 
 [ProtoContract]
 public class DeleteWorkReportCommand

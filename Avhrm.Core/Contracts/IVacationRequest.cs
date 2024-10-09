@@ -1,8 +1,8 @@
-﻿using Avhrm.Core.Common;
+﻿using Avhrm.Application.Common;
 using ProtoBuf.Grpc;
 using ProtoBuf.Grpc.Configuration;
 
-namespace Avhrm.Core.Contracts;
+namespace Avhrm.Application;
 
 [Service]
 public interface IVacationRequest

@@ -1,17 +1,17 @@
 ﻿using AutoMapper;
-using Avhrm.Core.Common;
-using Avhrm.Core.Contracts;
-using Avhrm.Core.Features.WorkingReport.Command.DeleteWorkReport;
-using Avhrm.Core.Features.WorkingReport.Command.SaveWorkReport;
-using Avhrm.Core.Features.WorkingReport.Query.GetUserWorkingReportByDate;
-using Avhrm.Core.Features.WorkingReport.Query.GetWorkReportById;
+using Avhrm.Application.Common;
+using Avhrm.Application.Contracts;
+using Avhrm.Application.Features.WorkingReport.Command.DeleteWorkReport;
+using Avhrm.Application.Features.WorkingReport.Command.SaveWorkReport;
+using Avhrm.Application.Features.WorkingReport.Query.GetUserWorkingReportByDate;
+using Avhrm.Application.Features.WorkingReport.Query.GetWorkReportById;
 using Avhrm.Domains;
 using Azure.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using ProtoBuf.Grpc;
 
-namespace Avhrm.Persistence.Services;
+namespace Avhrm.Infrastructure.Services;
 
 [Authorize]
 public class WorkReportService : IWorkReportService

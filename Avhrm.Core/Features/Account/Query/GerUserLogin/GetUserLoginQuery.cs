@@ -1,7 +1,7 @@
 ﻿using ProtoBuf;
 using System.ComponentModel.DataAnnotations;
 
-namespace Avhrm.Core.Features.Account.Query.GerUserLogin;
+namespace Avhrm.Application.Features.Account.Query.GerUserLogin;
 
 [ProtoContract]
 public class GetUserLoginQuery

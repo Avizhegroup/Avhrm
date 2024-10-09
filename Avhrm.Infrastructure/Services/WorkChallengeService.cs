@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
-using Avhrm.Core.Contracts;
-using Avhrm.Core.Features.WorkChallenge.Query.GetAllWorkChallenge;
+using Avhrm.Application.Contracts;
+using Avhrm.Application.Features.WorkChallenge.Query.GetAllWorkChallenge;
 using Avhrm.Domains;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using ProtoBuf.Grpc;
 
-namespace Avhrm.Persistence.Services;
+namespace Avhrm.Infrastructure.Services;
 
 [Authorize]
 public class WorkChallengeService : IWorkChallengeService

@@ -1,6 +1,6 @@
 ﻿using ProtoBuf;
 
-namespace Avhrm.Core.Features.Customer.Query.GetAllCustomers;
+namespace Avhrm.Application.Features.Customer.Query.GetAllCustomers;
 
 [ProtoContract]
 public class GetAllCustomersVm

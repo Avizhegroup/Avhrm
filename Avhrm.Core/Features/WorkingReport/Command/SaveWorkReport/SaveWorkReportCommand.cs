@@ -1,8 +1,8 @@
-﻿using Avhrm.Core.Features.WorkingReport.Enum;
+﻿using Avhrm.Application.Features.WorkingReport.Enum;
 using ProtoBuf;
 using System.ComponentModel.DataAnnotations;
 
-namespace Avhrm.Core.Features.WorkingReport.Command.SaveWorkReport;
+namespace Avhrm.Application.Features.WorkingReport.Command.SaveWorkReport;
 
 [ProtoContract]
 public class SaveWorkReportCommand

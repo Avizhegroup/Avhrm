@@ -1,11 +1,11 @@
-﻿using Avhrm.Core.Common;
-using Avhrm.Core.Contracts;
+﻿using Avhrm.Application.Common;
+using Avhrm.Application.Contracts;
 using Avhrm.Domains;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using ProtoBuf.Grpc;
 
-namespace Avhrm.Persistence.Services;
+namespace Avhrm.Infrastructure.Services;
 
 [Authorize]
 public class VacationRequestService : IVacationRequest

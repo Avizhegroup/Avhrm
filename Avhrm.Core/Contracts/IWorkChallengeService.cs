@@ -1,8 +1,8 @@
-﻿using Avhrm.Core.Features.WorkChallenge.Query.GetAllWorkChallenge;
+﻿using Avhrm.Application.Features.WorkChallenge.Query.GetAllWorkChallenge;
 using ProtoBuf.Grpc;
 using ProtoBuf.Grpc.Configuration;
 
-namespace Avhrm.Core.Contracts;
+namespace Avhrm.Application;
 
 [Service]
 public interface IWorkChallengeService

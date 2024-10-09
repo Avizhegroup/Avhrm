@@ -1,4 +1,4 @@
-﻿using Avhrm.Core.Contracts;
+﻿using Avhrm.Application.Contracts;
 using Avhrm.Identity;
 using Avhrm.Identity.Contracts;
 using Avhrm.UI.Shared.Extensions;

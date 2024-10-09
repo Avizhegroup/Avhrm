@@ -2,7 +2,7 @@
 using ProtoBuf.Grpc;
 using System.Security.Claims;
 
-namespace Avhrm.Persistence;
+namespace Avhrm.Infrastructure;
 
 public static class CallContextExtensions
 {

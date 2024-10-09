@@ -1,6 +1,6 @@
 ﻿using ProtoBuf;
 
-namespace Avhrm.Core.Features.Project.Query.GetAllProjects;
+namespace Avhrm.Application.Features.Project.Query.GetAllProjects;
 
 [ProtoContract]
 public class GetAllProjectsVm
