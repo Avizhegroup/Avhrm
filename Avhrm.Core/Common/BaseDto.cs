@@ -1,4 +1,4 @@
-﻿namespace Avhrm.Application;
+﻿namespace Avhrm.Application.Server;
 
 public class BaseDto<T>
 {

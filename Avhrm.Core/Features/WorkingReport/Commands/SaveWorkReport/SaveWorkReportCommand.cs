@@ -1,7 +1,4 @@
-﻿using Avhrm.Application.Features.WorkingReport.Enum;
-using System.ComponentModel.DataAnnotations;
-
-namespace Avhrm.Application.Features;
+﻿namespace Avhrm.Application.Server.Features;
 public class SaveWorkReportCommand
 {
     public int? Id { get; set; }

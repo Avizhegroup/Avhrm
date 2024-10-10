@@ -1,6 +1,6 @@
 ﻿using ProtoBuf.Grpc;
 
-namespace Avhrm.Application;
+namespace Avhrm.Application.Server;;
 public interface IAuthenticationService
 {
     Task<BaseDto<string>> Authenticate(GetUserLoginQuery request, CallContext callContext = default);

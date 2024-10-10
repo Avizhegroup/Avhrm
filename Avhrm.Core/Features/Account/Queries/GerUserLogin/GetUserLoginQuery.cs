@@ -1,6 +1,5 @@
-﻿namespace Avhrm.Application.Features ;
-
-public class GetUserLoginQuery
+﻿namespace Avhrm.Application.Server.Features;
+public class GetUserLoginQuery : IRequest<GetUserLoginVm>
 {
     [Required(ErrorMessageResourceType = typeof(TextResources), ErrorMessageResourceName = "APP_StringKeys_Error_Required")]
     [Display(Name = "APP_StringKeys_Account_Username", ResourceType = typeof(TextResources))]

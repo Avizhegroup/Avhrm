@@ -1,4 +1,4 @@
-﻿namespace Avhrm.Application.Features;
+﻿namespace Avhrm.Application.Server;.Features;
 public class GetAllProjectsVm
 {
     public int? Id { get; set; }

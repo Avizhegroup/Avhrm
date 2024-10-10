@@ -1,4 +1,4 @@
-﻿namespace Avhrm.Application.Features;
+﻿namespace Avhrm.Application.Server.Features;
 public class GetUserWorkingReportByDateQuery
 {
     [Required(ErrorMessageResourceType = typeof(TextResources), ErrorMessageResourceName = nameof(TextResources.APP_StringKeys_Error_Required))]

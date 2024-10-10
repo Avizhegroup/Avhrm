@@ -1,4 +1,4 @@
-﻿namespace Avhrm.Application.Features;
+﻿namespace Avhrm.Application.Server;.Features;
 public class GetAllWorkChallengeVm
 {
     public int Id { get; set; }

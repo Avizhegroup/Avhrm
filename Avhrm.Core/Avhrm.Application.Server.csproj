@@ -9,17 +9,22 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="AutoMapper" Version="13.0.1" />
+		<PackageReference Include="MediatR" Version="12.4.1" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Avhrm.Application.Client\Avhrm.Application.Client.csproj" />
 	  <ProjectReference Include="..\Avhrm.Domains\Avhrm.Domains.csproj" />
+	  <ProjectReference Include="..\Avhrm.Identity.Server\Avhrm.Identity.Server.csproj" />
+	  <ProjectReference Include="..\Avhrm.Persistence\Avhrm.Persistence.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<Using Include="System.ComponentModel.DataAnnotations"/>
+		<Using Include="System.ComponentModel.DataAnnotations" />
+		<Using Include="Microsoft.EntityFrameworkCore" />
+		<Using Include="Avhrm.Application.Client.Features" />
+		<Using Include="MediatR" />
 	</ItemGroup>
+	
 </Project>

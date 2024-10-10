@@ -2,7 +2,7 @@
 using Avhrm.Application.Features;
 using Avhrm.Domains;
 
-namespace Avhrm.Application;
+namespace Avhrm.Application.Server;;
 public class ApplicationProfile : Profile
 {
     public ApplicationProfile()

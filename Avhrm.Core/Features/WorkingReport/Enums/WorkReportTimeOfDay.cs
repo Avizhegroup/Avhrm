@@ -1,4 +1,4 @@
-﻿namespace Avhrm.Application.Features;
+﻿namespace Avhrm.Application.Server.Features;
 public enum WorkReportTimeOfDay
 {
     Morning,
