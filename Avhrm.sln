@@ -15,11 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avhrm.Identity.UI", "Avhrm\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avhrm.Persistence", "Avhrm.Persistence\Avhrm.Persistence.csproj", "{D61D6484-0E8E-4AF9-8B98-11B63EE63667}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avhrm.Application.Server", "Avhrm.Core\Avhrm.Application.Server.csproj", "{957BEB25-565F-46A7-8E05-FF9191EE6C11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avhrm.Application.Server", "Avhrm.Application.Server\Avhrm.Application.Server.csproj", "{957BEB25-565F-46A7-8E05-FF9191EE6C11}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{FC4B5736-8B27-4753-AEEF-E06D4812712C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avhrm.Api", "Avhrm.Server\Avhrm.Api.csproj", "{7976AA05-1F4C-4E2B-A7FB-87DEBD63EF99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avhrm.Api", "Avhrm.Api\Avhrm.Api.csproj", "{7976AA05-1F4C-4E2B-A7FB-87DEBD63EF99}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avhrm.UI.Mobile", "Avhrm.UI.Mobile\Avhrm.UI.Mobile.csproj", "{CF8C0CE1-05CE-4609-BA50-788F068B6DA6}"
 EndProject

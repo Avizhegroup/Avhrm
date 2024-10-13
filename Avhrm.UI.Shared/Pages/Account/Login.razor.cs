@@ -1,6 +1,4 @@
-﻿using Avhrm.Application.Features.Account.Query.GerUserLogin;
-using Avhrm.Identity.Contracts;
-using Avhrm.Identity.UI.Services;
+﻿using Avhrm.Identity.UI.Services;
 
 namespace Avhrm.UI.Shared.Pages.Account;
 public partial class Login

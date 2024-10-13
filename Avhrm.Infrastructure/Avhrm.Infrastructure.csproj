@@ -7,7 +7,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Avhrm.Core\Avhrm.Application.Server.csproj" />
+	  <PackageReference Include="Microsoft.AspNetCore.Components" Version="8.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
+	  <PackageReference Include="Microsoft.JSInterop" Version="8.0.0" />
 	</ItemGroup>
 
 </Project>

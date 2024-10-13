@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ProtoBuf.Grpc.Server;
 
 namespace Avhrm.Persistence;
 public static class PersistenceServices
@@ -17,10 +16,8 @@ public static class PersistenceServices
             options.UseSqlServer(configuration.GetConnectionString("Server"));
         });
 
-        services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<AvhrmDbContext>()
-                .AddDefaultTokenProviders();
-
-        services.AddCodeFirstGrpc();
+        services.AddIdentityCore<ApplicationUser>()
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<AvhrmDbContext>();
     }
 }
