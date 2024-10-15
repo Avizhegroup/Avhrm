@@ -11,6 +11,6 @@ public class AccountController(IMediator mediator) : AvhrmBaseController
     => Ok(new ApiResponse()
     {
         Successful = true,
-        Value = (await mediator.Send<GetUserLoginVm>(command)).Token
+        Value = (await mediator.Send<GetUserLoginVm>(command))
     });
 }

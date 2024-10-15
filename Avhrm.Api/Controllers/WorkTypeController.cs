@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Avhrm.Application.Client;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Avhrm.Api.Controllers;

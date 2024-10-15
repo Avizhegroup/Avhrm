@@ -22,5 +22,7 @@ public static partial class Program
         app.UseResponseCompression();
 
         app.MapControllers();
+
+        app.UseCors("OpenCors");
     }
 }

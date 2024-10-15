@@ -1,5 +1,4 @@
 ﻿using System.Net.Http.Headers;
-using System.Net.Http.Json;
 using System.Net;
 using System.Text.Json.Serialization;
 using System.Text.Json;
@@ -7,20 +6,30 @@ using System.Text;
 using Microsoft.JSInterop;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Components;
+using Avhrm.Application.Client.Features;
+using Microsoft.Extensions.Configuration;
 
-namespace Avhrm.Infrastructure;
+namespace Avhrm.Infrastructure.Client;
 public class ApiHandler(IJSRuntime jsRuntime
-    , ILogger<ApiHandler> logger) : HttpClientHandler
+    , ILogger<ApiHandler> logger
+    , NavigationManager navigationManager
+    , IConfiguration configuration) : HttpClientHandler
 {
-    protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request
-        , NavigationManager NavigationManager
-        , CancellationToken cancellationToken)
-    {
-        var storageResult = await jsRuntime.InvokeAsync<string>("window.localStorage.getItem", "jwt");
+    private string baseUrl;
 
-        if (storageResult.HasValue())
+    protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+    {
+        string? token;
+
+#if BlazorServer
+        token = await jsRuntime.InvokeAsync<string?>("window.localStorage.getItem", "jwt");
+#else
+        token = Preferences.Get("access_token", null);
+#endif
+
+        if (token.HasValue())
         {
-            request.Headers.Authorization = new("Bearer", storageResult);
+            request.Headers.Authorization = new("Bearer", token);
         }
         else
         {
@@ -31,43 +40,27 @@ public class ApiHandler(IJSRuntime jsRuntime
 
         if (!response.IsSuccessStatusCode)
         {
-            if (response.Content.Headers.ContentType?.MediaType == "application/json")
+            if (response.StatusCode == HttpStatusCode.Unauthorized)
             {
-                var errorResult = await response.Content.ReadFromJsonAsync<ApiResponse<string>>(cancellationToken: cancellationToken);
-
-                logger.LogWarning($"Auth log error: {errorResult}");
-
-                if (response.StatusCode == HttpStatusCode.Unauthorized)
-                {
-                    await Storage.DeleteAsync("token");
-
-                    await Storage.DeleteAsync("username");
-
-                    await Storage.DeleteAsync("jwt");
-
-                    await Storage.DeleteAsync("signTime");
-
-                    NavigationManager.NavigateTo("/account/login", true);
-                }
-
-                if (response.StatusCode == HttpStatusCode.Ambiguous)
-                {
-                    NavigationManager.NavigateTo("/settings/apisettings");
-                }
+#if BlazorServer
+                await jsRuntime.InvokeVoidAsync("window.localStorage.removeItem", "jwt");
+#else
+                    Preferences.Remove("access_token");
+#endif
+                navigationManager.NavigateTo("/account/login", true);
             }
         }
-
         return response;
     }
 
-
-    public async Task<ApiResponse<T>> PostAsync<T>(string uri, object data)
+    public async Task<ApiResponse<T>> SendJsonAsync<T>(HttpMethod method
+        , string uri
+        , object data = null)
     {
-        if (baseUri.HasNoValue())
+        if (baseUrl.HasNoValue())
         {
             SetUri();
         }
-
 
         JsonSerializerOptions option = new()
         {
@@ -81,7 +74,7 @@ public class ApiHandler(IJSRuntime jsRuntime
         var byteContent = new ByteArrayContent(buffer);
         byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-        HttpRequestMessage request = new(HttpMethod.Post, baseUrl + uri);
+        HttpRequestMessage request = new(method, baseUrl + uri);
 
         request.Content = byteContent;
 
@@ -92,5 +85,10 @@ public class ApiHandler(IJSRuntime jsRuntime
         var result = await JsonSerializer.DeserializeAsync<ApiResponse<T>>(httpStream, option);
 
         return result;
+    }
+
+    private void SetUri()
+    {
+        baseUrl = configuration["Api:Ip"];
     }
 } 

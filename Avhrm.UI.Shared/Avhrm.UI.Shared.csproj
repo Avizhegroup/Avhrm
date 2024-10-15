@@ -58,6 +58,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Avhrm.Application.Server\Avhrm.Application.Server.csproj" />
+		<ProjectReference Include="..\Avhrm.Infrastructure\Avhrm.Infrastructure.Client.csproj" />
 		<ProjectReference Include="..\Avhrm\Avhrm.Identity.UI.csproj" />
 	</ItemGroup>
 

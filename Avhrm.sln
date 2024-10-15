@@ -40,9 +40,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{F6
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avhrm.Domains", "Avhrm.Domains\Avhrm.Domains.csproj", "{8DB70B78-D4E2-4B25-9AF5-7734B23EAA16}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avhrm.Infrastructure", "Avhrm.Infrastructure\Avhrm.Infrastructure.csproj", "{EF8E9894-9F78-458A-92C1-F3F4FDF9E6EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avhrm.Infrastructure.Client", "Avhrm.Infrastructure\Avhrm.Infrastructure.Client.csproj", "{EF8E9894-9F78-458A-92C1-F3F4FDF9E6EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avhrm.Application.Client", "Avhrm.Application.Client\Avhrm.Application.Client.csproj", "{CB36F28E-3B10-42A6-A4E7-DE6A55A3143B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avhrm.Application.Client", "Avhrm.Application.Client\Avhrm.Application.Client.csproj", "{CB36F28E-3B10-42A6-A4E7-DE6A55A3143B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

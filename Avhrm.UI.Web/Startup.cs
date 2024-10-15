@@ -48,11 +48,8 @@ public static class Startup
 
         app.UseResponseCompression();
 
-        app.UseEndpoints(endpoints =>
-        {
-            endpoints.MapBlazorHub();
+        app.MapBlazorHub();
 
-            endpoints.MapFallbackToPage("/_Host");
-        });
+        app.MapFallbackToPage("/_Host");
     }
 }

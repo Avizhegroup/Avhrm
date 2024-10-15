@@ -5,7 +5,7 @@ namespace Avhrm.Api.Controllers;
 public class CustomerController(IMediator mediator) : AvhrmBaseController
 {
     [HttpGet("[action]")]
-    public async Task<IActionResult> Get()
+    public async Task<IActionResult> GetAll()
     => Ok(new ApiResponse()
     {
         Successful = true,

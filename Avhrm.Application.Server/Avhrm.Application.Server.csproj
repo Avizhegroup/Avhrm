@@ -29,7 +29,6 @@
 
 	<ItemGroup>
 	  <Folder Include="Contracts\" />
-	  <Folder Include="Features\NewFolder\" />
 	</ItemGroup>
 	
 </Project>
