@@ -11,8 +11,12 @@ public partial class Search
 
     [Inject] public ApiHandler Api { get; set; }
 
+    [CascadingParameter] public ComponentsContext Context { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
+        Context.IsBackButtonShown = true;
+
         Request.Date = DateTime.Now;
     }
 

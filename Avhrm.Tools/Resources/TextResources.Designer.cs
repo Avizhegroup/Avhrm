@@ -77,7 +77,50 @@ namespace Avhrm.Tools.Resources {
                 return ResourceManager.GetString("APP_StringKeys_Account_Password", resourceCulture);
             }
         }
-        
+
+         /// <summary>
+        ///   Looks up a localized string similar to مدیریت کاربران.
+        /// </summary>
+        public static string APP_StringKeys_Account_ManageUser
+        {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Account_ManageUser", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to مدیریت کاربران.
+        /// </summary>
+        public static string APP_StringKeys_Account_PersianName
+        {
+            get
+            {
+                return ResourceManager.GetString("APP_StringKeys_Account_PersianName", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to مدیریت کاربران.
+        /// </summary>
+        public static string APP_StringKeys_Account_AddUser
+        {
+            get
+            {
+                return ResourceManager.GetString("APP_StringKeys_Account_AddUser", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to مدیریت کاربران.
+        /// </summary>
+        public static string APP_StringKeys_User_Parent
+        {
+            get
+            {
+                return ResourceManager.GetString("APP_StringKeys_User_Parent", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to نام کاربری.
         /// </summary>
@@ -138,6 +181,15 @@ namespace Avhrm.Tools.Resources {
         public static string APP_StringKeys_Delete {
             get {
                 return ResourceManager.GetString("APP_StringKeys_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to واحد.
+        /// </summary>
+        public static string APP_StringKeys_Department {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Department", resourceCulture);
             }
         }
         
@@ -322,6 +374,15 @@ namespace Avhrm.Tools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to عنوان.
+        /// </summary>
+        public static string APP_StringKeys_Title {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to تا تاریخ.
         /// </summary>
         public static string APP_StringKeys_ToDate {
@@ -381,6 +442,15 @@ namespace Avhrm.Tools.Resources {
         public static string APP_StringKeys_WorkChallenge {
             get {
                 return ResourceManager.GetString("APP_StringKeys_WorkChallenge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to مدیریت چالش های کاری.
+        /// </summary>
+        public static string APP_StringKeys_WorkingChallenge_Manage {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_WorkingChallenge_Manage", resourceCulture);
             }
         }
         

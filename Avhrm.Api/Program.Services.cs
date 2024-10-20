@@ -1,4 +1,5 @@
 ﻿using Avhrm.Identity.Server;
+using Avhrm.Infrastructure.Server;
 using Avhrm.Persistence;
 using Microsoft.AspNetCore.ResponseCompression;
 using System.IO.Compression;
@@ -41,5 +42,7 @@ public static partial class Program
         services.AddPersistenceServices(configuration);
 
         services.AddIdentityServerServices(configuration);
+
+        services.AddServerInfrastructureServices(configuration);
     }
 }

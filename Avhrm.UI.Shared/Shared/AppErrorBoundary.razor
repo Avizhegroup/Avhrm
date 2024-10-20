@@ -1,0 +1,33 @@
+﻿@namespace Avhrm.UI.Shared
+@inherits ErrorBoundaryBase
+
+@if (CurrentException is null)
+{
+    @ChildContent
+}
+else if (ErrorContent is null)
+{
+    <div class="main">
+        <div class="header">
+            <button type="button"
+                    class="btn btn-warning"
+                @onclick="Recover">
+                <MaterialIcon IconName="@MaterialIconsHelper.Refresh"></MaterialIcon>
+            </button>
+            <button type="button"
+                    class="btn btn-primary" 
+                    @onclick="GoHome">
+                <MaterialIcon IconName="@MaterialIconsHelper.Home"></MaterialIcon>
+            </button>
+        </div>
+        <h1 class="title">@TextResources.APP_StringKeys_Message_Failed</h1>
+        @if (ShowException)
+        {
+            <div class="exception">@CurrentException?.ToString()</div>
+        }
+    </div>
+}
+else
+{
+    @ErrorContent(CurrentException)
+}

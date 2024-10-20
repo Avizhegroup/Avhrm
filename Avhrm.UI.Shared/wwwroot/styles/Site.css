@@ -5,8 +5,18 @@
   margin: 0 auto;
   height: 100vh;
   background-color: #F5F5F5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
+@media screen and (max-width: 768px) {
+  .app-all-container {
+    height: 100vh;
+    padding: 0 10px;
+  }
+}
 .text-align-right {
   text-align: right !important;
 }
@@ -59,6 +69,72 @@
 
 .mud-main-content {
   padding-top: unset !important;
+}
+
+.floating-button {
+  position: fixed;
+  top: 5px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  background-color: #1976d2;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+.floating-button:hover {
+  background-color: #1565c0;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.floating-button-left {
+  position: fixed;
+  top: 5px;
+  left: 16px;
+  width: 40px;
+  height: 40px;
+  background-color: #1976d2;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+.floating-button-left:hover {
+  background-color: #1565c0;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.page-floating-button {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+.page-floating-button:hover {
+  background-color: #1565c0;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 body, h1, h2, h3, h4, h5, h6, input, textarea {
@@ -1389,6 +1465,30 @@ blockquote {
   padding-top: 20%;
 }
 
+.page-home-index {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f9f9f9;
+}
+.page-home-index .table {
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+.page-home-index .table td {
+  text-align: center;
+  padding: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.page-home-index .table td:hover {
+  background-color: #e0e0e0;
+  transform: scale(1.05);
+}
+
 .pages-vacreq-index {
   padding-top: 40px;
 }
@@ -1403,4 +1503,9 @@ blockquote {
 
 .pages-vacreq-add {
   padding-top: 10%;
+}
+
+.page-account-manage .text-align-center .div-ver-overflow {
+  max-height: 80vh;
+  overflow-y: scroll;
 }

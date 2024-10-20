@@ -1,9 +1,11 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Avhrm.Infrastructure.Client;
 public static class ClientInfrastructureServices
 {
-    public static void AddClientInfrastructureServices(this IServiceCollection services)
+    public static void AddClientInfrastructureServices(this IServiceCollection services
+        , IConfiguration config)
     {
         services.AddScoped(sp =>
         {
@@ -13,5 +15,7 @@ public static class ClientInfrastructureServices
         });
 
         services.AddScoped<ApiHandler>();
+
+        services.AddSerilog(config);
     }
 }

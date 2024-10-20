@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Avhrm.Domains;
 public class ApplicationUser : IdentityUser
@@ -17,6 +18,9 @@ public class ApplicationUser : IdentityUser
     public Department Department { get; set; }
 
     public int Points { get; set; }
+
+    [NotMapped]
+    public string RoleName { get; set; }
 
     public ICollection<UserPointChangeLog> PointChangeLogs { get; set; }
 }

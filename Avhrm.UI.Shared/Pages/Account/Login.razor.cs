@@ -21,10 +21,12 @@ public partial class Login
     {
         Context.IsDrawerShown = false;
 
+        Context.IsBackButtonShown = false;
+
 #if DEBUG
         Request = new()
         {
-            Username = "admin",
+            Username = "11",
             Password = "rfidadmin"
         };
 #endif

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Avhrm.Identity.UI.Services;
 using Avhrm.Infrastructure.Client;
 using Microsoft.AspNetCore.Components.Web;
 
@@ -6,7 +7,7 @@ namespace Avhrm.UI.Shared.Pages.WorkingReport;
 public partial class Add
 {
     public bool IsMessageShown = false;
-    public bool IsLoading = true;
+    public bool IsLoading = false;
     public List<GetAllWorkTypesDto> WorkTypes = new();
     public List<GetAllProjectsDto> Projects = new();
     public List<GetAllCustomersDto> Customers = new();
@@ -38,22 +39,35 @@ public partial class Add
     [Inject] public ApiHandler Api { get; set; }
     [Inject] public IMapper Mapper { get; set; }
     [Inject] public NavigationManager NavigationManager { get; set; }
+    [Inject] public AvhrmClientAuthenticationStateProvider AuthState { get; set; }
+
+    [CascadingParameter] public ComponentsContext Context { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
+        Context.IsBackButtonShown = true;
+
+        IsLoading = true;
+
+        var user = (await AuthState.GetAuthenticationStateAsync()).User;
+
         WorkTypes = (await Api.SendJsonAsync<GetAllWorkTypesVm>(HttpMethod.Get, "WorkType/GetAll")).Value.Data;
 
         Projects = (await Api.SendJsonAsync<GetAllProjectsVm>(HttpMethod.Get, "Project/GetAll")).Value.Data;
 
         Customers = (await Api.SendJsonAsync<GetAllCustomersVm>(HttpMethod.Get, "Customer/GetAll")).Value.Data;
 
-        WorkChallenges = (await Api.SendJsonAsync<GetAllWorkChallengeVm>(HttpMethod.Get, "WorkChallenge/GetAll")).Value.Data;
+        WorkChallenges = (await Api.SendJsonAsync<GetAllWorkChallengeVm>(HttpMethod.Get, "WorkChallenge/GetAll"))
+                                   .Value
+                                   .Data
+                                   .Where(p=> p.DepartmentId == int.Parse(user.GetDepartmentId()))
+                                   .ToList();
 
         Command.PersianDate = PersianCalendarTools.GregorianToPersian(DateTime.Now);
 
         if (Id is not null)
         {
-            var data = (await Api.SendJsonAsync<GetWorkReportByIdVm>(HttpMethod.Get
+            GetWorkReportByIdVm? data = (await Api.SendJsonAsync<GetWorkReportByIdVm>(HttpMethod.Get
                 , "WorkReport/Get"
                 , new GetWorkReportByIdQuery()
                 {
@@ -81,9 +95,9 @@ public partial class Add
 
         if (Id is not null)
         {
-            result =( await Api.SendJsonAsync<UpdateWorkReportVm>(HttpMethod.Put
+            result = (await Api.SendJsonAsync<UpdateWorkReportVm>(HttpMethod.Put
                 , "WorkReport/Update"
-                , Mapper.Map<UpdateWorkReportCommand>(Command)) ).Value.Result;
+                , Mapper.Map<UpdateWorkReportCommand>(Command))).Value.Result;
         }
         else
         {

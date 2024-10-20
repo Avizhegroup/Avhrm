@@ -2,7 +2,18 @@
     max-width: 500px;
     margin: 0 auto;
     height: 100vh;
-    background-color:#F5F5F5;
+    background-color: #F5F5F5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: env(safe-area-inset-bottom); 
+}
+
+@media screen and (max-width: 768px) {
+    .app-all-container {
+        height: 100vh; 
+        padding: 0 10px; 
+    }
 }
 
 .text-align-right {
@@ -57,4 +68,73 @@
 
 .mud-main-content{
     padding-top: unset !important;
+}
+
+.floating-button {
+    position: fixed;
+    top: 5px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    background-color: #1976d2;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+
+    &:hover {
+        background-color: #1565c0;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.floating-button-left {
+    position: fixed;
+    top: 5px;
+    left: 16px;
+    width: 40px;
+    height: 40px;
+    background-color: #1976d2;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+
+    &:hover {
+        background-color: #1565c0;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.page-floating-button {
+    position: fixed;
+    bottom: 16px;
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+
+    &:hover {
+        background-color: #1565c0;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
 }

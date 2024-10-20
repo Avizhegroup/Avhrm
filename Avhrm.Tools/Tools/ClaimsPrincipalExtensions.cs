@@ -33,7 +33,7 @@ public static class ClaimsPrincipalExtensions
 
         if (claims.Any())
         {
-            return claims.FirstOrDefault(p => p.Type == ClaimTypes.Surname).Value;
+            return claims.FirstOrDefault(p => p.Type == "family_name").Value;
         }
 
         return null;

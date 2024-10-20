@@ -89,6 +89,10 @@ public class ApiHandler(IJSRuntime jsRuntime
 
     private void SetUri()
     {
-        baseUrl = configuration["Api:Ip"];
+#if DEBUG
+        baseUrl = "https://localhost:5072/avhrm/";
+#else
+        baseUrl = "http://185.141.213.161:2021/avhrm/";
+#endif
     }
 } 

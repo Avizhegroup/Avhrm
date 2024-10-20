@@ -11,15 +11,11 @@ public static class Startup
     {
         services.AddRazorPages();
 
-#if DEBUG
         services.AddServerSideBlazor()
                 .AddCircuitOptions(options =>
                 {
                     options.DetailedErrors = true;
                 });
-#else
-        services.AddServerSideBlazor();
-#endif
 
         services.AddResponseCompression(opts =>
         {

@@ -5,12 +5,29 @@
 <div class="page-home-index text-align-center">
     <table class="table table-bordered">
         <tbody>
-           
-            <tr>
-                <td @onclick="OnWorkingSearchClick">
-                    @TextResources.APP_StringKeys_WorkingReport_Search
-                </td>
-            </tr>
+            @if (User is not null)
+            {
+                @if (User.GetUserRoleName().ToLower() == "admin")
+                {
+                    <tr>
+                        <td @onclick="OnAccountManageClick">
+                            @TextResources.APP_StringKeys_Account_ManageUser
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td @onclick="OnWorkingChallengeClick">
+                            @TextResources.APP_StringKeys_WorkingChallenge_Manage
+                        </td>
+                    </tr>
+                }
+
+                <tr>
+                    <td @onclick="OnWorkingSearchClick">
+                        @TextResources.APP_StringKeys_WorkingReport_Search
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

@@ -1,4 +1,5 @@
-﻿using Avhrm.Identity;
+﻿using Avhrm.Application.Client;
+using Avhrm.Identity;
 using Avhrm.Infrastructure.Client;
 using Microsoft.Extensions.Configuration;
 using MudBlazor.Services;
@@ -9,10 +10,12 @@ public static class SharedServices
     public static void AddSharedServices(this IServiceCollection services
         , IConfiguration configuration)
     {
-        services.AddClientInfrastructureServices();
+        services.AddClientInfrastructureServices(configuration);
 
         services.AddIdentityUIServices();
 
         services.AddMudServices();
+
+        services.AddClientApplicationServices();
     }
 }

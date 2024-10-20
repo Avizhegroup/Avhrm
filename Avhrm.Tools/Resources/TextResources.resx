@@ -234,4 +234,25 @@
   <data name="APP_StringKeys_WorkType" xml:space="preserve">
     <value>نوع کار</value>
   </data>
+  <data name="APP_StringKeys_WorkingChallenge_Manage" xml:space="preserve">
+    <value>مدیریت چالش های کاری</value>
+  </data>
+  <data name="APP_StringKeys_Department" xml:space="preserve">
+    <value>واحد</value>
+  </data>
+  <data name="APP_StringKeys_Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="APP_StringKeys_Account_ManageUser" xml:space="preserve">
+    <value>مدیریت کاربران</value>
+  </data>
+  <data name="APP_StringKeys_Account_PersianName" xml:space="preserve">
+    <value>نام فارسی</value>
+  </data>
+  <data name="APP_StringKeys_Account_AddUser" xml:space="preserve">
+    <value>افزودن/ویرایش کاربر</value>
+  </data>
+  <data name="APP_StringKeys_User_Parent" xml:space="preserve">
+    <value>کاربر سرپرست</value>
+  </data>
 </root>

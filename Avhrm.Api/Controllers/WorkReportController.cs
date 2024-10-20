@@ -35,4 +35,12 @@ public class WorkReportController(IMediator mediator) : AvhrmBaseController
        Successful = true,
        Value = await mediator.Send<UpdateWorkReportVm>(command)
    });
+
+    [HttpDelete("[action]")]
+    public async Task<IActionResult> Delete([FromBody] DeleteWorkReportCommand command)
+   => Ok(new ApiResponse()
+   {
+       Successful = true,
+       Value = await mediator.Send<DeleteWorkReportVm>(command)
+   });
 }
