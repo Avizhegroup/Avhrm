@@ -7,7 +7,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Avhrm.Core\Avhrm.Core.csproj" />
 		<ProjectReference Include="..\Avhrm.Domains\Avhrm.Domains.csproj" />
 	</ItemGroup>
 
@@ -18,7 +17,6 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="protobuf-net.Grpc.AspNetCore" Version="1.1.1" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 
 namespace Avhrm.Domains;
-
 public class WorkType : IBaseEntity
 {
     [Key]

@@ -1,24 +1,18 @@
-﻿using Avhrm.Core.Common;
-using Avhrm.Core.Contracts;
-using Avhrm.Core.Dtos;
-using Avhrm.Core.Features.Customer.Query.GetAllCustomers;
-using Avhrm.Core.Features.Project.Query.GetAllProjects;
-using Avhrm.Core.Features.WorkChallenge.Query.GetAllWorkChallenge;
-using Avhrm.Core.Features.WorkingReport.Command.SaveWorkReport;
-using Avhrm.Core.Features.WorkingReport.Enum;
-using Avhrm.Core.Features.WorkType.Query.GetAllWorkTypes;
+﻿using AutoMapper;
+using Avhrm.Identity.UI.Services;
+using Avhrm.Infrastructure.Client;
 using Microsoft.AspNetCore.Components.Web;
 
 namespace Avhrm.UI.Shared.Pages.WorkingReport;
 public partial class Add
 {
     public bool IsMessageShown = false;
-    public bool IsLoading = true;
-    public List<GetAllWorkTypesVm> WorkTypes = new();
-    public List<GetAllProjectsVm> Projects = new();
-    public List<GetAllCustomersVm> Customers = new();
-    public List<GetAllWorkChallengeVm> WorkChallenges = new();
-    public SaveWorkReportCommand Command = new();  
+    public bool IsLoading = false;
+    public List<GetAllWorkTypesDto> WorkTypes = new();
+    public List<GetAllProjectsDto> Projects = new();
+    public List<GetAllCustomersDto> Customers = new();
+    public List<GetAllWorkChallengeDto> WorkChallenges = new();
+    public InsertWorkReportCommand Command = new();
     public List<string> MessageTexts = new();
     public List<DropDownDualItem<WorkReportTimeOfDay>> TimeOfDays = new()
     {
@@ -42,31 +36,48 @@ public partial class Add
 
     [Parameter] public int? Id { get; set; }
 
-    [Inject] public IWorkTypeService WorkTypeService { get; set; }
-    [Inject] public IWorkReportService WorkReportService { get; set; }
-    [Inject] public IProjectService ProjectService { get; set; }
-    [Inject] public ICustomerService CustomerService { get; set; }
-    [Inject] public IWorkChallengeService WorkChallengeService { get; set; }
+    [Inject] public ApiHandler Api { get; set; }
+    [Inject] public IMapper Mapper { get; set; }
     [Inject] public NavigationManager NavigationManager { get; set; }
+    [Inject] public AvhrmClientAuthenticationStateProvider AuthState { get; set; }
+
+    [CascadingParameter] public ComponentsContext Context { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        WorkTypes = await WorkTypeService.GetWorkTypesByDepartmentId();
+        Context.IsBackButtonShown = true;
 
-        Projects = await ProjectService.GetAllProjects();
+        IsLoading = true;
 
-        Customers = await CustomerService.GetAllCustomers();
+        var user = (await AuthState.GetAuthenticationStateAsync()).User;
 
-        WorkChallenges = await WorkChallengeService.GetWorkChallengesByDepartmentId();
+        WorkTypes = (await Api.SendJsonAsync<GetAllWorkTypesVm>(HttpMethod.Get, "WorkType/GetAll")).Value.Data;
+
+        Projects = (await Api.SendJsonAsync<GetAllProjectsVm>(HttpMethod.Get, "Project/GetAll")).Value.Data;
+
+        Customers = (await Api.SendJsonAsync<GetAllCustomersVm>(HttpMethod.Get, "Customer/GetAll")).Value.Data;
+
+        WorkChallenges = (await Api.SendJsonAsync<GetAllWorkChallengeVm>(HttpMethod.Get, "WorkChallenge/GetAll"))
+                                   .Value
+                                   .Data
+                                   .Where(p=> p.DepartmentId == int.Parse(user.GetDepartmentId()))
+                                   .ToList();
 
         Command.PersianDate = PersianCalendarTools.GregorianToPersian(DateTime.Now);
 
         if (Id is not null)
         {
-            Command = await WorkReportService.GetWorkReportById(new()
+            GetWorkReportByIdVm? data = (await Api.SendJsonAsync<GetWorkReportByIdVm>(HttpMethod.Get
+                , "WorkReport/Get"
+                , new GetWorkReportByIdQuery()
+                {
+                    Id = Id.Value
+                })).Value;
+
+            if (data is not null)
             {
-                Id = Id.Value
-            });
+                Command = Mapper.Map<InsertWorkReportCommand>(data);
+            }
         }
         else
         {
@@ -78,20 +89,24 @@ public partial class Add
 
     public async Task OnValidSubmit(EditContext context)
     {
-        BaseDto<bool> result;
+        bool result;
 
         IsLoading = true;
 
         if (Id is not null)
         {
-            result = await WorkReportService.UpdateWorkReport(Command);
+            result = (await Api.SendJsonAsync<UpdateWorkReportVm>(HttpMethod.Put
+                , "WorkReport/Update"
+                , Mapper.Map<UpdateWorkReportCommand>(Command))).Value.Result;
         }
         else
         {
-            result = await WorkReportService.InsertWorkReport(Command);
+            result = (await Api.SendJsonAsync<InsertWorkReportVm>(HttpMethod.Post
+                , "WorkReport/Insert"
+                , Command)).Value.Result;
         }
 
-        if (result.Value)
+        if (result)
         {
             AlertSeverity = Severity.Success;
 
@@ -99,8 +114,6 @@ public partial class Add
             {
                 TextResources.APP_StringKeys_Message_Success
             };
-
-            
         }
         else
         {
@@ -133,12 +146,14 @@ public partial class Add
 
     public async Task OnDeleteClick(MouseEventArgs e)
     {
-        BaseDto<bool> result = await WorkReportService.DeleteWorkReport(new()
-        {
-            Id = Command.Id
-        });
+        bool result = (await Api.SendJsonAsync<DeleteWorkReportVm>(HttpMethod.Delete
+            , "WorkReport/Delete"
+            , new DeleteWorkReportCommand()
+            {
+                Id = Id.Value
+            })).Value.Result;
 
-        if (result.Value)
+        if (result)
         {
             NavigationManager.NavigateTo("/workingreport/search");
 

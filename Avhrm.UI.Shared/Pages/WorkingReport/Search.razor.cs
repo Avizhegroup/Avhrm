@@ -1,5 +1,4 @@
-﻿using Avhrm.Core.Contracts;
-using Avhrm.Core.Features.WorkingReport.Query.GetUserWorkingReportByDate;
+﻿using Avhrm.Infrastructure.Client;
 
 namespace Avhrm.UI.Shared.Pages.WorkingReport;
 public partial class Search
@@ -8,12 +7,16 @@ public partial class Search
     public bool IsLoading = false;
     public List<string> MessageTexts = new();
     public GetUserWorkingReportByDateQuery Request = new();
-    public List<GetUserWorkingReportByDateVm> Reports;
+    public List<GetUserWorkingReportByDateDto> Reports;
 
-    [Inject] public IWorkReportService Service { get; set; }
+    [Inject] public ApiHandler Api { get; set; }
+
+    [CascadingParameter] public ComponentsContext Context { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
+        Context.IsBackButtonShown = true;
+
         Request.Date = DateTime.Now;
     }
 
@@ -21,7 +24,9 @@ public partial class Search
     {
         IsLoading = true;
 
-        Reports = await Service.GetWorkingReportByDate(Request);
+        Reports = (await Api.SendJsonAsync<GetUserWorkingReportByDateVm>(HttpMethod.Get
+            , "WorkReport/GetByDate"
+            , Request)).Value.Data;
 
         IsLoading = false;
     }

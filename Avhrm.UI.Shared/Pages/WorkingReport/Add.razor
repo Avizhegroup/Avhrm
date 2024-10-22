@@ -1,6 +1,5 @@
 ﻿@page "/workingreport/add"
 @page "/workingreport/edit/{Id:int}"
-@using Avhrm.Core.Features.WorkingReport.Enum
 @using Avhrm.UI.Shared.Tools
 
 <div class="page-header text-align-center">
@@ -31,7 +30,7 @@
         @if (Id is not null)
         {
             <div class="form-group">
-                <MudTextField @bind-Value="Command.Id"
+                <MudTextField @bind-Value="Id"
                               Label="@TextResources.APP_StringKeys_Id"
                               Variant="Variant.Outlined"
                               Margin="Margin.Dense"
@@ -125,25 +124,19 @@
                               Lines="3" />
             </div>
         </div>
-        <div class="page-footer text-align-center">
+       
             <button type="submit"
-                    class="btn btn-primary">
+                class="btn btn-primary page-floating-button-bottom">
                 <MaterialIcon IconName="@MaterialIconsHelper.Save"></MaterialIcon>
             </button>
             @if (Id is not null)
             {
                 <button type="button"
-                        class="btn btn-danger"
+                    class="btn btn-danger page-floating-button-bottom"
                         @onclick="OnDeleteClick">
                     <MaterialIcon IconName="@MaterialIconsHelper.Delete"></MaterialIcon>
                 </button>
             }
-            <NavLink href="/workingreport/search"
-                     Match="NavLinkMatch.All"
-                     class="btn btn-light">
-                <MaterialIcon IconName="@MaterialIconsHelper.Arrow_back_ios_new"></MaterialIcon>
-            </NavLink>
-        </div>
     </EditForm>
     <MudOverlay Visible="IsLoading"
                 DarkBackground="true">

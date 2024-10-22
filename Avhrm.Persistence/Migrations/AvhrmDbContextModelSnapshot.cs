@@ -171,7 +171,12 @@ namespace Avhrm.Persistence.Migrations
                         .HasMaxLength(128)
                         .HasColumnType("nvarchar(128)");
 
+                    b.Property<int?>("ParentDepartmentId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ParentDepartmentId");
 
                     b.ToTable("Departments");
                 });
@@ -617,6 +622,16 @@ namespace Avhrm.Persistence.Migrations
                     b.Navigation("Project");
                 });
 
+            modelBuilder.Entity("Avhrm.Domains.Department", b =>
+                {
+                    b.HasOne("Avhrm.Domains.Department", "ParentDepartment")
+                        .WithMany("ChildDepartments")
+                        .HasForeignKey("ParentDepartmentId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("ParentDepartment");
+                });
+
             modelBuilder.Entity("Avhrm.Domains.UserPointChangeLog", b =>
                 {
                     b.HasOne("Avhrm.Domains.ApplicationUser", "User")
@@ -753,6 +768,8 @@ namespace Avhrm.Persistence.Migrations
 
             modelBuilder.Entity("Avhrm.Domains.Department", b =>
                 {
+                    b.Navigation("ChildDepartments");
+
                     b.Navigation("Users");
 
                     b.Navigation("WorkTypes");

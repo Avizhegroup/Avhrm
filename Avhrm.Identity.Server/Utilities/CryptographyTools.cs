@@ -1,9 +1,10 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using Avhrm.Domains;
+using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 
 namespace Avhrm.Identity.Server.Utilities;
-
 public static class CryptographyTools
 {
     public static string GetHashedStringSha256StringBuilder(string data)
@@ -57,5 +58,22 @@ public static class CryptographyTools
         var key = Encoding.UTF8.GetBytes(passKey);
 
         return new(key);
+    }
+
+    public static ClaimsIdentity GetClaimsIdentity(ApplicationUser user)
+    {
+        List<Claim> claims = new();
+
+        claims.Add(new(ClaimTypes.Name, user.UserName));
+
+        claims.Add(new(ClaimTypes.NameIdentifier, user.Id));
+
+        claims.Add(new(ClaimTypes.Surname, user.PersianName));
+
+        claims.Add(new(ClaimTypes.UserData, user.DepartmentId.ToString()));
+
+        claims.Add(new(ClaimTypes.Role, user.RoleName));
+
+        return new(claims);
     }
 }

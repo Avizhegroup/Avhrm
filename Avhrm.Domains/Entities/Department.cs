@@ -14,9 +14,13 @@ public class Department : IBaseEntity
     [StringLength(128)]
     public string Name { get; set; }
 
+    public int? ParentDepartmentId { get; set; }
+    public Department? ParentDepartment { get; set; }
+
     public ICollection<ApplicationUser> Users { get; set; }
     public ICollection<WorkType> WorkTypes { get; set; }
     public ICollection<WorkChallenge> WorkingChallenges { get; set; }
+    public ICollection<Department> ChildDepartments { get; set; }
 
     public DateTime CreateDateTime { get; set; }
     public string CreatorUserId { get; set; }
@@ -39,5 +43,10 @@ public class DepartmentConfig : IEntityTypeConfiguration<Department>
         builder.HasMany(p => p.WorkingChallenges)
                .WithOne(p => p.Department)
                .HasForeignKey(p => p.DepartmentId);
+
+        builder.HasOne(c => c.ParentDepartment)              
+               .WithMany(c => c.ChildDepartments)            
+               .HasForeignKey(c => c.ParentDepartmentId)     
+               .OnDelete(DeleteBehavior.Restrict);
     }
 }

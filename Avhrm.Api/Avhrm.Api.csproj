@@ -1,14 +1,33 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.3" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="MediatR" Version="12.4.1" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.8.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Avhrm.Application.Client\Avhrm.Application.Client.csproj" />
+	  <ProjectReference Include="..\Avhrm.Application.Server\Avhrm.Application.Server.csproj" />
+	  <ProjectReference Include="..\Avhrm.Domains\Avhrm.Domains.csproj" />
+	  <ProjectReference Include="..\Avhrm.Identity.Server\Avhrm.Identity.Server.csproj" />
+	  <ProjectReference Include="..\Avhrm.Infrastructure.Server\Avhrm.Infrastructure.Server.csproj" />
+	  <ProjectReference Include="..\Avhrm.Persistence\Avhrm.Persistence.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Using Include="Avhrm.Application.Server.Features" />
+		<Using Include="Avhrm.Application.Client.Features" />
+		<Using Include="Avhrm.Application.Server" />
+	</ItemGroup>
 
 </Project>

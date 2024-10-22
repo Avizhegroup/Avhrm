@@ -15,7 +15,9 @@
 		<SupportedPlatform Include="browser" />
 		<EmbeddedResource Include="appsettings.Hybrid.json" />
 
-		<EmbeddedResource Include="appsettings.json" />
+		<EmbeddedResource Include="appsettings.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</EmbeddedResource>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -38,6 +40,7 @@
 
 	<ItemGroup>
 		<Using Include="System.ComponentModel.DataAnnotations" />
+		<Using Include="Avhrm.Application.Client.Features" />
 	</ItemGroup>
 
 	<ItemGroup Condition=" '$(BlazorMode)' == 'BlazorHybrid' ">
@@ -56,8 +59,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Avhrm.Core\Avhrm.Core.csproj" />
+		<ProjectReference Include="..\Avhrm.Application.Server\Avhrm.Application.Server.csproj" />
+		<ProjectReference Include="..\Avhrm.Infrastructure\Avhrm.Infrastructure.Client.csproj" />
 		<ProjectReference Include="..\Avhrm\Avhrm.Identity.UI.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Update="wwwroot\styles\Pages\Account\Manage.scss">
+	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
 	</ItemGroup>
 
 </Project>

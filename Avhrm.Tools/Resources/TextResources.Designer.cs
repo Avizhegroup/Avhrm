@@ -61,6 +61,15 @@ namespace Avhrm.Tools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to افزودن/ویرایش کاربر.
+        /// </summary>
+        public static string APP_StringKeys_Account_AddUser {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Account_AddUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ورود.
         /// </summary>
         public static string APP_StringKeys_Account_Login {
@@ -70,11 +79,29 @@ namespace Avhrm.Tools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to مدیریت کاربران.
+        /// </summary>
+        public static string APP_StringKeys_Account_ManageUser {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Account_ManageUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to رمز عبور.
         /// </summary>
         public static string APP_StringKeys_Account_Password {
             get {
                 return ResourceManager.GetString("APP_StringKeys_Account_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to نام فارسی.
+        /// </summary>
+        public static string APP_StringKeys_Account_PersianName {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Account_PersianName", resourceCulture);
             }
         }
         
@@ -138,6 +165,15 @@ namespace Avhrm.Tools.Resources {
         public static string APP_StringKeys_Delete {
             get {
                 return ResourceManager.GetString("APP_StringKeys_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to واحد.
+        /// </summary>
+        public static string APP_StringKeys_Department {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Department", resourceCulture);
             }
         }
         
@@ -295,6 +331,15 @@ namespace Avhrm.Tools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to نقش کاربر.
+        /// </summary>
+        public static string APP_StringKeys_Role {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Role", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to تاریخ ثبت.
         /// </summary>
         public static string APP_StringKeys_SaveDate {
@@ -322,6 +367,15 @@ namespace Avhrm.Tools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to عنوان.
+        /// </summary>
+        public static string APP_StringKeys_Title {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to تا تاریخ.
         /// </summary>
         public static string APP_StringKeys_ToDate {
@@ -336,6 +390,15 @@ namespace Avhrm.Tools.Resources {
         public static string APP_StringKeys_ToTime {
             get {
                 return ResourceManager.GetString("APP_StringKeys_ToTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to کاربر سرپرست.
+        /// </summary>
+        public static string APP_StringKeys_User_Parent {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_User_Parent", resourceCulture);
             }
         }
         
@@ -381,6 +444,15 @@ namespace Avhrm.Tools.Resources {
         public static string APP_StringKeys_WorkChallenge {
             get {
                 return ResourceManager.GetString("APP_StringKeys_WorkChallenge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to مدیریت چالش های کاری.
+        /// </summary>
+        public static string APP_StringKeys_WorkingChallenge_Manage {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_WorkingChallenge_Manage", resourceCulture);
             }
         }
         
