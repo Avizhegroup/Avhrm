@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Avhrm.Domains;
 using Avhrm.Persistence.Services;
 
 namespace Avhrm.Application.Server.Features;

@@ -10,7 +10,8 @@ public partial class AddUser
     public List<string> MessageTexts = new();
     public Severity AlertSeverity = Severity.Error;
     public List<GetAllDepartmentDto> Departments = new();
-    public List<GetAllUsersDto> Users;
+    public List<GetAllUsersDto> Users = new();
+    public List<GetAllRolesDto> Roles = new();
     public InsertUserCommand Command = new();
 
     [Parameter] public string? Username { get; set; }
@@ -31,6 +32,9 @@ public partial class AddUser
 
         Users = (await Api.SendJsonAsync<GetAllUsersVm>(HttpMethod.Get
             , "account/GetAll")).Value.Data;
+
+        Roles = (await Api.SendJsonAsync<GetAllRolesVm>(HttpMethod.Get
+            , "account/GetAllRoles")).Value.Data;
 
         if (Username.HasValue())
         {

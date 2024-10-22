@@ -5,5 +5,6 @@ public class GetUserByUsernameVm
     public string PersianName { get; set; }
     public string Password { get; set; }
     public int DepartmentId { get; set; }
-    public int ParentId { get; set; }
+    public string ParentId { get; set; }
+    public string RoleId { get; set; }
 }

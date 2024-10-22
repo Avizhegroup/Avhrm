@@ -255,4 +255,7 @@
   <data name="APP_StringKeys_User_Parent" xml:space="preserve">
     <value>کاربر سرپرست</value>
   </data>
+  <data name="APP_StringKeys_Role" xml:space="preserve">
+    <value>نقش کاربر</value>
+  </data>
 </root>

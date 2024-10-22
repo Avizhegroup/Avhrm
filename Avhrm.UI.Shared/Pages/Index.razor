@@ -2,6 +2,9 @@
 @page "/home"
 @page "/home/index"
 
+<div class="page-header text-align-center">
+    @TextResources.APP_StringKeys_Home
+</div>
 <div class="page-home-index text-align-center">
     <table class="table table-bordered">
         <tbody>
@@ -11,19 +14,21 @@
                 {
                     <tr>
                         <td @onclick="OnAccountManageClick">
+                            <MaterialIcon IconName="@MaterialIconsHelper.Supervised_user_circle"></MaterialIcon>
                             @TextResources.APP_StringKeys_Account_ManageUser
                         </td>
                     </tr>
                     <tr>
 
                         <td @onclick="OnWorkingChallengeClick">
+                            <MaterialIcon IconName="@MaterialIconsHelper.Error"></MaterialIcon>
                             @TextResources.APP_StringKeys_WorkingChallenge_Manage
                         </td>
                     </tr>
                 }
-
                 <tr>
                     <td @onclick="OnWorkingSearchClick">
+                        <MaterialIcon IconName="@MaterialIconsHelper.Work"></MaterialIcon>
                         @TextResources.APP_StringKeys_WorkingReport_Search
                     </td>
                 </tr>

@@ -11,6 +11,7 @@ public class ApplicationUser : IdentityUser
     [StringLength(128)]
     public string PersianName { get; set; }
 
+    public string? ParentId { get; set; }
     public ApplicationUser? Parent { get; set; }
 	public ICollection<ApplicationUser> Children { get; set; }
 
@@ -21,6 +22,9 @@ public class ApplicationUser : IdentityUser
 
     [NotMapped]
     public string RoleName { get; set; }
+
+    [NotMapped]
+    public string RoleId { get; set; }
 
     public ICollection<UserPointChangeLog> PointChangeLogs { get; set; }
 }

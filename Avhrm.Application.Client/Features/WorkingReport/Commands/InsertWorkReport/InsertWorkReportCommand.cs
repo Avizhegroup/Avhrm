@@ -1,15 +1,15 @@
 ﻿namespace Avhrm.Application.Client.Features;
 public class InsertWorkReportCommand : IRequest<InsertWorkReportVm>
 {
+    [Required]
     public string PersianDate { get; set; }
  
     [StringLength(512)]
     public string? Desc { get; set; }
 
     [Required]
-    public decimal SpentHours { get; set; }
-
-    public decimal? EstimateHours { get; set; }
+    [Range(0.5, 100)]
+    public decimal SpentHours { get; set; } = 0;
 
     public int? ProjectId { get; set; }
 
@@ -17,16 +17,12 @@ public class InsertWorkReportCommand : IRequest<InsertWorkReportVm>
 
     [Required]
     public int WorkTypeId { get; set; }
-  
-    [Required]
-    public WorkDayType WorkDayType { get; set; }
 
     [Required]
-    public WorkReportTimeOfDay WorkReportTimeOfDay { get; set; }
+    public WorkDayType WorkDayType { get; set; } = WorkDayType.WorkDay;
 
-    public IEnumerable<int> WorkChallengesIds { get; set; }
+    [Required]
+    public WorkReportTimeOfDay WorkReportTimeOfDay { get; set; } = WorkReportTimeOfDay.Morning;
 
-    public DateTime CreateDateTime { get; set; }
-
-    public string CreatorUserId { get; set; }
+    public IEnumerable<int> WorkChallengesIds { get; set; } = new List<int>();
 }

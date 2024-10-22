@@ -61,11 +61,29 @@ namespace Avhrm.Tools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to افزودن/ویرایش کاربر.
+        /// </summary>
+        public static string APP_StringKeys_Account_AddUser {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Account_AddUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ورود.
         /// </summary>
         public static string APP_StringKeys_Account_Login {
             get {
                 return ResourceManager.GetString("APP_StringKeys_Account_Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to مدیریت کاربران.
+        /// </summary>
+        public static string APP_StringKeys_Account_ManageUser {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Account_ManageUser", resourceCulture);
             }
         }
         
@@ -77,50 +95,16 @@ namespace Avhrm.Tools.Resources {
                 return ResourceManager.GetString("APP_StringKeys_Account_Password", resourceCulture);
             }
         }
-
-         /// <summary>
-        ///   Looks up a localized string similar to مدیریت کاربران.
-        /// </summary>
-        public static string APP_StringKeys_Account_ManageUser
-        {
-            get {
-                return ResourceManager.GetString("APP_StringKeys_Account_ManageUser", resourceCulture);
-            }
-        }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to مدیریت کاربران.
+        ///   Looks up a localized string similar to نام فارسی.
         /// </summary>
-        public static string APP_StringKeys_Account_PersianName
-        {
-            get
-            {
+        public static string APP_StringKeys_Account_PersianName {
+            get {
                 return ResourceManager.GetString("APP_StringKeys_Account_PersianName", resourceCulture);
             }
         }
-
-        /// <summary>
-        ///   Looks up a localized string similar to مدیریت کاربران.
-        /// </summary>
-        public static string APP_StringKeys_Account_AddUser
-        {
-            get
-            {
-                return ResourceManager.GetString("APP_StringKeys_Account_AddUser", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to مدیریت کاربران.
-        /// </summary>
-        public static string APP_StringKeys_User_Parent
-        {
-            get
-            {
-                return ResourceManager.GetString("APP_StringKeys_User_Parent", resourceCulture);
-            }
-        }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to نام کاربری.
         /// </summary>
@@ -347,6 +331,15 @@ namespace Avhrm.Tools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to نقش کاربر.
+        /// </summary>
+        public static string APP_StringKeys_Role {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_Role", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to تاریخ ثبت.
         /// </summary>
         public static string APP_StringKeys_SaveDate {
@@ -397,6 +390,15 @@ namespace Avhrm.Tools.Resources {
         public static string APP_StringKeys_ToTime {
             get {
                 return ResourceManager.GetString("APP_StringKeys_ToTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to کاربر سرپرست.
+        /// </summary>
+        public static string APP_StringKeys_User_Parent {
+            get {
+                return ResourceManager.GetString("APP_StringKeys_User_Parent", resourceCulture);
             }
         }
         

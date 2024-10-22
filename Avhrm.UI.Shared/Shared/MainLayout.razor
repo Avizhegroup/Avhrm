@@ -44,6 +44,10 @@
                                 </MudNavLink>
                                 @if (IsAdmin)
                                 {
+                                    <MudNavLink Match="NavLinkMatch.All" Href="/account/manage">
+                                        <MaterialIcon IconName="@MaterialIconsHelper.Supervised_user_circle"></MaterialIcon>
+                                        @TextResources.APP_StringKeys_Account_ManageUser
+                                    </MudNavLink>
                                     <MudNavLink Match="NavLinkMatch.All" Href="/workingchallenge/manage">
                                         <MaterialIcon IconName="@MaterialIconsHelper.Error"></MaterialIcon>
                                         @TextResources.APP_StringKeys_WorkingChallenge_Manage

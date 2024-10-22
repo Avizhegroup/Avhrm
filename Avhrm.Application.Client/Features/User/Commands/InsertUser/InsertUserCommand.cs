@@ -18,5 +18,8 @@ public class InsertUserCommand : IRequest<InsertUserVm>
     public int DepartmentId { get; set; }
 
     [Required]
-    public int ParentId { get; set; }
+    public string ParentId { get; set; }
+
+    [Required]
+    public string RoleId { get; set; }
 }

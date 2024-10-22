@@ -55,15 +55,19 @@
 }
 
 .page-header {
-  top: 0;
-  width: 450px;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  max-width: 450px;
   height: 35px;
   border: solid 1px #d9d5cc;
   position: absolute;
-  background-color: #f5f2e9;
+  background-color: rgb(25, 118, 210);
   border-radius: 5px;
-  border-top: none;
   padding-top: 5px;
+  text-align: center;
+  color: white;
   margin-bottom: 10px;
 }
 
