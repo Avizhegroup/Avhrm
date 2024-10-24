@@ -38,6 +38,11 @@
                                 </MudText>
                             </MudDrawerHeader>
                             <MudNavMenu>
+                                <MudNavLink Match="NavLinkMatch.All" Href="#">
+                                    <MaterialIcon IconName="@MaterialIconsHelper.Workspace_premium"></MaterialIcon>
+                                    @TextResources.APP_StringKeys_Account_Point :
+                                    @Point
+                                </MudNavLink>
                                 <MudNavLink Match="NavLinkMatch.All" Href="/home">
                                     <MaterialIcon IconName="@MaterialIconsHelper.Home"></MaterialIcon>
                                     @TextResources.APP_StringKeys_Home

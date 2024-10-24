@@ -39,6 +39,18 @@ public static class ClaimsPrincipalExtensions
         return null;
     }
 
+    public static string GetUserPoint(this ClaimsPrincipal principal)
+    {
+        var claims = ((ClaimsIdentity)principal.Identity).Claims;
+
+        if (claims.Any())
+        {
+            return claims.FirstOrDefault(p => p.Type == "UserPoint").Value;
+        }
+
+        return null;
+    }
+
     public static string GetUserRoleName(this ClaimsPrincipal principal)
     {
         var claims = ((ClaimsIdentity)principal.Identity).Claims;

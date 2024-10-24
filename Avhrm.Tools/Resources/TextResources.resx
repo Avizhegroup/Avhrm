@@ -258,4 +258,7 @@
   <data name="APP_StringKeys_Role" xml:space="preserve">
     <value>نقش کاربر</value>
   </data>
+  <data name="APP_StringKeys_Account_Point" xml:space="preserve">
+    <value>امتیاز کاربری</value>
+  </data>
 </root>
