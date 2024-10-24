@@ -113,7 +113,18 @@ namespace Avhrm.Tools.Resources {
                 return ResourceManager.GetString("APP_StringKeys_Account_Username", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to نام کاربری.
+        /// </summary>
+        public static string APP_StringKeys_Account_Point
+        {
+            get
+            {
+                return ResourceManager.GetString("APP_StringKeys_Account_Point", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to افزودن.
         /// </summary>

@@ -74,6 +74,8 @@ public static class CryptographyTools
 
         claims.Add(new(ClaimTypes.Role, user.RoleName));
 
+        claims.Add(new("UserPoint", user.Points.ToString()));
+
         return new(claims);
     }
 }

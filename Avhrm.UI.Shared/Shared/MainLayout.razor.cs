@@ -1,12 +1,15 @@
 ﻿using Avhrm.Identity.UI.Services;
 using Avhrm.UI.Shared.Tools;
 using Microsoft.AspNetCore.Components.Routing;
+using System.Drawing;
 
 namespace Avhrm.UI.Shared;
 public partial class MainLayout
 {
     public bool IsAdmin = false;
     public string Name;
+    private string Point;
+
     public ComponentsContext Context { get; set; } = new();
 
     [Inject] public NavigationManager NavigationManager { get; set; }
@@ -22,6 +25,8 @@ public partial class MainLayout
         if (user.Identities.Any(p=>p.IsAuthenticated))
         {
             Name = user.GetUserPersianName();
+
+            Point = user.GetUserPoint();
 
             IsAdmin = user.GetUserRoleName().ToLower() == "admin";
         }
