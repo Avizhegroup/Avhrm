@@ -1,5 +1,6 @@
 ﻿@page "/workingreport/add"
 @page "/workingreport/edit/{Id:int}"
+@page "/workingreport/show/{Id:int}"
 @using Avhrm.UI.Shared.Tools
 
 <div class="page-header text-align-center">
@@ -42,23 +43,26 @@
             <MudDatePicker Label="@TextResources.APP_StringKeys_Date"
                            @bind-Date="Command.PersianDate"
                            Culture="@MudblazorDatePickerHelper.GetPersianCulture()"
-                           TitleDateFormat="dddd, dd MMMM" 
+                           TitleDateFormat="dddd, dd MMMM"
                            Variant="Variant.Outlined"
                            Margin="Margin.Dense"
-                           PickerVariant="PickerVariant.Dialog" />
+                           PickerVariant="PickerVariant.Dialog"
+                           ReadOnly="@(!IsFormEditable)" />
         </div>
         <div class="form-group">
             <MudTextField @bind-Value="Command.SpentHours"
                           Label="@TextResources.APP_StringKeys_SpentHours"
                           Variant="Variant.Outlined"
-                          Margin="Margin.Dense">
+                          Margin="Margin.Dense"
+                          ReadOnly="@(!IsFormEditable)">
             </MudTextField>
         </div>
         <div class="form-group">
             <MudSelect @bind-Value="Command.WorkTypeId"
                        Label="@TextResources.APP_StringKeys_WorkType"
                        Variant="Variant.Outlined"
-                       Margin="Margin.Dense">
+                       Margin="Margin.Dense"
+                       ReadOnly="@(!IsFormEditable)">
                 @foreach (var workType in WorkTypes)
                 {
                     <MudSelectItem Value="@workType.Id">@workType.Description</MudSelectItem>
@@ -69,7 +73,8 @@
             <MudSelect @bind-Value="Command.WorkReportTimeOfDay"
                        Label="@TextResources.APP_StringKeys_TimeOfDay"
                        Variant="Variant.Outlined"
-                       Margin="Margin.Dense">
+                       Margin="Margin.Dense"
+                       ReadOnly="@(!IsFormEditable)">
                 @foreach (WorkReportTimeOfDay time in Enum.GetValues(typeof(WorkReportTimeOfDay)))
                 {
                     <MudSelectItem Value="@time">
@@ -82,7 +87,8 @@
             <MudSelect @bind-Value="Command.ProjectId"
                        Label="@TextResources.APP_StringKeys_Project"
                        Variant="Variant.Outlined"
-                       Margin="Margin.Dense">
+                       Margin="Margin.Dense"
+                       ReadOnly="@(!IsFormEditable)">
                 @foreach (var project in Projects)
                 {
                     <MudSelectItem Value="@project.Id">
@@ -95,7 +101,8 @@
             <MudSelect @bind-Value="Command.CustomerId"
                        Label="@TextResources.APP_StringKeys_Customer"
                        Variant="Variant.Outlined"
-                       Margin="Margin.Dense">
+                       Margin="Margin.Dense"
+                       ReadOnly="@(!IsFormEditable)">
                 @foreach (var customer in Customers)
                 {
                     <MudSelectItem Value="@customer.Id">
@@ -109,7 +116,8 @@
                        @bind-SelectedValues="Command.WorkChallengesIds"
                        Label="@TextResources.APP_StringKeys_WorkChallenge"
                        Variant="Variant.Outlined"
-                       Margin="Margin.Dense">
+                       Margin="Margin.Dense"
+                       ReadOnly="@(!IsFormEditable)">
                 @foreach (var challenge in WorkChallenges)
                 {
                     <MudSelectItem Value="@challenge.Id">
@@ -122,21 +130,25 @@
                               Variant="Variant.Outlined"
                               Margin="Margin.Dense"
                               @bind-Value="@Command.Desc"
-                              Lines="3" />
+                              Lines="3"
+                              ReadOnly="@(!IsFormEditable)" />
             </div>
         </div>
 
-        <button type="submit"
-                class="btn btn-primary page-floating-button-bottom">
-            <MaterialIcon IconName="@MaterialIconsHelper.Save"></MaterialIcon>
-        </button>
-        @if (Id is not null)
+        @if (IsFormEditable)
         {
-            <button type="button"
-                    class="btn btn-danger page-floating-button-bottom"
-                    @onclick="OnDeleteClick">
-                <MaterialIcon IconName="@MaterialIconsHelper.Delete"></MaterialIcon>
+            <button type="submit"
+                    class="btn btn-primary page-floating-button-bottom">
+                <MaterialIcon IconName="@MaterialIconsHelper.Save"></MaterialIcon>
             </button>
+            @if (Id is not null)
+            {
+                <button type="button"
+                        class="btn btn-danger page-floating-button-bottom"
+                        @onclick="OnDeleteClick">
+                    <MaterialIcon IconName="@MaterialIconsHelper.Delete"></MaterialIcon>
+                </button>
+            }
         }
     </EditForm>
     <MudOverlay Visible="IsLoading"

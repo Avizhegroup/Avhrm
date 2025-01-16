@@ -8,6 +8,7 @@ public partial class Add
 {
     public bool IsMessageShown = false;
     public bool IsLoading = false;
+    public bool IsFormEditable = true;
     public List<GetAllWorkTypesDto> WorkTypes = new();
     public List<GetAllProjectsDto> Projects = new();
     public List<GetAllCustomersDto> Customers = new();
@@ -77,6 +78,11 @@ public partial class Add
             if (data is not null)
             {
                 Command = Mapper.Map<InsertWorkReportCommand>(data);
+
+                if (NavigationManager.Uri.Contains("/show"))
+                {
+                    IsFormEditable = false;
+                }
             }
         }
         else

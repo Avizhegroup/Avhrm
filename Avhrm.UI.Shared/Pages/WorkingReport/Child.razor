@@ -83,6 +83,13 @@
                             @context.Desc
                         </MudText>
                     </MudCardContent>
+                    <MudCardActions Class="text-align-center">
+                        <NavLink href="@($"/workingreport/show/{context.Id}")"
+                                 Match="NavLinkMatch.All"
+                                 class="btn btn-secondary">
+                            <MaterialIcon IconName="@MaterialIconsHelper.Visibility"></MaterialIcon>
+                        </NavLink>
+                    </MudCardActions>
                 </MudCard>
             </Virtualize>
 
